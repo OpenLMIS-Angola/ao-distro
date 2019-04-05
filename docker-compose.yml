@@ -22,7 +22,7 @@ services:
       - 'consul-template-log:/var/log/consul-template'
     depends_on: [consul]
 
-  reference-ui:
+  angola-ui:
     image: openlmisao/angola-ui:${ANGOLA_UI_VERSION}
     env_file: settings.env
     depends_on: [consul]
