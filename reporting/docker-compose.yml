@@ -149,6 +149,7 @@ services:
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
     depends_on: [db, nginx]
+    env_file: ../settings.env
 
 volumes:
   syslog:
