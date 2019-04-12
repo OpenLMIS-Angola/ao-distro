@@ -32,10 +32,7 @@ services:
     command: -server -bootstrap
     image: gliderlabs/consul-server
     ports:
-      - "8300"
-      - "8400"
       - "${CONSUL_PORT:-8500}:8500"
-      - "53"
     logging:
       driver: syslog
       options:
@@ -45,8 +42,7 @@ services:
   nginx:
     image: openlmis/nginx:${OL_NGINX_VERSION}
     ports:
-      - "${NIFI_HTTP_PORT:-80}:80"
-      - "${NIFI_HTTPS_PORT:-443}:443"
+      - "${NIFI_WEB_HTTP_PORT:-80}:80"
     env_file: ../settings.env
     environment:
       NGINX_LOG_DIR: '/var/log/nginx/log'
@@ -68,7 +64,6 @@ services:
     image: onaio/nifi:${OL_NIFI_VERSION}
     ports:
       - "8080:8080"
-      - "9443:9443"
     volumes:
       - config-volume:/config
       - ./nifi-cache:/tmp/nifi-docker-cache
@@ -91,7 +86,7 @@ services:
     env_file: ../settings.env
     volumes:
         - db-config-volume:/docker-entrypoint-initdb.d
-        - ./dbdata:/var/lib/postgresql/data
+        - dbdata:/var/lib/postgresql/data
     environment:
       - SUPERSET_POSTGRES_USER=${SUPERSET_POSTGRES_USER}
       - SUPERSET_POSTGRES_PASSWORD=${SUPERSET_POSTGRES_PASSWORD}
@@ -99,7 +94,7 @@ services:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, consul]
+    depends_on: [log, consul, db-config-container]
 
   zookeeper:
     image: confluentinc/cp-zookeeper:${OL_ZOOKEEPER_VERSION}
@@ -139,7 +134,10 @@ services:
       - config-volume:/config
     command: >
         bash -c "cp -r /config/superset /etc/
-        && pip install --no-cache-dir --user requests-oauthlib==1.1.0
+        && pip install --no-cache-dir --user \
+          flask_oauthlib==0.9.5 \
+          requests-oauthlib==1.1.0 \
+          "git+https://github.com/onaio/superset-patchup.git@${OL_SUPERSET_PATCHUP_VERSION}" \
         && sleep 30 && fabmanager create-admin --app superset --username ${SUPERSET_ADMIN_USERNAME} --firstname Admin --lastname Admin --email noreply --password ${SUPERSET_ADMIN_PASSWORD}
         && superset db upgrade
         && superset import_datasources -p /etc/superset/datasources/database.yaml
@@ -160,4 +158,4 @@ volumes:
   db-config-volume:
     external: false
   dbdata:
-    driver: local
+    external: false
