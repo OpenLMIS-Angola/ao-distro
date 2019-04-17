@@ -32,7 +32,7 @@ services:
     command: -server -bootstrap
     image: gliderlabs/consul-server
     ports:
-      - "${CONSUL_PORT:-8500}:8500"
+      - "8500"
     logging:
       driver: syslog
       options:
@@ -63,7 +63,7 @@ services:
   nifi:
     image: onaio/nifi:${OL_NIFI_VERSION}
     ports:
-      - "8080:8080"
+      - "8080"
     volumes:
       - config-volume:/config
       - ./nifi-cache:/tmp/nifi-docker-cache
@@ -129,7 +129,7 @@ services:
   superset:
     image: amancevice/superset:${OL_SUPERSET_VERSION}
     ports:
-        - "8088:8088"
+        - "${SUPERSET_WEB_HTTP_PORT:-8088}:8088"
     volumes:
       - config-volume:/config
     command: >
