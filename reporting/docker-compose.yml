@@ -51,8 +51,7 @@ services:
     entrypoint: >
       sh -c "openssl dhparam -dsaparam -out /etc/ssl/certs/dhparam.pem 4096
       && cp -r /config/nginx/consul-template/* /etc/consul-template/
-      && echo -n '$NGINX_BASIC_AUTH_USER:' >> /etc/nginx/.htpasswd
-      && openssl passwd -apr1 $NGINX_BASIC_AUTH_PW >> /etc/nginx/.htpasswd
+      && sh /config/nginx/set-authorization.sh
       && /home/run.sh"
     logging:
       driver: syslog
@@ -68,12 +67,13 @@ services:
       - config-volume:/config
       - ./nifi-cache:/tmp/nifi-docker-cache
     entrypoint: >
-      bash -c "/config/nifi/scripts/start.sh ${OL_NIFI_VERSION} ${DB_PASSWORD} ${INVOKEHTTP_PASSWORD}"
+      bash -c "/config/nifi/scripts/start.sh ${OL_NIFI_VERSION}"
     logging:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, nginx]
+    depends_on: [log, nginx, config-container]
+    env_file: ../settings.env
 
   db-config-container:
     build:
@@ -87,14 +87,12 @@ services:
     volumes:
         - db-config-volume:/docker-entrypoint-initdb.d
         - dbdata:/var/lib/postgresql/data
-    environment:
-      - SUPERSET_POSTGRES_USER=${SUPERSET_POSTGRES_USER}
-      - SUPERSET_POSTGRES_PASSWORD=${SUPERSET_POSTGRES_PASSWORD}
     logging:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
     depends_on: [log, consul, db-config-container]
+    env_file: ../settings.env
 
   zookeeper:
     image: confluentinc/cp-zookeeper:${OL_ZOOKEEPER_VERSION}
@@ -137,12 +135,8 @@ services:
         && pip install --no-cache-dir --user \
           flask_oauthlib==0.9.5 \
           requests-oauthlib==1.1.0 \
-          "git+https://github.com/onaio/superset-patchup.git@${OL_SUPERSET_PATCHUP_VERSION}" \
-        && sleep 30 && fabmanager create-admin --app superset --username ${SUPERSET_ADMIN_USERNAME} --firstname Admin --lastname Admin --email noreply --password ${SUPERSET_ADMIN_PASSWORD}
-        && superset db upgrade
-        && superset import_datasources -p /etc/superset/datasources/database.yaml
-        && superset import_dashboards -p /etc/superset/dashboards/openlmis_uat_dashboards.json
-        && superset init && gunicorn -w 2 --timeout 60 -b 0.0.0.0:8088 --reload --limit-request-line 0 --limit-request-field_size 0 superset:app"
+          git+https://github.com/onaio/superset-patchup.git@${OL_SUPERSET_PATCHUP_VERSION} \
+        && sleep 30 && sh /etc/superset/init.sh"
     logging:
       driver: syslog
       options:

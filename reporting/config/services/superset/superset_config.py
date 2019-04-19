@@ -52,7 +52,7 @@ AUTH_USER_REGISTRATION = True
 ENABLE_PROXY_FIX = True
 
 # Allow iFrame access from openLMIS running on localhost
-HTTP_HEADERS = {'X-Frame-Options': 'allow-from %s'  % os.environ['OL_BASE_URL']}
+HTTP_HEADERS = {'X-Frame-Options': 'allow-from %s' % os.environ['OL_BASE_URL']}
 
 # CSV Options: key/value pairs that will be passed as argument to DataFrame.to_csv method
 # note: index option should not be overridden

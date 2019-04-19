@@ -148,7 +148,7 @@ restartFlows() {
           then
             invokeHttpId=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/process-groups/${createTokenId}/processors | jq ".processors[$key].component.id" | sed -e 's/^"//' -e 's/"$//')
             versionNumber=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId} | jq ".revision.version" | sed -e 's/^"//' -e 's/"$//')
-            curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"randomId", "version":"'"${versionNumber}"'"},"component":{"id":"'"${invokeHttpId}"'","config":{"properties":{"Basic Authentication Password":"'"$3"'"}}}}}' $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId}
+            curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"randomId", "version":"'"${versionNumber}"'"},"component":{"id":"'"${invokeHttpId}"'","config":{"properties":{"Basic Authentication Password":"'"$3"'","Basic Authentication Username":"'"$4"'","Trusted Hostname":"'"$5"'"}}}}}' $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId}
             break  
           fi
         done
