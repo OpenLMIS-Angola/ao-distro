@@ -67,7 +67,7 @@ When working with Kafka some of these tips are helpful:
 * On listeners, ports, and networking: https://rmoff.net/2018/08/02/kafka-listeners-explained/
 
 
-### OAUTH User for Superset
+## OAuth User for Superset
 
 In order to use user authentication in Superset by an OpenLMIS instance we need to create additional user in OpenLMIS. 
 It is the specific user with `authorizedgranttype` set to `authorization_code`
@@ -84,3 +84,9 @@ Don't forget to set newly created user's credentials in settings.env. Example:
 OL_SUPERSET_USER=superset
 OL_SUPERSET_PASSWORD=changeme
 ```
+
+# What has not be pulled from core
+https://github.com/OpenLMIS/openlmis-ref-distro/commit/8cd9e359f31d40fa31e1cbcddcfed83e7cd35564
+https://github.com/OpenLMIS/openlmis-deployment/pull/15/files
+https://github.com/OpenLMIS/openlmis-deployment/commit/ee203081b8d6d4c7a8743dc7cdd402b7db12f820
+https://github.com/OpenLMIS/openlmis-ref-distro/commit/ff3d8ad91db52a47d9a593cfcebc3931551bed8c
