@@ -85,6 +85,13 @@ OL_SUPERSET_USER=superset
 OL_SUPERSET_PASSWORD=changeme
 ```
 
+## OpenLMIS user with all permissions for Superset
+
+The ETL process conducted via NiFi requires a user which has all permissions. It should not be a simple admin, because sometime it doesn't has all permissions (eg. for requisitions)
+
+The simplest way to creat that user is using the https://github.com/OpenLMIS/openlmis-refdata-seed
+Note: Created user must have an email address.
+
 # What has not be pulled from core
 https://github.com/OpenLMIS/openlmis-ref-distro/commit/8cd9e359f31d40fa31e1cbcddcfed83e7cd35564
 https://github.com/OpenLMIS/openlmis-deployment/pull/15/files
