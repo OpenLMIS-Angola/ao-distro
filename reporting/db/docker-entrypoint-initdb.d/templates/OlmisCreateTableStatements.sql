@@ -574,7 +574,7 @@ LEFT JOIN (
             SELECT r.facility_id, r.program_id, r.id as req_id, r.processing_period_id, r.processing_period_enddate, r.created_date, r.modified_date, r.emergency_status, r.program_name, r.program_active_status, r.processing_schedule_name, r.processing_period_name, r.processing_period_startdate,
             rh.status, rh.created_date AS statuschangedate
             FROM requisitions r
-            JOIN (
+            LEFT JOIN (
                 SELECT rh.created_date, rh.status, rh.requisition_id
                 FROM requisitions_status_history rh
                 WHERE rh.status = 'AUTHORIZED') rh
@@ -582,7 +582,7 @@ LEFT JOIN (
         ORDER BY items.facility_id, items.processing_period_id, items.statuschangedate DESC) status_rank
     WHERE status_rank.rank = 1) authorized_reqs
 ON f.id::VARCHAR = authorized_reqs.facility_id::VARCHAR
-JOIN reporting_dates rd ON f.country = rd.country
+LEFT JOIN reporting_dates rd ON f.country = rd.country
 LEFT JOIN supported_programs sp ON sp.facilityid = f.id AND sp.programid::VARCHAR = authorized_reqs.program_id::VARCHAR
 LEFT JOIN requisition_group_members rgm ON rgm.facilityid = f.id
 LEFT JOIN requisition_group_program_schedules rgps ON rgps.requisitionGroupId = rgm.requisitionGroupId
@@ -622,7 +622,7 @@ ALTER MATERIALIZED VIEW adjustments OWNER TO postgres;
 --- Name: stock_status_and_consumption; Type: TABLE; Schema: referencedata; Owner: postgres
 ---
 CREATE MATERIALIZED VIEW stock_status_and_consumption AS
-SELECT DISTINCT ON (li.requisition_line_item_id) li.requisition_line_item_id, r.id, 
+SELECT li.requisition_line_item_id, r.id, 
 r.created_date as req_created_date, r.modified_date, r.emergency_status, r.supplying_facility, 
 r.supervisory_node, r.facility_id, r.facility_code, r.facility_name, r.facilty_active_status, 
 r.district_id, r.district_code, r.district_name, r.region_id, r.region_code, r.region_name, 
@@ -637,42 +637,39 @@ li.total_losses_and_adjustments, li.stock_on_hand, li.total_stockout_days, li.ma
 li.calculated_order_quantity, li.requested_quantity, li.approved_quantity, li.packs_to_ship, 
 li.price_per_pack, li.total_cost, li.total_received_quantity, sh.requisition_id as status_req_id, 
 sh.status as req_status, sh.author_id, sh.created_date as status_date, fa.facility, fa.program, fa.username,
-SUM(li.stock_on_hand) as closing_balance,
-SUM(li.average_consumption) as AMC,
-SUM(li.total_consumed_quantity) as Consumption,
-SUM(li.adjusted_consumption) as adjusted_consumption,
-SUM(li.approved_quantity) as order_quantity, f.status as facility_status,
-rd.due_days, rd.late_days,
-CASE WHEN (SUM(li.stock_on_hand) = 0 OR SUM(li.total_stockout_days) > 0 
-OR SUM(li.beginning_balance) = 0 OR SUM(li.max_periods_of_stock) = 0) THEN 1 ELSE 0 END as combined_stockout,
-CASE
-    WHEN SUM(li.max_periods_of_stock) > 6 THEN 'Overstocked'
-    WHEN SUM(li.max_periods_of_stock) < 3 AND (SUM(li.stock_on_hand) = 0 OR SUM(li.total_stockout_days) > 0 OR SUM(li.beginning_balance) = 0 OR SUM(li.max_periods_of_stock) = 0) THEN 'Stocked Out'
-    WHEN SUM(li.max_periods_of_stock) < 3 AND SUM(li.max_periods_of_stock) > 0 AND NOT(SUM(li.stock_on_hand) = 0 OR SUM(li.total_stockout_days) > 0 OR SUM(li.beginning_balance) = 0 OR SUM(li.max_periods_of_stock) = 0) THEN 'Understocked'
-    WHEN SUM(li.max_periods_of_stock) = 0 AND NOT(SUM(li.stock_on_hand) = 0 OR SUM(li.total_stockout_days) > 0 OR SUM(li.beginning_balance) = 0 OR SUM(li.max_periods_of_stock) = 0) THEN 'Unknown'
-    ELSE 'Adequately stocked' END as stock_status
-FROM requisitions r
-JOIN requisition_line_item li ON r.id::VARCHAR = li.requisition_id
-JOIN requisitions_status_history sh ON r.id::VARCHAR = sh.requisition_id
-JOIN reporting_dates rd ON r.country_name = rd.country
-JOIN facilities f ON r.facility_id::VARCHAR = f.id::VARCHAR
+li.closing_balance, li.AMC, li.Consumption, li.adjusted_consumption,
+li.order_quantity, f.status as facility_status, rd.due_days, rd.late_days,
+li.combined_stockout, li.stock_status
+FROM requisitions r 
+LEFT JOIN requisitions_status_history sh ON r.id::VARCHAR = sh.requisition_id
+LEFT JOIN reporting_dates rd ON r.country_name = rd.country
+LEFT JOIN facilities f ON r.facility_id::VARCHAR = f.id::VARCHAR
 LEFT JOIN facility_access fa ON fa.facility = f.id::VARCHAR AND fa.program = r.program_id
-WHERE sh.status NOT IN ('SKIPPED', 'INITIATED', 'SUBMITTED')
-GROUP BY r.id, r.created_date, r.modified_date, r.emergency_status, r.supplying_facility, 
-r.supervisory_node, r.facility_id, r.facility_code, r.facility_name, r.facilty_active_status, 
-r.district_id, r.district_code, r.district_name, r.region_id, r.region_code, r.region_name, 
-r.country_id, r.country_code, r.country_name, r.facility_type_id, r.facility_type_code, 
-r.facility_type_name, r.facility_operator_id, r.facility_operator_code, r.facility_operator_name, 
-r.program_id, r.program_code, r.program_name, r.program_active_status, r.processing_period_id, 
-r.processing_period_name, r.processing_period_startdate, r.processing_period_enddate, 
-r.processing_schedule_id, r.processing_schedule_code, r.processing_schedule_name,
-li.requisition_line_item_id, li_req_id, li.orderable_id, li.product_code, li.full_product_name, 
-li.trade_item_id, li.beginning_balance, li.total_consumed_quantity, li.average_consumption, 
-li.adjusted_consumption, li.total_losses_and_adjustments, li.stock_on_hand, li.total_stockout_days, 
-li.max_periods_of_stock, li.calculated_order_quantity, li.requested_quantity, li.approved_quantity, 
-li.packs_to_ship, li.price_per_pack, li.total_cost, li.total_received_quantity,
-status_req_id, req_status, sh.author_id, status_date, fa.facility, fa.program, 
-fa.username, facility_status, rd.due_days, rd.late_days
-ORDER BY li.requisition_line_item_id, r.modified_date DESC NULLS LAST WITH DATA;
+LEFT JOIN (SELECT DISTINCT(requisition_line_item_id), requisition_id,
+orderable_id, product_code, full_product_name, 
+trade_item_id, beginning_balance, total_consumed_quantity, average_consumption, 
+total_losses_and_adjustments, stock_on_hand, total_stockout_days, max_periods_of_stock, 
+calculated_order_quantity, requested_quantity, approved_quantity, packs_to_ship, 
+price_per_pack, total_cost, total_received_quantity,
+SUM(stock_on_hand) as closing_balance,
+SUM(average_consumption) as AMC,
+SUM(total_consumed_quantity) as Consumption,
+SUM(adjusted_consumption) as adjusted_consumption,
+SUM(approved_quantity) as order_quantity,
+CASE 
+    WHEN (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) 
+    THEN 1 ELSE 0 END as combined_stockout,
+CASE
+    WHEN SUM(max_periods_of_stock) > 6 THEN 'Overstocked'
+    WHEN SUM(max_periods_of_stock) < 3 AND (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Stocked Out'
+    WHEN SUM(max_periods_of_stock) < 3 AND SUM(max_periods_of_stock) > 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Understocked'
+    WHEN SUM(max_periods_of_stock) = 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Unknown'
+    ELSE 'Adequately stocked' END as stock_status
+FROM requisition_line_item
+GROUP BY requisition_line_item_id, requisition_id, orderable_id, product_code, full_product_name, 
+trade_item_id, beginning_balance, total_consumed_quantity, average_consumption, 
+total_losses_and_adjustments, stock_on_hand, total_stockout_days, max_periods_of_stock, 
+calculated_order_quantity, requested_quantity, approved_quantity, packs_to_ship, 
+price_per_pack, total_cost, total_received_quantity) li ON r.id::VARCHAR = li.requisition_id WITH DATA;
 
 ALTER MATERIALIZED VIEW stock_status_and_consumption OWNER TO postgres;
