@@ -8,6 +8,14 @@ export PROC_GROUPS_DIR="$WORKING_DIR/preload/process-groups"
 export IMPORTED_PROC_GROUPS_DIR="/tmp/nifi-preload/process-groups"
 export NIFI_UP_RETRY_COUNT=240
 
+: ${POSTGRES_PASSWORD:?"Need to set POSTGRES_PASSWORD"}
+: ${AUTH_SERVER_CLIENT_ID:?"Need to set AUTH_SERVER_CLIENT_ID"}
+: ${AUTH_SERVER_CLIENT_SECRET:?"Need to set AUTH_SERVER_CLIENT_SECRET"}
+: ${TRUSTED_HOSTNAME:?"Need to set TRUSTED_HOSTNAME"}
+: ${OL_ADMIN_USERNAME:?"Need to set OL_ADMIN_USERNAME"}
+: ${OL_ADMIN_PASSWORD:?"Need to set OL_ADMIN_PASSWORD"}
+: ${OL_BASE_URL:?"Need to set OL_BASE_URL"}
+
 main() {
   if waitNifiAvailable ${NIFI_UP_RETRY_COUNT}; then
     local subCommand=$1
@@ -126,12 +134,12 @@ restartFlows() {
   do
     processorGroupId=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/process-groups/root/process-groups | jq -r ".[][$key].component.id")
     # Enter process group's variables
-    curl -i -H 'Content-Type: application/json' -X POST -d '{"processGroupRevision": {"clientId": "random", "version": 2},"variableRegistry": {"processGroupId":"'$processorGroupId'", "variables": [{"variable": {"name": "admin_username","value": "'$OL_SUPERSET_USER'"}},{"variable": {"name": "admin_password","value": "'$OL_SUPERSET_PASSWORD'"}},{"variable": {"name": "username","value": "'$OL_SUPERSET_USER'"}},{"variable": {"name": "password","value": "'$OL_SUPERSET_PASSWORD'"}},{"variable": {"name": "baseUrl","value": "'$OL_BASE_URL'"}}]}}' $NIFI_BASE_URL/nifi-api/process-groups/$processorGroupId/variable-registry/update-requests
+    curl -i -H 'Content-Type: application/json' -X POST -d '{"processGroupRevision": {"clientId": "random", "version": 2},"variableRegistry": {"processGroupId":"'$processorGroupId'", "variables": [{"variable": {"name": "admin_username","value": "'$OL_ADMIN_USERNAME'"}},{"variable": {"name": "admin_password","value": "'$OL_ADMIN_PASSWORD'"}},{"variable": {"name": "username","value": "'$OL_ADMIN_USERNAME'"}},{"variable": {"name": "password","value": "'$OL_ADMIN_PASSWORD'"}},{"variable": {"name": "baseUrl","value": "'$OL_BASE_URL'"}},{"variable": {"name": "base_url","value": "'$OL_BASE_URL'"}}]}}' $NIFI_BASE_URL/nifi-api/process-groups/$processorGroupId/variable-registry/update-requests
     curl -s -X GET $NIFI_BASE_URL/nifi-api/flow/process-groups/${processorGroupId}/controller-services | jq '.controllerServices|keys[]' | while read key ;
     do
       controllerServiceId=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/flow/process-groups/${processorGroupId}/controller-services | jq -r ".controllerServices[$key].component.id")
       # Enter sensitive values
-      curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"random", "version":"0"},"component":{"id":"'"${controllerServiceId}"'","properties":{"Password":"'"$2"'"}}}' $NIFI_BASE_URL/nifi-api/controller-services/${controllerServiceId} 
+      curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"random", "version":"0"},"component":{"id":"'"${controllerServiceId}"'","properties":{"Password":"'"$POSTGRES_PASSWORD"'"}}}' $NIFI_BASE_URL/nifi-api/controller-services/${controllerServiceId} 
       # Enable connector service
       curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"random", "version":"1"},"component":{"id":"'"${controllerServiceId}"'","state":"ENABLED"}}' $NIFI_BASE_URL/nifi-api/controller-services/${controllerServiceId}
     done
@@ -150,7 +158,7 @@ restartFlows() {
           then
             invokeHttpId=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/process-groups/${createTokenId}/processors | jq -r ".processors[$key].component.id")
             versionNumber=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId} | jq -r ".revision.version")
-            curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"randomId", "version":"'"${versionNumber}"'"},"component":{"id":"'"${invokeHttpId}"'","config":{"properties":{"Basic Authentication Password":"'"$3"'","Basic Authentication Username":"'"$4"'","Trusted Hostname":"'"$5"'"}}}}}' $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId}
+            curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"randomId", "version":"'"${versionNumber}"'"},"component":{"id":"'"${invokeHttpId}"'","config":{"properties":{"Basic Authentication Password":"'"$AUTH_SERVER_CLIENT_SECRET"'","Basic Authentication Username":"'"$AUTH_SERVER_CLIENT_ID"'","Trusted Hostname":"'"$TRUSTED_HOSTNAME"'"}}}}}' $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId}
             break  
           fi
         done
