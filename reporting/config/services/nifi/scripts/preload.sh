@@ -125,6 +125,8 @@ restartFlows() {
   curl -s -X GET $NIFI_BASE_URL/nifi-api/process-groups/root/process-groups | jq '.[]|keys[]' | while read key ; 
   do
     processorGroupId=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/process-groups/root/process-groups | jq -r ".[][$key].component.id")
+    # Enter process group's variables
+    curl -i -H 'Content-Type: application/json' -X POST -d '{"processGroupRevision": {"clientId": "random", "version": 2},"variableRegistry": {"processGroupId":"'$processorGroupId'", "variables": [{"variable": {"name": "admin_username","value": "'$OL_SUPERSET_USER'"}},{"variable": {"name": "admin_password","value": "'$OL_SUPERSET_PASSWORD'"}},{"variable": {"name": "username","value": "'$OL_SUPERSET_USER'"}},{"variable": {"name": "password","value": "'$OL_SUPERSET_PASSWORD'"}},{"variable": {"name": "baseUrl","value": "'$OL_BASE_URL'"}}]}}' $NIFI_BASE_URL/nifi-api/process-groups/$processorGroupId/variable-registry/update-requests
     curl -s -X GET $NIFI_BASE_URL/nifi-api/flow/process-groups/${processorGroupId}/controller-services | jq '.controllerServices|keys[]' | while read key ;
     do
       controllerServiceId=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/flow/process-groups/${processorGroupId}/controller-services | jq -r ".controllerServices[$key].component.id")
