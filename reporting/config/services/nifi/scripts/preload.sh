@@ -154,7 +154,7 @@ restartFlows() {
         curl -s -X GET $NIFI_BASE_URL/nifi-api/process-groups/${createTokenId}/processors | jq '.[]|keys[]' | while read key ;
         do
           processorName=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/process-groups/${createTokenId}/processors | jq -r ".processors[$key].component.name")
-          if [ "$processorName" == "InvokeHTTP" ] ;
+          if [ "$processorName" == "Get Access token" ] ;
           then
             invokeHttpId=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/process-groups/${createTokenId}/processors | jq -r ".processors[$key].component.id")
             versionNumber=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId} | jq -r ".revision.version")
