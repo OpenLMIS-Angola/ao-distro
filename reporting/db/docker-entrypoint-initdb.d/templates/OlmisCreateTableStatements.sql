@@ -557,13 +557,13 @@ rgps.processingscheduleid,
 fa.facility, fa.program, fa.username,
 CASE
     WHEN authorized_reqs.statuschangedate <= (authorized_reqs.processing_period_enddate::DATE + rd.due_days::INT) 
-        AND authorized_reqs.status = 'AUTHORIZED' THEN 'On time'
+        AND authorized_reqs.status = 'AUTHORIZED' THEN 'Atempado'
     WHEN authorized_reqs.statuschangedate > (authorized_reqs.processing_period_enddate::DATE + rd.due_days::INT + rd.late_days::INT) 
-        AND authorized_reqs.status = 'AUTHORIZED' THEN 'Unscheduled'
+        AND authorized_reqs.status = 'AUTHORIZED' THEN 'Não Agendado'
     WHEN authorized_reqs.statuschangedate < (authorized_reqs.processing_period_enddate::DATE + rd.due_days::INT + rd.late_days::INT) 
         AND authorized_reqs.statuschangedate >= (authorized_reqs.processing_period_enddate::DATE + rd.due_days::INT) 
-        AND authorized_reqs.status = 'AUTHORIZED' THEN 'Late'
-    ELSE 'Did not report' END as reporting_timeliness
+        AND authorized_reqs.status = 'AUTHORIZED' THEN 'Atrasado'
+    ELSE 'Não Submetido' END as reporting_timeliness
 FROM facilities f
 LEFT JOIN (
     SELECT DISTINCT status_rank.facility_id, status_rank.req_id, status_rank.program_id, status_rank.processing_period_id, status_rank.statuschangedate, status_rank.status, status_rank.rank, status_rank.processing_period_enddate, status_rank.created_date, status_rank.modified_date, status_rank.emergency_status, status_rank.program_name, status_rank.program_active_status, status_rank.processing_schedule_name, status_rank.processing_period_name, status_rank.processing_period_startdate
@@ -660,11 +660,11 @@ CASE
     WHEN (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) 
     THEN 1 ELSE 0 END as combined_stockout,
 CASE
-    WHEN SUM(max_periods_of_stock) > 6 THEN 'Overstocked'
-    WHEN SUM(max_periods_of_stock) < 3 AND (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Stocked Out'
-    WHEN SUM(max_periods_of_stock) < 3 AND SUM(max_periods_of_stock) > 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Understocked'
-    WHEN SUM(max_periods_of_stock) = 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Unknown'
-    ELSE 'Adequately stocked' END as stock_status
+    WHEN SUM(max_periods_of_stock) > 6 THEN 'Excesso de Stock'
+    WHEN SUM(max_periods_of_stock) < 3 AND (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Em Ruptura de Stock'
+    WHEN SUM(max_periods_of_stock) < 3 AND SUM(max_periods_of_stock) > 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Deficiência de Stock'
+    WHEN SUM(max_periods_of_stock) = 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Desconhecido'
+    ELSE 'Stock Adequado' END as stock_status
 FROM requisition_line_item
 GROUP BY requisition_line_item_id, requisition_id, orderable_id, product_code, full_product_name, 
 trade_item_id, beginning_balance, total_consumed_quantity, average_consumption, 
