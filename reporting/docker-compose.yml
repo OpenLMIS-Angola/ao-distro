@@ -5,9 +5,9 @@ services:
     command: >
       sh -c "while ! curl -f \"http://consul:8500/v1/agent/self\"; do sleep 10;done
       && curl -X PUT -H \"Content-Type: application/json\" --data '{\"name\": \"superset-service\", \"address\": \"superset\", \"id\": \"superset1\", \"port\": 8088, \"tags\": [\"openlmis-service\"], \"check\": { \"http\": \"http://superset:8088/login\", \"method\": \"GET\", \"interval\": \"30s\", \"timeout\": \"10s\"}}' http://consul:8500/v1/agent/service/register
-      && curl -X PUT --data '{ \"upstream\": \"superset-service\", \"enable_basic_auth\": false, \"enable_ssl\": ${SUPERSET_ENABLE_SSL}, \"ssl_cert\": \"/config/nginx/tls/${SUPERSET_SSL_CERT}\", \"ssl_key\": \"/config/nginx/tls/${SUPERSET_SSL_KEY}\", \"ssl_cert_chain\": \"/config/nginx/tls/${SUPERSET_SSL_CERT_CHAIN}\"}' http://consul:8500/v1/kv/resources/${SUPERSET_DOMAIN_NAME}
+      && curl -X PUT --data '{ \"upstream\": \"superset-service\", \"enable_basic_auth\": false, \"behind_load_balancer\": ${SUPERSET_BEHIND_LOAD_BALANCER}, \"redirect_http_traffic\": ${SUPERSET_LOAD_BALANCER_REDIRECT_HTTP}, \"enable_ssl\": ${SUPERSET_ENABLE_SSL}, \"ssl_cert\": \"/config/nginx/tls/${SUPERSET_SSL_CERT}\", \"ssl_key\": \"/config/nginx/tls/${SUPERSET_SSL_KEY}\", \"ssl_cert_chain\": \"/config/nginx/tls/${SUPERSET_SSL_CERT_CHAIN}\"}' http://consul:8500/v1/kv/resources/${SUPERSET_DOMAIN_NAME}
       && curl -X PUT -H \"Content-Type: application/json\" --data '{\"name\": \"nifi-service\", \"address\": \"nifi\", \"id\": \"nifi1\", \"port\": 8080, \"tags\": [\"openlmis-service\"], \"check\": { \"http\": \"http://nifi:8080\", \"method\": \"GET\", \"interval\": \"30s\", \"timeout\": \"10s\"}}' http://consul:8500/v1/agent/service/register
-      && curl -X PUT --data '{ \"upstream\": \"nifi-service\", \"enable_basic_auth\": true, \"enable_ssl\": ${NIFI_ENABLE_SSL}, \"ssl_cert\": \"/config/nginx/tls/${NIFI_SSL_CERT}\", \"ssl_key\": \"/config/nginx/tls/${NIFI_SSL_KEY}\", \"ssl_cert_chain\": \"/config/nginx/tls/${NIFI_SSL_CERT_CHAIN}\"}' http://consul:8500/v1/kv/resources/${NIFI_DOMAIN_NAME}"
+      && curl -X PUT --data '{ \"upstream\": \"nifi-service\", \"enable_basic_auth\": true, \"behind_load_balancer\": ${NIFI_BEHIND_LOAD_BALANCER}, \"redirect_http_traffic\": ${NIFI_LOAD_BALANCER_REDIRECT_HTTP}, \"enable_ssl\": ${NIFI_ENABLE_SSL}, \"ssl_cert\": \"/config/nginx/tls/${NIFI_SSL_CERT}\", \"ssl_key\": \"/config/nginx/tls/${NIFI_SSL_KEY}\", \"ssl_cert_chain\": \"/config/nginx/tls/${NIFI_SSL_CERT_CHAIN}\"}' http://consul:8500/v1/kv/resources/${NIFI_DOMAIN_NAME}"
     build:
       context: ./config
     volumes:
@@ -43,6 +43,7 @@ services:
     image: openlmis/nginx:${OL_NGINX_VERSION}
     ports:
       - "${NIFI_WEB_HTTP_PORT:-80}:80"
+      - "${NIFI_WEB_HTTPS_PORT:-443}:443"
     env_file: ../settings.env
     environment:
       NGINX_LOG_DIR: '/var/log/nginx/log'
@@ -52,6 +53,7 @@ services:
       sh -c "openssl dhparam -dsaparam -out /etc/ssl/certs/dhparam.pem 4096
       && cp -r /config/nginx/consul-template/* /etc/consul-template/
       && sh /config/nginx/set-authorization.sh
+      && sleep 120
       && /home/run.sh"
     logging:
       driver: syslog
@@ -60,7 +62,7 @@ services:
     depends_on: [consul, log, config-container]
 
   nifi:
-    image: onaio/nifi:${OL_NIFI_VERSION}
+    image: apache/nifi:${OL_NIFI_VERSION}
     ports:
       - "8080"
     volumes:
@@ -69,12 +71,13 @@ services:
     entrypoint: >
       bash -c "/config/nifi/scripts/start.sh ${OL_NIFI_VERSION}"
     environment:
+      - NIFI_JVM_HEAP_INIT=${NIFI_JVM_HEAP_INIT}
       - NIFI_JVM_HEAP_MAX=${NIFI_JVM_HEAP_MAX}
     logging:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, nginx, config-container]
+    depends_on: [log, config-container, nginx]
     env_file: ../settings.env
 
   db-config-container:
@@ -125,7 +128,7 @@ services:
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
     depends_on: [log, config-container, zookeeper]
-  
+
   superset:
     image: amancevice/superset:${OL_SUPERSET_VERSION}
     ports:
@@ -144,7 +147,7 @@ services:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [db, nginx]
+    depends_on: [db, config-container, nginx]
     env_file: ../settings.env
 
 volumes:
