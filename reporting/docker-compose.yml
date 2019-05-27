@@ -91,7 +91,6 @@ services:
     env_file: ../settings.env
     volumes:
         - db-config-volume:/docker-entrypoint-initdb.d
-        - dbdata:/var/lib/postgresql/data
     logging:
       driver: syslog
       options:
@@ -156,6 +155,4 @@ volumes:
   config-volume:
     external: false
   db-config-volume:
-    external: false
-  dbdata:
     external: false
