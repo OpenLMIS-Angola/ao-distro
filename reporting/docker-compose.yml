@@ -138,6 +138,7 @@ services:
         bash -c "cp -r /config/superset /etc/
         && pip install --no-cache-dir --user \
           flask_oauthlib==0.9.5 \
+          flask-JWT-Extended==3.18.2 \
           requests-oauthlib==1.1.0 \
           git+https://github.com/onaio/superset-patchup.git@${OL_SUPERSET_PATCHUP_VERSION} \
         && sleep 30 && sh /etc/superset/init.sh"
