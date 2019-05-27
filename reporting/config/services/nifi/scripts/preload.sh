@@ -146,7 +146,7 @@ restartFlows() {
 
       if [ "$controllerServiceName" == "DBCPConnectionPool" ];
       then
-        curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"random", "version":"0"},"component":{"id":"'"${controllerServiceId}"'","properties":{"Password":"'"$POSTGRES_PASSWORD"'"}}}' $NIFI_BASE_URL/nifi-api/controller-services/${controllerServiceId}
+        curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"random", "version":"0"},"component":{"id":"'"${controllerServiceId}"'","properties":{"Database User":"'"$POSTGRES_USER"'","Password":"'"$POSTGRES_PASSWORD"'"}}}' $NIFI_BASE_URL/nifi-api/controller-services/${controllerServiceId}
       else
         continue
       fi
@@ -173,7 +173,7 @@ restartFlows() {
           then
             invokeHttpId=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/process-groups/${createTokenId}/processors | jq -r ".processors[$key].component.id")
             versionNumber=$(curl -s -X GET $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId} | jq -r ".revision.version")
-            curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"randomId","version":"'"${versionNumber}"'"},"component":{"id":"'"${invokeHttpId}"'","config":{"properties":{"Basic Authentication Username":"'"$AUTH_SERVER_CLIENT_ID"'","Basic Authentication Password":"'"$AUTH_SERVER_CLIENT_SECRET"'","Trusted Hostname":"'"$TRUSTED_HOSTNAME"'"}}}}}' $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId}
+            curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"randomId","version":"'"${versionNumber}"'"},"component":{"id":"'"${invokeHttpId}"'","config":{"properties":{"Basic Authentication Username":"'"$AUTH_SERVER_CLIENT_ID"'","Basic Authentication Password":"'"$AUTH_SERVER_CLIENT_SECRET"'"}}}}}' $NIFI_BASE_URL/nifi-api/processors/${invokeHttpId}
             break  
           fi
         done
