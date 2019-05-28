@@ -8,7 +8,6 @@ export PROC_GROUPS_DIR="$WORKING_DIR/preload/process-groups"
 export IMPORTED_PROC_GROUPS_DIR="/tmp/nifi-preload/process-groups"
 export NIFI_UP_RETRY_COUNT=240
 
-: ${POSTGRES_USER:?"Need to set POSTGRES_USER"}
 : ${POSTGRES_PASSWORD:?"Need to set POSTGRES_PASSWORD"}
 : ${AUTH_SERVER_CLIENT_ID:?"Need to set AUTH_SERVER_CLIENT_ID"}
 : ${AUTH_SERVER_CLIENT_SECRET:?"Need to set AUTH_SERVER_CLIENT_SECRET"}
@@ -147,7 +146,7 @@ restartFlows() {
 
       if [ "$controllerServiceName" == "DBCPConnectionPool" ];
       then
-        curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"random", "version":"0"},"component":{"id":"'"${controllerServiceId}"'","properties":{"Database User":"'"$POSTGRES_USER"'","Password":"'"$POSTGRES_PASSWORD"'"}}}' $NIFI_BASE_URL/nifi-api/controller-services/${controllerServiceId}
+        curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"random", "version":"0"},"component":{"id":"'"${controllerServiceId}"'","properties":{"Password":"'"$POSTGRES_PASSWORD"'"}}}' $NIFI_BASE_URL/nifi-api/controller-services/${controllerServiceId}
       else
         continue
       fi
