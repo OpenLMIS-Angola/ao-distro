@@ -595,7 +595,12 @@ ALTER MATERIALIZED VIEW adjustments OWNER TO postgres;
 ---
 CREATE MATERIALIZED VIEW stock_status_and_consumption AS
 SELECT li.requisition_line_item_id, r.id, 
-r.created_date as req_created_date, r.modified_date, r.emergency_status, r.supplying_facility, 
+r.created_date as req_created_date, r.modified_date, 
+CASE 
+    WHEN r.emergency_status IS TRUE THEN 'True'
+    ELSE 'Sem Dados'
+END as emergency_status, 
+r.supplying_facility, 
 r.supervisory_node, r.facility_id, r.facility_code, r.facility_name, r.facilty_active_status, 
 r.district_id, r.district_code, r.district_name, r.region_id, r.region_code, r.region_name, 
 r.country_id, r.country_code, r.country_name, r.facility_type_id, r.facility_type_code, 
