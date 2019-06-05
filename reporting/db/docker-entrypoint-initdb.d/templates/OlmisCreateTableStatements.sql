@@ -597,7 +597,7 @@ CREATE MATERIALIZED VIEW stock_status_and_consumption AS
 SELECT li.requisition_line_item_id, r.id, 
 r.created_date as req_created_date, r.modified_date, 
 CASE 
-    WHEN r.emergency_status IS TRUE THEN 'True'
+    WHEN r.emergency_status IS TRUE THEN 'Dados'
     ELSE 'Sem Dados'
 END as emergency_status, 
 r.supplying_facility, 
