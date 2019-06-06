@@ -131,23 +131,27 @@ services:
     depends_on: [log, config-container, zookeeper]
 
   superset:
-    image: amancevice/superset:${OL_SUPERSET_VERSION}
+    build:
+      context: ./superset
+      args:
+        SUPERSET_VERSION: ${OL_SUPERSET_VERSION}
+        SUPERSET_PATCHUP_VERSION: ${OL_SUPERSET_PATCHUP_VERSION}
+        # TODO: it is not injected to dockerfile - to fix
     ports:
         - "${SUPERSET_WEB_HTTP_PORT:-8088}:8088"
     volumes:
       - config-volume:/config
     command: >
         bash -c "cp -r /config/superset /etc/
-        && pip install --no-cache-dir --user \
-          flask_oauthlib==0.9.5 \
-          flask-JWT-Extended==3.18.2 \
-          requests-oauthlib==1.1.0 \
-          git+https://github.com/OpenLMIS-Angola/superset-patchup.git@${OL_SUPERSET_PATCHUP_VERSION} \
         && sleep 30 && sh /etc/superset/init.sh"
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
+    environment:
+      - SUPERSET_VERSION=${OL_SUPERSET_VERSION}
+      - SUPERSET_PATCHUP_VERSION=${OL_SUPERSET_PATCHUP_VERSION}
+      # TODO: it is not injected to dockerfile - to fix
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
     depends_on: [db, config-container, nginx]
     env_file: ../settings.env
 

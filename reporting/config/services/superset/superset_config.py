@@ -71,3 +71,9 @@ CORS_OPTIONS = {
 # Add custom roles
 ADD_CUSTOM_ROLES = True
 CUSTOM_ROLES = {'OLMIS_Gamma': {'all_datasource_access'}}
+
+ALLOWED_EXTENSIONS = set([])
+
+# Translations
+BABEL_DEFAULT_LOCALE = 'pt'
+#BABEL_DEFAULT_FOLDER = '/etc/superset/app/translations'
