@@ -91,6 +91,8 @@ services:
     env_file: ../settings.env
     volumes:
         - db-config-volume:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
     logging:
       driver: syslog
       options:
