@@ -10,7 +10,7 @@ def stringToBase64(s):
     return base64.b64encode(s.encode('utf-8')).decode('utf-8')
 
 SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://{}:{}@db:5432/open_lmis_reporting'.format(
-    os.environ['POSTGRES_USER'], 
+    os.environ['POSTGRES_USER'],
     os.environ['POSTGRES_PASSWORD'])
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 SECRET_KEY = os.environ['SUPERSET_SECRET_KEY']
@@ -21,7 +21,7 @@ AUTHORIZATION_HEADER_TOKEN = stringToBase64('%s:%s' % (OL_SUPERSET_USER, OL_SUPE
 
 AUTH_TYPE = AUTH_OAUTH
 OAUTH_PROVIDERS = [
-    {   
+    {
         'name': 'openlmis',
         'icon': 'fa-sign-in',
         'token_key':'access_token',
@@ -62,6 +62,11 @@ CSV_EXPORT = {
 
 # Custom security manager
 CUSTOM_SECURITY_MANAGER = CustomSecurityManager
+ENABLE_CORS = True
+CORS_OPTIONS = {
+    'origins': [os.environ['OL_BASE_URL']],
+    'supports_credentials': True
+}
 
 # Add custom roles
 ADD_CUSTOM_ROLES = True
