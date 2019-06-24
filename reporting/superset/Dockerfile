@@ -18,7 +18,8 @@ ENV GUNICORN_BIND=0.0.0.0:8088 \
     SUPERSET_REPO=apache/incubator-superset \
     SUPERSET_VERSION=${SUPERSET_VERSION} \
     SUPERSET_PATCHUP_VERSION=${SUPERSET_PATCHUP_VERSION} \
-    SUPERSET_HOME=/var/lib/superset
+    SUPERSET_HOME=/var/lib/superset \
+    PYTHONUSERBASE=/home/superset
 ENV GUNICORN_CMD_ARGS="--workers ${GUNICORN_WORKERS} --timeout ${GUNICORN_TIMEOUT} --bind ${GUNICORN_BIND} --limit-request-line ${GUNICORN_LIMIT_REQUEST_LINE} --limit-request-field_size ${GUNICORN_LIMIT_REQUEST_FIELD_SIZE}"
 
 # Create superset user & install dependencies
@@ -65,13 +66,13 @@ RUN useradd -U -m superset && \
         sqlalchemy-clickhouse==0.1.5.post0 \
         sqlalchemy-redshift==0.7.1 \
         werkzeug==0.14.1 && \
-    pip install --no-cache-dir git+https://github.com/OpenLMIS-Angola/superset-patchup.git@${OL_SUPERSET_PATCHUP_VERSION} \
-    pip install superset==${SUPERSET_VERSION}
+    pip install --no-cache-dir git+https://github.com/OpenLMIS-Angola/superset-patchup.git@${OL_SUPERSET_PATCHUP_VERSION}
+RUN pip install superset==${SUPERSET_VERSION}
+
 
 # Configure Filesystem
 COPY superset /usr/local/bin
-VOLUME /home/superset \
-       /etc/superset \
+VOLUME /etc/superset \
        /var/lib/superset
 WORKDIR /home/superset
 
