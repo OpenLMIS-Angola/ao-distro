@@ -71,3 +71,6 @@ CORS_OPTIONS = {
 # Add custom roles
 ADD_CUSTOM_ROLES = True
 CUSTOM_ROLES = {'OLMIS_Gamma': {'all_datasource_access'}}
+
+# Translations
+BABEL_DEFAULT_LOCALE = 'pt'
