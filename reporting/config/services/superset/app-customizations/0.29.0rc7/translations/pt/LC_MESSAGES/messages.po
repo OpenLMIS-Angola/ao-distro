@@ -4179,3 +4179,8 @@ msgstr "Alterado em"
 #: superset/views/sql_lab.py:79
 msgid "Saved Queries"
 msgstr "Queries Gravadas"
+
+### CUSTOM TRANSLATIONS ###
+#: superset/viz.py:372
+msgid "No data"
+msgstr "Sem Dados"
