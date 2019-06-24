@@ -143,9 +143,6 @@ services:
     command: >
         bash -c "cp -r /config/superset /etc/
         && sleep 30 && sh /etc/superset/init.sh"
-    environment:
-      - SUPERSET_VERSION=${OL_SUPERSET_VERSION}
-      - SUPERSET_PATCHUP_VERSION=${OL_SUPERSET_PATCHUP_VERSION}
     logging:
       driver: syslog
       options:

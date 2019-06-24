@@ -69,6 +69,7 @@ RUN useradd -U -m superset && \
     pip install --no-cache-dir git+https://github.com/OpenLMIS-Angola/superset-patchup.git@${OL_SUPERSET_PATCHUP_VERSION}
 RUN pip install superset==${SUPERSET_VERSION}
 
+RUN chown -R superset:superset /usr/local/lib/python3.6/site-packages/superset
 
 # Configure Filesystem
 COPY superset /usr/local/bin
