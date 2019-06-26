@@ -4184,3 +4184,7 @@ msgstr "Queries Gravadas"
 #: superset/viz.py:372
 msgid "No data"
 msgstr "Sem Dados"
+
+#: superset/assets/src/visualizations/Table/Table.js:212
+msgid "Search:"
+msgstr "Pesquisar:"

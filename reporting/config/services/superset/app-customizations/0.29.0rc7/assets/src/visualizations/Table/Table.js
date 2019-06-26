@@ -6,6 +6,7 @@ import 'datatables.net-bs/css/dataTables.bootstrap.css';
 import dompurify from 'dompurify';
 import { format as d3Format } from 'd3-format';
 import { fixDataTableBodyHeight, d3TimeFormatPreset } from '../../modules/utils';
+import { t } from '@superset-ui/translation';
 import './Table.css';
 
 dt(window, $);
@@ -207,6 +208,9 @@ function TableVis(element, props) {
     scrollY: `${height}px`,
     scrollCollapse: true,
     scrollX: true,
+    language: {
+      search: t('Search:')
+    },
   });
 
   fixDataTableBodyHeight($container.find('.dataTables_wrapper'), height);
