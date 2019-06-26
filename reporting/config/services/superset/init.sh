@@ -13,6 +13,9 @@ cd $APP_DIR &&
 fabmanager babel-compile --target $APP_DIR/translations &&
 sleep 5 &&
 
+# UI build
+$APP_DIR/assets/js_build.sh &&
+
 # App initialization
 fabmanager create-admin --app superset --username ${SUPERSET_ADMIN_USERNAME} --firstname Admin --lastname Admin --email noreply --password ${SUPERSET_ADMIN_PASSWORD} &&
 superset db upgrade &&

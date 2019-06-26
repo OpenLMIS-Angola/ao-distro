@@ -4,7 +4,11 @@ FROM python:3.6
 ARG SUPERSET_VERSION=0.29.0rc7
 
 # Superset-patchup (Ketchup) version
+# the empty value means the master branch (otherwise it should be a tag value)
 ARG SUPERSET_PATCHUP_VERSION=
+
+# Default Superset files dir
+ARG APP_DIR=/usr/local/lib/python3.6/site-packages/superset
 
 # Configure environment
 ENV GUNICORN_BIND=0.0.0.0:8088 \
@@ -69,13 +73,39 @@ RUN useradd -U -m superset && \
     pip install --no-cache-dir git+https://github.com/OpenLMIS-Angola/superset-patchup.git@${OL_SUPERSET_PATCHUP_VERSION}
 RUN pip install superset==${SUPERSET_VERSION}
 
-RUN chown -R superset:superset /usr/local/lib/python3.6/site-packages/superset
+# Node & npm
+ENV NVM_DIR=/usr/local/nvm
+ENV NODE_VERSION=v12.1.0
+
+RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+RUN . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
+
+ENV NODE_PATH=$NVM_DIR/versions/node/$NODE_VERSION/lib/node_modules
+ENV PATH=$NVM_DIR/versions/node/$NODE_VERSION/bin:$PATH
+
+RUN node -v
+RUN npm -v
+
+# Installing dependecies via npm
+RUN npm install -g yarn
+RUN npm install -g po2json
+
+# Fetching dependecies and first build
+RUN wget -P /tmp https://github.com/apache/incubator-superset/archive/${SUPERSET_VERSION}.zip \
+    && unzip /tmp/${SUPERSET_VERSION}.zip -d /tmp \
+    && cp -r /tmp/incubator-superset-${SUPERSET_VERSION}/superset/assets $APP_DIR \
+    && rm -r /tmp/${SUPERSET_VERSION}.zip /tmp/incubator-superset-${SUPERSET_VERSION}
+RUN cd $APP_DIR/assets && yarn install
 
 # Configure Filesystem
+RUN chown -R superset:superset ${APP_DIR}
 COPY superset /usr/local/bin
 VOLUME /etc/superset \
        /var/lib/superset
-WORKDIR /home/superset
+WORKDIR $APP_DIR
 
 # Deploy application
 EXPOSE 8088
