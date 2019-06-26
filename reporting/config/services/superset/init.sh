@@ -7,11 +7,14 @@
 APP_DIR="/usr/local/lib/python3.6/site-packages/superset"
 CONFIG_DIR="/etc/superset"
 
-# Customization and translations
+# Custom code
 cp -rf $CONFIG_DIR/app-customizations/$SUPERSET_VERSION/* $APP_DIR &&
-cd $APP_DIR &&
-fabmanager babel-compile --target $APP_DIR/translations &&
-sleep 5 &&
+
+# Custom translation - creating .mo and .json files (from .po)
+cd $APP_DIR && fabmanager babel-compile --target $APP_DIR/translations &&
+cd $APP_DIR/translations/pt/LC_MESSAGES &&
+    po2json -d superset -f jed1.x messages.po messages.json &&
+    sed -i -e 's/null,//g' messages.json &&
 
 # UI build
 $APP_DIR/assets/js_build.sh &&
