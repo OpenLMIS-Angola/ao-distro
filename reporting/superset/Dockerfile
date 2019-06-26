@@ -100,6 +100,11 @@ RUN wget -P /tmp https://github.com/apache/incubator-superset/archive/${SUPERSET
     && rm -r /tmp/${SUPERSET_VERSION}.zip /tmp/incubator-superset-${SUPERSET_VERSION}
 RUN cd $APP_DIR/assets && yarn install
 
+# JS building time tweaks
+RUN mkdir -p /home/superset/.cache
+RUN mv /usr/local/share/.cache/yarn /home/superset/.cache
+RUN chown -R superset:superset /home/superset/.cache/yarn
+
 # Configure Filesystem
 RUN chown -R superset:superset ${APP_DIR}
 COPY superset /usr/local/bin
