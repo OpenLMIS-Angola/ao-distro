@@ -4188,3 +4188,11 @@ msgstr "Sem Dados"
 #: superset/assets/src/visualizations/Table/Table.js:212
 msgid "Search:"
 msgstr "Pesquisar:"
+
+#: superset/assets/src/visualizations/Table/Table.js:214
+msgid "Previous"
+msgstr "Anterior"
+
+#: superset/assets/src/visualizations/Table/Table.js:215
+msgid "Next"
+msgstr "Próximo"

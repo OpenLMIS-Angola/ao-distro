@@ -209,7 +209,11 @@ function TableVis(element, props) {
     scrollCollapse: true,
     scrollX: true,
     language: {
-      search: t('Search:')
+      search: t('Search:'),
+      paginate: {
+        previous: t("Previous"),
+        next: t("Next")
+      }
     },
   });
 
