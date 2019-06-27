@@ -4196,3 +4196,7 @@ msgstr "Anterior"
 #: superset/assets/src/visualizations/Table/Table.js:215
 msgid "Next"
 msgstr "Próximo"
+
+#: superset/assets/src/visualizations/Table/Table.js:217
+msgid "Show _MENU_ entries"
+msgstr "Mostrar _MENU_ registos"

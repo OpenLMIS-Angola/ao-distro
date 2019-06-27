@@ -213,7 +213,8 @@ function TableVis(element, props) {
       paginate: {
         previous: t("Previous"),
         next: t("Next")
-      }
+      },
+      lengthMenu: t('Show _MENU_ entries')
     },
   });
 
