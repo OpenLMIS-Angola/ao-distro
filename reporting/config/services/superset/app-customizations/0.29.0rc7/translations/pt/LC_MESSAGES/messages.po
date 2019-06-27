@@ -4200,3 +4200,7 @@ msgstr "Próximo"
 #: superset/assets/src/visualizations/Table/Table.js:217
 msgid "Show _MENU_ entries"
 msgstr "Mostrar _MENU_ registos"
+
+#: superset/assets/src/visualizations/FilterBox/FilterBox.jsx:253
+msgid "No results found"
+msgstr "Dados não encontrados"
