@@ -75,7 +75,7 @@ RUN pip install superset==${SUPERSET_VERSION}
 
 # Node & npm
 ENV NVM_DIR=/usr/local/nvm
-ENV NODE_VERSION=v12.1.0
+ENV NODE_VERSION=v10.13.0
 
 RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 RUN . $NVM_DIR/nvm.sh \
