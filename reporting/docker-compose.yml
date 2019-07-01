@@ -1,7 +1,7 @@
 version: "3.3"
 
 services:
-  config-container:
+  service-configuration:
     command: >
       sh -c "while ! curl -f \"http://consul:8500/v1/agent/self\"; do sleep 10;done
       && curl -X PUT -H \"Content-Type: application/json\" --data '{\"name\": \"superset-service\", \"address\": \"superset\", \"id\": \"superset1\", \"port\": 8088, \"tags\": [\"openlmis-service\"], \"check\": { \"http\": \"http://superset:8088/login\", \"method\": \"GET\", \"interval\": \"30s\", \"timeout\": \"10s\"}}' http://consul:8500/v1/agent/service/register
@@ -59,7 +59,7 @@ services:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [consul, log, config-container]
+    depends_on: [consul, log, service-configuration]
 
   nifi:
     image: apache/nifi:${OL_NIFI_VERSION}
@@ -77,10 +77,10 @@ services:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, config-container, nginx]
+    depends_on: [log, service-configuration, nginx]
     env_file: ../settings.env
 
-  db-config-container:
+  db-service-configuration:
     build:
       context: ./db
     volumes:
@@ -97,7 +97,7 @@ services:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, consul, db-config-container]
+    depends_on: [log, consul, db-service-configuration]
     env_file: ../settings.env
 
   zookeeper:
@@ -128,7 +128,7 @@ services:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, config-container, zookeeper]
+    depends_on: [log, service-configuration, zookeeper]
 
   superset:
     build:
@@ -147,7 +147,7 @@ services:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [db, config-container, nginx]
+    depends_on: [db, service-configuration, nginx]
     env_file: ../settings.env
 
 volumes:
