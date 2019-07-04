@@ -1,7 +1,12 @@
-FROM gliderlabs/alpine:3.4
+FROM certbot/certbot:v0.33.1
 
 COPY ./services /config
 
-RUN apk add --update curl && rm -rf /var/cache/apk/*
+RUN apk update && apk upgrade && \
+    apk add curl && \
+    apk add bash && \
+    apk add bash-completion && \
+    rm -rf /var/cache/apk/*
 
-CMD /bin/true
+ENTRYPOINT [""]
+CMD [""]

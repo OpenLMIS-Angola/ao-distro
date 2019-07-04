@@ -2,16 +2,16 @@ version: "3.3"
 
 services:
   service-configuration:
-    command: >
-      sh -c "while ! curl -f \"http://consul:8500/v1/agent/self\"; do sleep 10;done
-      && curl -X PUT -H \"Content-Type: application/json\" --data '{\"name\": \"superset-service\", \"address\": \"superset\", \"id\": \"superset1\", \"port\": 8088, \"tags\": [\"openlmis-service\"], \"check\": { \"http\": \"http://superset:8088/login\", \"method\": \"GET\", \"interval\": \"30s\", \"timeout\": \"10s\"}}' http://consul:8500/v1/agent/service/register
-      && curl -X PUT --data '{ \"upstream\": \"superset-service\", \"enable_basic_auth\": false, \"behind_load_balancer\": ${SUPERSET_BEHIND_LOAD_BALANCER}, \"redirect_http_traffic\": ${SUPERSET_LOAD_BALANCER_REDIRECT_HTTP}, \"enable_ssl\": ${SUPERSET_ENABLE_SSL}, \"ssl_cert\": \"/config/nginx/tls/${SUPERSET_SSL_CERT}\", \"ssl_key\": \"/config/nginx/tls/${SUPERSET_SSL_KEY}\", \"ssl_cert_chain\": \"/config/nginx/tls/${SUPERSET_SSL_CERT_CHAIN}\"}' http://consul:8500/v1/kv/resources/${SUPERSET_DOMAIN_NAME}
-      && curl -X PUT -H \"Content-Type: application/json\" --data '{\"name\": \"nifi-service\", \"address\": \"nifi\", \"id\": \"nifi1\", \"port\": 8080, \"tags\": [\"openlmis-service\"], \"check\": { \"http\": \"http://nifi:8080\", \"method\": \"GET\", \"interval\": \"30s\", \"timeout\": \"10s\"}}' http://consul:8500/v1/agent/service/register
-      && curl -X PUT --data '{ \"upstream\": \"nifi-service\", \"enable_basic_auth\": true, \"behind_load_balancer\": ${NIFI_BEHIND_LOAD_BALANCER}, \"redirect_http_traffic\": ${NIFI_LOAD_BALANCER_REDIRECT_HTTP}, \"enable_ssl\": ${NIFI_ENABLE_SSL}, \"ssl_cert\": \"/config/nginx/tls/${NIFI_SSL_CERT}\", \"ssl_key\": \"/config/nginx/tls/${NIFI_SSL_KEY}\", \"ssl_cert_chain\": \"/config/nginx/tls/${NIFI_SSL_CERT_CHAIN}\"}' http://consul:8500/v1/kv/resources/${NIFI_DOMAIN_NAME}"
     build:
       context: ./config
     volumes:
       - config-volume:/config
+      - certbot-endpoint:/var/www/certbot
+      - letsencrypt-config:/etc/letsencrypt
+    environment:
+      RENEWAL_CHECK_PERIOD: "$RENEWAL_CHECK_PERIOD"
+    entrypoint: >
+      sh -c ". /config/certs_obtaining.sh"
 
   scalyr:
     image: openlmis/scalyr
@@ -32,34 +32,59 @@ services:
     command: -server -bootstrap
     image: gliderlabs/consul-server
     ports:
-      - "8500"
+      - "8500:8500"
     logging:
       driver: syslog
       options:
         syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
     depends_on: [log]
 
-  nginx:
-    image: openlmis/nginx:${OL_NGINX_VERSION}
+  nginx-tls:
+    build:
+      context: ./nginx
+    container_name: nginx-tls
     ports:
-      - "${NIFI_WEB_HTTP_PORT:-80}:80"
-      - "${NIFI_WEB_HTTPS_PORT:-443}:443"
+      - "${NIFI_WEB_HTTP_PORT}:80"
+      - "${NIFI_WEB_HTTPS_PORT}:443"
+      - "${SUPERSET_WEB_HTTPS_PORT}:8088"
+    env_file: settings.env
+    environment:
+      NGINX_LOG_DIR: '/var/log/nginx/log'
+      RENEWAL_CHECK_PERIOD: "$RENEWAL_CHECK_PERIOD"
+    volumes:
+      - 'config-volume:/config'
+      - 'certbot-endpoint:/var/www/certbot'
+      - 'letsencrypt-config:/etc/letsencrypt'
+    command: >
+      sh -c "cp /config/nginx-tls/nginx.tmpl /etc/nginx/nginx.tmpl
+      && . /config/nginx-tls/wait_for_nginx_nifi.sh
+      && . /etc/nginx/run_with_template.sh -d
+      && . /config/nginx-tls/certs_reloading.sh"
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
+    depends_on: [nginx-nifi, superset]
+
+  nginx-nifi:
+    build:
+      context: ./nginx
+    ports:
+      - "80"
     env_file: settings.env
     environment:
       NGINX_LOG_DIR: '/var/log/nginx/log'
     volumes:
       - config-volume:/config
-    entrypoint: >
-      sh -c "openssl dhparam -dsaparam -out /etc/ssl/certs/dhparam.pem 4096
-      && cp -r /config/nginx/consul-template/* /etc/consul-template/
-      && sh /config/nginx/set-authorization.sh
-      && sleep 120
-      && /home/run.sh"
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [consul, log, service-configuration]
+    command: >
+      sh -c "cp /config/nginx-nifi/nginx.tmpl /etc/nginx/nginx.tmpl
+      && . /config/nginx-nifi/set-authorization.sh
+      && . /etc/nginx/run_with_template.sh"
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
+    depends_on: [nifi, log, service-configuration]
 
   nifi:
     image: apache/nifi:${OL_NIFI_VERSION}
@@ -73,11 +98,11 @@ services:
     environment:
       - NIFI_JVM_HEAP_INIT=${NIFI_JVM_HEAP_INIT}
       - NIFI_JVM_HEAP_MAX=${NIFI_JVM_HEAP_MAX}
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, service-configuration, nginx]
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
+    depends_on: [log, service-configuration]
     env_file: settings.env
 
   db-service-configuration:
@@ -93,11 +118,12 @@ services:
         - db-config-volume:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, consul, db-service-configuration]
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
+    depends_on: [log, db-service-configuration]
+    env_file: settings.env
 
   zookeeper:
     image: confluentinc/cp-zookeeper:${OL_ZOOKEEPER_VERSION}
@@ -136,17 +162,17 @@ services:
         SUPERSET_VERSION: ${OL_SUPERSET_VERSION}
         SUPERSET_PATCHUP_VERSION: ${OL_SUPERSET_PATCHUP_VERSION}
     ports:
-        - "${SUPERSET_WEB_HTTP_PORT:-8088}:8088"
+      - "8088"
     volumes:
       - config-volume:/config
     command: >
         bash -c "cp -r /config/superset /etc/
-        && sleep 30 && sh /etc/superset/init.sh"
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [db, service-configuration, nginx]
+        && sh /etc/superset/init.sh"
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
+    depends_on: [log, db, service-configuration, nginx-nifi]
     env_file: settings.env
 
 volumes:
@@ -155,4 +181,8 @@ volumes:
   config-volume:
     external: false
   db-config-volume:
+    external: false
+  certbot-endpoint:
+    external: false
+  letsencrypt-config:
     external: false
