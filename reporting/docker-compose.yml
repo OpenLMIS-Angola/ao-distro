@@ -185,4 +185,4 @@ volumes:
   certbot-endpoint:
     external: false
   letsencrypt-config:
-    external: false
+    external: true
