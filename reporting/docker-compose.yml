@@ -28,17 +28,6 @@ services:
     ports:
       - "${SYSLOG_UDP_PORT}:514/udp"
 
-  consul:
-    command: -server -bootstrap
-    image: gliderlabs/consul-server
-    ports:
-      - "8500:8500"
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log]
-
   nginx-tls:
     build:
       context: ./nginx
@@ -124,36 +113,6 @@ services:
     #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
     depends_on: [log, db-service-configuration]
     env_file: settings.env
-
-  zookeeper:
-    image: confluentinc/cp-zookeeper:${OL_ZOOKEEPER_VERSION}
-    environment:
-      - ZOOKEEPER_CLIENT_PORT=32181
-      - ZOOKEEPER_TICK_TIME=2000
-      - ZOOKEEPER_SYNC_LIMIT=2
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log]
-
-  kafka:
-    image: confluentinc/cp-kafka:${OL_KAFKA_VERSION}
-    environment:
-      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:32181
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:29092
-      - KAFKA_BROKER_ID=2
-      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
-      - KAFKA_LOG_CLEANER_ENABLE=true
-    volumes:
-      - config-volume:/config
-    entrypoint: >
-      bash -c "/config/kafka/start.sh"
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, service-configuration, zookeeper]
 
   superset:
     build:
