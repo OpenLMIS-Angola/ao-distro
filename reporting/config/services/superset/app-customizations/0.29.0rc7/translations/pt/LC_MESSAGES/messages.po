@@ -4186,20 +4186,60 @@ msgid "No data"
 msgstr "Sem Dados"
 
 #: superset/assets/src/visualizations/Table/Table.js:212
+msgid "No data available in table"
+msgstr "Nenhum registro encontrado"
+
+#: superset/assets/src/visualizations/Table/Table.js:213
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "Mostrando de _START_ até _END_ de _TOTAL_ registos"
+
+#: superset/assets/src/visualizations/Table/Table.js:214
+msgid "Showing 0 to 0 of 0 entries"
+msgstr "Mostrando de 0 até 0 de 0 registos"
+
+#: superset/assets/src/visualizations/Table/Table.js:215
+msgid "(filtered from _MAX_ total entries)"
+msgstr "(filtrado de _MAX_ registos no total)"
+
+#: superset/assets/src/visualizations/Table/Table.js:216
+msgid "Show _MENU_ entries"
+msgstr "Mostrar _MENU_ registos"
+
+#: superset/assets/src/visualizations/Table/Table.js:218
+msgid "Processing..."
+msgstr "A processar..."
+
+#: superset/assets/src/visualizations/Table/Table.js:219
 msgid "Search:"
 msgstr "Pesquisar:"
 
-#: superset/assets/src/visualizations/Table/Table.js:214
-msgid "Previous"
-msgstr "Anterior"
+#: superset/assets/src/visualizations/Table/Table.js:220
+msgid "No matching records found"
+msgstr "Não foram encontrados resultados"
 
-#: superset/assets/src/visualizations/Table/Table.js:215
+#: superset/assets/src/visualizations/Table/Table.js:222
+msgid "First"
+msgstr "Primeiro"
+
+#: superset/assets/src/visualizations/Table/Table.js:223
+msgid "Last"
+msgstr "Último"
+
+#: superset/assets/src/visualizations/Table/Table.js:224
 msgid "Next"
 msgstr "Próximo"
 
-#: superset/assets/src/visualizations/Table/Table.js:217
-msgid "Show _MENU_ entries"
-msgstr "Mostrar _MENU_ registos"
+#: superset/assets/src/visualizations/Table/Table.js:225
+msgid "Previous"
+msgstr "Anterior"
+
+#: superset/assets/src/visualizations/Table/Table.js:228
+msgid ": activate to sort column ascending"
+msgstr ": Ordenar colunas de forma ascendente"
+
+#: superset/assets/src/visualizations/Table/Table.js:229
+msgid ": activate to sort column descending"
+msgstr ": Ordenar colunas de forma descendente"
 
 #: superset/assets/src/visualizations/FilterBox/FilterBox.jsx:253
 msgid "No results found"

@@ -209,12 +209,25 @@ function TableVis(element, props) {
     scrollCollapse: true,
     scrollX: true,
     language: {
+      emptyTable: t('No data available in table'),
+      info: t('Showing _START_ to _END_ of _TOTAL_ entries'),
+      infoEmpty: t('Showing 0 to 0 of 0 entries'),
+      infoFiltered: t('(filtered from _MAX_ total entries)'),
+      lengthMenu: t('Show _MENU_ entries'),
+      loadingRecords: t('Loading...'),
+      processing: t('Processing...'),
       search: t('Search:'),
+      zeroRecords: t('No matching records found'),
       paginate: {
-        previous: t("Previous"),
-        next: t("Next")
+          first: t('First'),
+          last: t('Last'),
+          next: t('Next'),
+          previous: t('Previous'),
       },
-      lengthMenu: t('Show _MENU_ entries')
+      aria: {
+        sortAscending: t(': activate to sort column ascending'),
+        sortDescending: t(': activate to sort column descending'),
+      },
     },
   });
 
