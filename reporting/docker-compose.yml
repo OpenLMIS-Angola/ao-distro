@@ -55,7 +55,7 @@ services:
 
   nginx-nifi:
     image: openlmisao/nginx-tls:${ANGOLA_NGINX_TLS_VERSION}
-    ports:
+    expose:
       - "80"
     env_file: settings.env
     environment:
@@ -74,7 +74,7 @@ services:
 
   nifi:
     image: apache/nifi:${OL_NIFI_VERSION}
-    ports:
+    expose:
       - "8080"
     volumes:
       - config-volume:/config
@@ -117,7 +117,7 @@ services:
       args:
         SUPERSET_VERSION: ${OL_SUPERSET_VERSION}
         SUPERSET_PATCHUP_VERSION: ${OL_SUPERSET_PATCHUP_VERSION}
-    ports:
+    expose:
       - "8088"
     volumes:
       - config-volume:/config
