@@ -74,3 +74,8 @@ CUSTOM_ROLES = {'OLMIS_Gamma': {'all_datasource_access'}}
 
 # Translations
 BABEL_DEFAULT_LOCALE = 'pt'
+
+LANGUAGES = {
+    'pt': {'flag': 'pt', 'name': 'Portuguese'},
+    'en': {'flag': 'us', 'name': 'English'},
+}
