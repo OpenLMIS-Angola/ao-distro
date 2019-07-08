@@ -20,6 +20,8 @@ cd $APP_DIR/translations/pt/LC_MESSAGES &&
 $APP_DIR/assets/js_build.sh &&
 
 # App initialization
+apt-get install -y gettext
+envsubst < ./datasources/database.yaml > ./datasources/database.yaml
 fabmanager create-admin --app superset --username ${SUPERSET_ADMIN_USERNAME} --firstname Admin --lastname Admin --email noreply --password ${SUPERSET_ADMIN_PASSWORD} &&
 superset db upgrade &&
 superset import_datasources -p $CONFIG_DIR/datasources/database.yaml &&
