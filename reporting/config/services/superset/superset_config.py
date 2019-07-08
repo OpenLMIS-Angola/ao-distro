@@ -12,6 +12,13 @@ def stringToBase64(s):
 SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://{}:{}@db:5432/open_lmis_reporting'.format(
     os.environ['POSTGRES_USER'],
     os.environ['POSTGRES_PASSWORD'])
+
+def lookup_password(url):
+    if url.contains('postgresql-db'):
+        return os.environ['OLMIS_DATABASE_PASSWORD']
+    return os.environ['POSTGRES_PASSWORD']
+SQLALCHEMY_CUSTOM_PASSWORD_STORE = lookup_password
+
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 SECRET_KEY = os.environ['SUPERSET_SECRET_KEY']
 
