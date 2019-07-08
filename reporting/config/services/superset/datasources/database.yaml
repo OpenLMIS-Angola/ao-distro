@@ -3,7 +3,7 @@ databases:
   database_name: olmis
   expose_in_sqllab: true
   extra: "{\r\n    \"metadata_params\": {},\r\n    \"engine_params\": {}\r\n}"
-  sqlalchemy_uri: postgresql+psycopg2://angola_user:XXXXXXXXXX@angola-postgresql-db.cimnzn9zeyp4.eu-west-1.rds.amazonaws.com:5432/angola_openlmis
+  sqlalchemy_uri: postgresql+psycopg2://${OLMIS_DATABASE_USER}:${OLMIS_DATABASE_PASSWORD}@${OLMIS_DATABASE_URL}:5432/${OLMIS_DATABASE_NAME}
   tables:
     - columns:
         - {column_name: district_code, filterable: true, groupby: true, type: TEXT}
