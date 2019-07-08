@@ -14,7 +14,7 @@ SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://{}:{}@db:5432/open_lmis_reporti
     os.environ['POSTGRES_PASSWORD'])
 
 def lookup_password(url):
-    if url.__repr__().contains('postgresql-db'):
+    if 'postgresql-db' in url.__repr__():
         return os.environ['OLMIS_DATABASE_PASSWORD']
     return os.environ['POSTGRES_PASSWORD']
 SQLALCHEMY_CUSTOM_PASSWORD_STORE = lookup_password
