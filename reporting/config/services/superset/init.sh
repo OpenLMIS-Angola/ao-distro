@@ -20,10 +20,10 @@ cd $APP_DIR/translations/pt/LC_MESSAGES &&
 $APP_DIR/assets/js_build.sh &&
 
 # App initialization
-sed -i "s/$OLMIS_DATABASE_USER/OLMIS_DATABASE_USER/g" $CONFIG_DIR/datasources/database.yaml
-sed -i "s/$OLMIS_DATABASE_PASSWORD/OLMIS_DATABASE_PASSWORD/g" $CONFIG_DIR/datasources/database.yaml
-sed -i "s/$OLMIS_DATABASE_URL/OLMIS_DATABASE_URL/g" $CONFIG_DIR/datasources/database.yaml
-sed -i "s/$OLMIS_DATABASE_NAME/OLMIS_DATABASE_NAME/g" $CONFIG_DIR/datasources/database.yaml
+sed -i "s/OLMIS_DATABASE_USER/$OLMIS_DATABASE_USER/g" $CONFIG_DIR/datasources/database.yaml
+sed -i "s/OLMIS_DATABASE_PASSWORD/$OLMIS_DATABASE_PASSWORD/g" $CONFIG_DIR/datasources/database.yaml
+sed -i "s/OLMIS_DATABASE_URL/$OLMIS_DATABASE_URL/g" $CONFIG_DIR/datasources/database.yaml
+sed -i "s/OLMIS_DATABASE_NAME/$OLMIS_DATABASE_NAME/g" $CONFIG_DIR/datasources/database.yaml
 fabmanager create-admin --app superset --username ${SUPERSET_ADMIN_USERNAME} --firstname Admin --lastname Admin --email noreply --password ${SUPERSET_ADMIN_PASSWORD} &&
 superset db upgrade &&
 superset import_datasources -p $CONFIG_DIR/datasources/database.yaml &&
