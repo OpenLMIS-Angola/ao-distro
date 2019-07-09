@@ -147,6 +147,8 @@ restartFlows() {
       if [ "$controllerServiceName" == "DBCPConnectionPool" ];
       then
         curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"random", "version":"0"},"component":{"id":"'"${controllerServiceId}"'","properties":{"Password":"'"$POSTGRES_PASSWORD"'"}}}' $NIFI_BASE_URL/nifi-api/controller-services/${controllerServiceId}
+      else if [ "$controllerServiceName" == "DBCPConnectionPoolOLMIS" ];
+        curl -i -X PUT -H 'Content-Type: application/json' -d '{"revision":{"clientId":"random", "version":"0"},"component":{"id":"'"${controllerServiceId}"'","properties":{"Password":"'"$OLMIS_DATABASE_PASSWORD"'","Database Connection URL":"'jdbc:postgresql://"$OLMIS_DATABASE_URL":5432/"$OLMIS_DATABASE_NAME"'","Database User":"'$OLMIS_DATABASE_USER'"}}}' $NIFI_BASE_URL/nifi-api/controller-services/${controllerServiceId}
       else
         continue
       fi
