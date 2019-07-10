@@ -516,12 +516,12 @@ INSERT INTO reporting_dates(due_days, late_days, country)
 --- Name: reporting_rate_and_timeliness; Type: TABLE; Schema: referencedata; Owner: postgres
 ---
 CREATE MATERIALIZED VIEW reporting_rate_and_timeliness AS
-SELECT f.id, f.name, f.district, f.region, f.country, f.type, f.operator_name, 
+SELECT f.id, f.name, f.code, f.district, f.region, f.country, f.type, f.operator_name,
 f.status as facility_active_status,
 authorized_reqs.program_id, authorized_reqs.req_id, authorized_reqs.processing_period_id, 
-authorized_reqs.processing_period_enddate, authorized_reqs.facility_id, authorized_reqs.created_date, 
-authorized_reqs.modified_date, authorized_reqs.emergency_status, authorized_reqs.program_name, 
-authorized_reqs.program_active_status, authorized_reqs.processing_schedule_name, 
+authorized_reqs.processing_period_enddate, authorized_reqs.facility_id, authorized_reqs.created_date,
+authorized_reqs.statuschangedate, authorized_reqs.modified_date, authorized_reqs.emergency_status, authorized_reqs.program_name,
+authorized_reqs.program_active_status, authorized_reqs.processing_schedule_name,
 authorized_reqs.processing_period_name, authorized_reqs.processing_period_startdate,
 sp.programid as supported_program, sp.startdate, sp.active as supported_program_active,
 rgm.requisitiongroupid,
