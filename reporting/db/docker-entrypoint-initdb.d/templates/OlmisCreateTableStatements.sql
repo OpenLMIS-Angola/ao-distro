@@ -633,6 +633,7 @@ SUM(average_consumption) as AMC,
 SUM(total_consumed_quantity) as Consumption,
 SUM(adjusted_consumption) as adjusted_consumption,
 SUM(approved_quantity) as order_quantity,
+stock_on_hand/average_consumption::FLOAT as MOS,
 CASE 
     WHEN (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) 
     THEN 1 ELSE 0 END as combined_stockout,
@@ -641,6 +642,7 @@ CASE
     WHEN SUM(max_periods_of_stock) < 3 AND (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Em Ruptura de Stock'
     WHEN SUM(max_periods_of_stock) < 3 AND SUM(max_periods_of_stock) > 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Deficiência de Stock'
     WHEN SUM(max_periods_of_stock) = 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Desconhecido'
+    WHEN SUM(average_consumption) = 0 THEN 'Nenhuma demanda'
     ELSE 'Stock Adequado' END as stock_status
 FROM requisition_line_item
 GROUP BY requisition_line_item_id, requisition_id, orderable_id, product_code, full_product_name, 
