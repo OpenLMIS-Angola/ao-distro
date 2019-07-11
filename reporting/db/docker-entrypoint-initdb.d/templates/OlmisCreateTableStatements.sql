@@ -635,7 +635,7 @@ SUM(adjusted_consumption) as adjusted_consumption,
 SUM(approved_quantity) as order_quantity,
 CASE average_consumption
     WHEN 0 THEN 0
-    ELSE stock_on_hand / average_consumption :: float
+    ELSE stock_on_hand / SUM(average_consumption) :: float
 END as MOS,
 ceiling(total_consumed_quantity / o.netContent :: float) as total_consumed_packs,
 CASE
