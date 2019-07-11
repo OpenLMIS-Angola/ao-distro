@@ -616,7 +616,7 @@ li.price_per_pack, li.total_cost, li.total_received_quantity, sh.requisition_id 
 sh.status as req_status, sh.author_id, sh.created_date as status_date, fa.facility, fa.program, fa.username,
 li.closing_balance, li.AMC, li.Consumption, li.adjusted_consumption,
 li.order_quantity, f.status as facility_status, rd.due_days, rd.late_days,
-li.combined_stockout, li.stock_status
+li.combined_stockout, li.stock_status, li.MOS, li.total_consumed_packs
 FROM requisitions r 
 LEFT JOIN requisitions_status_history sh ON r.id::VARCHAR = sh.requisition_id
 LEFT JOIN reporting_dates rd ON r.country_name = rd.country
@@ -633,7 +633,10 @@ SUM(average_consumption) as AMC,
 SUM(total_consumed_quantity) as Consumption,
 SUM(adjusted_consumption) as adjusted_consumption,
 SUM(approved_quantity) as order_quantity,
-stock_on_hand/average_consumption::FLOAT as MOS,
+CASE average_consumption
+    WHEN 0 THEN 0
+    ELSE stock_on_hand / average_consumption :: float
+END as MOS,
 ceiling(total_consumed_quantity / o.netContent :: float) as total_consumed_packs,
 CASE
     WHEN (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0)
@@ -650,7 +653,7 @@ LEFT JOIN orderables o ON o.id = requisition_line_item.orderable_id
 GROUP BY requisition_line_item_id, requisition_id, orderable_id, product_code, full_product_name, 
 trade_item_id, beginning_balance, total_consumed_quantity, average_consumption, 
 total_losses_and_adjustments, stock_on_hand, total_stockout_days, max_periods_of_stock, 
-calculated_order_quantity, requested_quantity, approved_quantity, packs_to_ship, 
+calculated_order_quantity, requested_quantity, approved_quantity, packs_to_ship, o.netcontent,
 price_per_pack, total_cost, total_received_quantity) li ON r.id::VARCHAR = li.requisition_id WITH DATA;
 
 ALTER MATERIALIZED VIEW stock_status_and_consumption OWNER TO postgres;
