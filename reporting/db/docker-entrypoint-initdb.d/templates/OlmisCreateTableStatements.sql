@@ -634,8 +634,9 @@ SUM(total_consumed_quantity) as Consumption,
 SUM(adjusted_consumption) as adjusted_consumption,
 SUM(approved_quantity) as order_quantity,
 stock_on_hand/average_consumption::FLOAT as MOS,
-CASE 
-    WHEN (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) 
+ceiling(total_consumed_quantity / o.netContent :: float) as total_consumed_packs,
+CASE
+    WHEN (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0)
     THEN 1 ELSE 0 END as combined_stockout,
 CASE
     WHEN SUM(max_periods_of_stock) > 6 THEN 'Excesso de Stock'
@@ -645,6 +646,7 @@ CASE
     WHEN SUM(average_consumption) = 0 THEN 'Nenhuma demanda'
     ELSE 'Stock Adequado' END as stock_status
 FROM requisition_line_item
+LEFT JOIN orderables o ON o.id = requisition_line_item.orderable_id
 GROUP BY requisition_line_item_id, requisition_id, orderable_id, product_code, full_product_name, 
 trade_item_id, beginning_balance, total_consumed_quantity, average_consumption, 
 total_losses_and_adjustments, stock_on_hand, total_stockout_days, max_periods_of_stock, 
