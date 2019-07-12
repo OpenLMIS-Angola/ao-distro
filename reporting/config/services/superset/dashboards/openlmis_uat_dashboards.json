@@ -7,27 +7,27 @@
                 },
                 "changed_by_fk": 1,
                 "slug": "produtos-reportados-e-requisitados",
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 14}",
                 "description": null,
                 "dashboard_title": "Produtos Reportados e Requisitados",
                 "changed_on": {
-                    "__datetime__": "2019-07-11T13:24:45"
+                    "__datetime__": "2019-07-12T10:07:25"
                 },
                 "created_by_fk": 1,
-                "position_json": "{\"CHART-N2afEJR3P7\":{\"children\":[],\"id\":\"CHART-N2afEJR3P7\",\"meta\":{\"chartId\":41,\"height\":109,\"sliceName\":\"Produtos Reportados e Requisitados\",\"width\":8},\"type\":\"CHART\"},\"CHART-tjE12ucKjY\":{\"children\":[],\"id\":\"CHART-tjE12ucKjY\",\"meta\":{\"chartId\":40,\"height\":60,\"sliceName\":\"Filtro\",\"width\":4},\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-JRXqjkHL39\"],\"id\":\"GRID_ID\",\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Produtos Reportados e Requisitados\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-JRXqjkHL39\":{\"children\":[\"CHART-tjE12ucKjY\",\"CHART-N2afEJR3P7\"],\"id\":\"ROW-JRXqjkHL39\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"type\":\"ROW\"}}",
+                "css": "",
+                "position_json": "{\"CHART-N2afEJR3P7\":{\"children\":[],\"id\":\"CHART-N2afEJR3P7\",\"meta\":{\"chartId\":41,\"height\":109,\"sliceName\":\"Produtos Reportados e Requisitados\",\"width\":9},\"type\":\"CHART\"},\"CHART-tjE12ucKjY\":{\"children\":[],\"id\":\"CHART-tjE12ucKjY\",\"meta\":{\"chartId\":40,\"height\":73,\"sliceName\":\"Filtro\",\"width\":3},\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-JRXqjkHL39\"],\"id\":\"GRID_ID\",\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Produtos Reportados e Requisitados\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-JRXqjkHL39\":{\"children\":[\"CHART-tjE12ucKjY\",\"CHART-N2afEJR3P7\"],\"id\":\"ROW-JRXqjkHL39\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"type\":\"ROW\"}}",
                 "id": 14,
                 "slices": [
                     {
                         "__Slice__": {
                             "created_by_fk": 1,
                             "cache_timeout": null,
-                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"filter_box\", \"slice_id\": 40, \"url_params\": {}, \"granularity_sqla\": \"req_created_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"Last 100 years\", \"groupby\": [\"program_name\", \"full_product_name\", \"district_name\", \"facility_name\", \"stock_status\", \"processing_period_name\"], \"metric\": \"count\", \"adhoc_filters\": [], \"date_filter\": true, \"instant_filtering\": false, \"show_sqla_time_granularity\": false, \"show_sqla_time_column\": false, \"show_druid_time_granularity\": false, \"show_druid_time_origin\": false, \"remote_id\": 40, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
+                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"filter_box\", \"slice_id\": 40, \"url_params\": {}, \"granularity_sqla\": \"req_created_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"Last 100 years\", \"groupby\": [\"program_name\", \"region_name\", \"processing_period_name\", \"facility_type_name\", \"facility_name\", \"full_product_name\", \"emergency_status\", \"stock_status\"], \"metric\": \"count\", \"adhoc_filters\": [], \"date_filter\": true, \"instant_filtering\": false, \"show_sqla_time_granularity\": false, \"show_sqla_time_column\": false, \"show_druid_time_granularity\": false, \"show_druid_time_origin\": false, \"remote_id\": 40, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
                             "datasource_name": "stock_status_and_consumption",
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:51"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -44,12 +44,12 @@
                         "__Slice__": {
                             "created_by_fk": 1,
                             "cache_timeout": null,
-                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"table\", \"slice_id\": 41, \"url_params\": {}, \"granularity_sqla\": \"req_created_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"Last 100 years\", \"groupby\": [\"region_name\", \"facility_name\", \"district_name\", \"processing_period_name\", \"full_product_name\", \"stock_on_hand\", \"amc\", \"mos\", \"stock_status\"], \"metrics\": [], \"percent_metrics\": [], \"timeseries_limit_metric\": null, \"row_limit\": 10000, \"include_time\": false, \"order_desc\": true, \"all_columns\": [], \"order_by_cols\": [], \"adhoc_filters\": [], \"table_timestamp_format\": \"%Y-%m-%d %H:%M:%S\", \"page_length\": 0, \"include_search\": false, \"table_filter\": false, \"align_pn\": false, \"color_pn\": true, \"remote_id\": 41, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
+                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"table\", \"slice_id\": 41, \"url_params\": {}, \"granularity_sqla\": \"req_created_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"Last 100 years\", \"groupby\": [\"facility_type_name\", \"facility_name\", \"district_name\", \"region_name\", \"processing_period_name\", \"full_product_name\", \"amc\", \"closing_balance\", \"mos\", \"order_quantity\", \"stock_status\"], \"metrics\": [], \"percent_metrics\": [], \"timeseries_limit_metric\": null, \"row_limit\": 10000, \"include_time\": false, \"order_desc\": true, \"all_columns\": [], \"order_by_cols\": [], \"adhoc_filters\": [], \"table_timestamp_format\": \"%Y-%m-%d %H:%M:%S\", \"page_length\": 0, \"include_search\": false, \"table_filter\": false, \"align_pn\": false, \"color_pn\": true, \"remote_id\": 41, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
                             "datasource_name": "stock_status_and_consumption",
                             "datasource_type": "table",
                             "slice_name": "Produtos Reportados e Requisitados",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:51"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -72,7 +72,6 @@
                 },
                 "changed_by_fk": 1,
                 "slug": "submiss\u00e3o-de-relat\u00f3rios-mensais",
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 13, \"import_time\": 1562837285}",
                 "description": null,
                 "dashboard_title": "Submiss\u00e3o de Relat\u00f3rios Mensais",
@@ -80,6 +79,7 @@
                     "__datetime__": "2019-07-11T12:45:36"
                 },
                 "created_by_fk": 1,
+                "css": "",
                 "position_json": "{\"CHART-J1QbhJPjxd\": {\"children\": [], \"id\": \"CHART-J1QbhJPjxd\", \"meta\": {\"chartId\": 38, \"height\": 53, \"sliceName\": \" Apresentadas todas instituies que submeteram ou nao os relatorios mensais (R&R)\", \"width\": 12}, \"type\": \"CHART\"}, \"CHART-QvlHC2YEp6\": {\"children\": [], \"id\": \"CHART-QvlHC2YEp6\", \"meta\": {\"chartId\": 37, \"height\": 50, \"sliceName\": \"Filtro\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-rkz8XzupLc\": {\"children\": [], \"id\": \"CHART-rkz8XzupLc\", \"meta\": {\"chartId\": 39, \"height\": 50, \"sliceName\": \"Resumo de Submiss\\u00e3o\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-y0tGKlu9wt\": {\"children\": [], \"id\": \"CHART-y0tGKlu9wt\", \"meta\": {\"chartId\": 36, \"height\": 50, \"sliceName\": \"Resumo de Submiss\\u00e3o\", \"width\": 4}, \"type\": \"CHART\"}, \"COLUMN-FOBUNa0S6H\": {\"children\": [\"CHART-y0tGKlu9wt\"], \"id\": \"COLUMN-FOBUNa0S6H\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\", \"width\": 4}, \"type\": \"COLUMN\"}, \"COLUMN-cmIb_BmTMp\": {\"children\": [\"CHART-rkz8XzupLc\"], \"id\": \"COLUMN-cmIb_BmTMp\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\", \"width\": 4}, \"type\": \"COLUMN\"}, \"COLUMN-gCbLFCxXIe\": {\"children\": [\"CHART-QvlHC2YEp6\"], \"id\": \"COLUMN-gCbLFCxXIe\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\", \"width\": 4}, \"type\": \"COLUMN\"}, \"DASHBOARD_VERSION_KEY\": \"v2\", \"GRID_ID\": {\"children\": [\"HEADER-td5R9y5joQ\", \"ROW-N5U9AanJE2\", \"ROW-Ey9kKGhi7I\"], \"id\": \"GRID_ID\", \"type\": \"GRID\"}, \"HEADER-td5R9y5joQ\": {\"children\": [], \"id\": \"HEADER-td5R9y5joQ\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\", \"headerSize\": \"MEDIUM_HEADER\", \"text\": \"Submiss\\u00e3o de Relat\\u00f3rios Mensais\"}, \"type\": \"HEADER\"}, \"HEADER_ID\": {\"id\": \"HEADER_ID\", \"meta\": {\"text\": \"Submiss\\u00e3o de Relat\\u00f3rios Mensais\"}, \"type\": \"HEADER\"}, \"ROOT_ID\": {\"children\": [\"GRID_ID\"], \"id\": \"ROOT_ID\", \"type\": \"ROOT\"}, \"ROW-Ey9kKGhi7I\": {\"children\": [\"CHART-J1QbhJPjxd\"], \"id\": \"ROW-Ey9kKGhi7I\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-N5U9AanJE2\": {\"children\": [\"COLUMN-gCbLFCxXIe\", \"COLUMN-FOBUNa0S6H\", \"COLUMN-cmIb_BmTMp\"], \"id\": \"ROW-N5U9AanJE2\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}}",
                 "id": 13,
                 "slices": [
@@ -92,7 +92,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Submiss\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:51"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -114,7 +114,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:51"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -136,7 +136,7 @@
                             "datasource_type": "table",
                             "slice_name": " Apresentadas todas institui\u00e7\u00f5es que submeteram ou n\u00e3o os relat\u00f3rios mensais (R&R)",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:51"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -158,7 +158,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Submiss\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:51"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -181,7 +181,6 @@
                 },
                 "changed_by_fk": 1,
                 "slug": "consumo-agregado",
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 10}",
                 "description": null,
                 "dashboard_title": "Consumo Agregado",
@@ -189,6 +188,7 @@
                     "__datetime__": "2019-07-11T10:06:06"
                 },
                 "created_by_fk": 1,
+                "css": "",
                 "position_json": "{\"CHART-7OLad9FLLZ\":{\"children\":[],\"id\":\"CHART-7OLad9FLLZ\",\"meta\":{\"chartId\":28,\"height\":120,\"sliceName\":\"Consumo Agregado\",\"width\":8},\"type\":\"CHART\"},\"CHART-Aezww33r8Q\":{\"children\":[],\"id\":\"CHART-Aezww33r8Q\",\"meta\":{\"chartId\":29,\"height\":120,\"sliceName\":\"Filtro (Consumo Agregado)\",\"width\":4},\"type\":\"CHART\"},\"COLUMN-zEitcUADwq\":{\"children\":[\"CHART-Aezww33r8Q\"],\"id\":\"COLUMN-zEitcUADwq\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":4},\"type\":\"COLUMN\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-kL923z5ZYj\"],\"id\":\"GRID_ID\",\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Consumo Agregado\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-kL923z5ZYj\":{\"children\":[\"COLUMN-zEitcUADwq\",\"CHART-7OLad9FLLZ\"],\"id\":\"ROW-kL923z5ZYj\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"type\":\"ROW\"}}",
                 "id": 10,
                 "slices": [
@@ -201,7 +201,7 @@
                             "datasource_type": "table",
                             "slice_name": "Consumo Agregado",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -223,7 +223,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Consumo Agregado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -246,7 +246,6 @@
                 },
                 "changed_by_fk": 1,
                 "slug": "ocorr\u00eancia-de-ajustes",
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 9}",
                 "description": null,
                 "dashboard_title": "Ocorr\u00eancia de Ajustes",
@@ -254,6 +253,7 @@
                     "__datetime__": "2019-07-05T11:53:26"
                 },
                 "created_by_fk": 1,
+                "css": "",
                 "position_json": "{\"CHART-4cR09ar-Tf\":{\"children\":[],\"id\":\"CHART-4cR09ar-Tf\",\"meta\":{\"chartId\":21,\"height\":44,\"sliceName\":\"Ocorr\\u00eancia de Ajustes\",\"width\":12},\"type\":\"CHART\"},\"CHART-Z9W240xKja\":{\"children\":[],\"id\":\"CHART-Z9W240xKja\",\"meta\":{\"chartId\":27,\"height\":50,\"sliceName\":\"Filtro\",\"width\":4},\"type\":\"CHART\"},\"COLUMN-FJILfi6o7_\":{\"children\":[\"CHART-Z9W240xKja\"],\"id\":\"COLUMN-FJILfi6o7_\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":12},\"type\":\"COLUMN\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-UWLXtHFpNk\",\"ROW-s33ex8VPc\"],\"id\":\"GRID_ID\",\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Ocorr\\u00eancia de Ajustes\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-UWLXtHFpNk\":{\"children\":[\"COLUMN-FJILfi6o7_\"],\"id\":\"ROW-UWLXtHFpNk\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"type\":\"ROW\"},\"ROW-s33ex8VPc\":{\"children\":[\"CHART-4cR09ar-Tf\"],\"id\":\"ROW-s33ex8VPc\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"type\":\"ROW\"}}",
                 "id": 9,
                 "slices": [
@@ -266,7 +266,7 @@
                             "datasource_type": "table",
                             "slice_name": "Ocorr\u00eancia de Ajustes",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_adjustments_view](id:35)",
@@ -288,7 +288,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:19"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_adjustments_view](id:35)",
@@ -311,7 +311,6 @@
                 },
                 "changed_by_fk": null,
                 "slug": null,
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 7, \"import_time\": 1561641040}",
                 "description": null,
                 "dashboard_title": "Administrativo",
@@ -319,6 +318,7 @@
                     "__datetime__": "2019-06-27T13:10:41"
                 },
                 "created_by_fk": null,
+                "css": "",
                 "position_json": "{\"CHART-EVVSjHFIHN\": {\"children\": [], \"id\": \"CHART-EVVSjHFIHN\", \"meta\": {\"chartId\": 17, \"height\": 89, \"sliceName\": \"Facility List\", \"width\": 12}, \"type\": \"CHART\"}, \"DASHBOARD_VERSION_KEY\": \"v2\", \"GRID_ID\": {\"children\": [\"ROW-cQ0JwmC8b\"], \"id\": \"GRID_ID\", \"type\": \"GRID\"}, \"HEADER_ID\": {\"id\": \"HEADER_ID\", \"meta\": {\"text\": \"Administrative\"}, \"type\": \"HEADER\"}, \"ROOT_ID\": {\"children\": [\"GRID_ID\"], \"id\": \"ROOT_ID\", \"type\": \"ROOT\"}, \"ROW-cQ0JwmC8b\": {\"children\": [\"CHART-EVVSjHFIHN\"], \"id\": \"ROW-cQ0JwmC8b\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}}",
                 "id": 7,
                 "slices": [
@@ -331,7 +331,7 @@
                             "datasource_type": "table",
                             "slice_name": "Lista de Institui\u00e7\u00f5es",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[facilities](id:30)",
@@ -354,7 +354,6 @@
                 },
                 "changed_by_fk": null,
                 "slug": null,
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 6, \"import_time\": 1561641040}",
                 "description": null,
                 "dashboard_title": "Sa\u00eddas de estoque",
@@ -362,6 +361,7 @@
                     "__datetime__": "2019-06-27T13:10:41"
                 },
                 "created_by_fk": null,
+                "css": "",
                 "position_json": "{\"CHART-3a3t50Losu\": {\"children\": [], \"id\": \"CHART-3a3t50Losu\", \"meta\": {\"chartId\": 2, \"height\": 25, \"sliceName\": \"Relat\\u00f3rios de Submiss\\u00e3o (Acumulado)\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-7qtihGmvhy\": {\"children\": [], \"id\": \"CHART-7qtihGmvhy\", \"meta\": {\"chartId\": 1, \"height\": 68, \"sliceName\": \"Filtro\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-ZxCCxr1LkD\": {\"children\": [], \"id\": \"CHART-ZxCCxr1LkD\", \"meta\": {\"chartId\": 16, \"height\": 36, \"sliceName\": \"Taxas de Ruptura de Stock do Munic\\u00edpio\", \"width\": 12}, \"type\": \"CHART\"}, \"CHART-fpY4uE-ZN5\": {\"children\": [], \"id\": \"CHART-fpY4uE-ZN5\", \"meta\": {\"chartId\": 3, \"height\": 68, \"sliceName\": \"Taxa de Submiss\\u00e3o de Relat\\u00f3rios\", \"width\": 8}, \"type\": \"CHART\"}, \"DASHBOARD_VERSION_KEY\": \"v2\", \"GRID_ID\": {\"children\": [\"ROW-T9IK1wSrS\", \"ROW-ZNBZ4wekv\", \"ROW-ZPQ_lw1-k\"], \"id\": \"GRID_ID\", \"type\": \"GRID\"}, \"HEADER_ID\": {\"id\": \"HEADER_ID\", \"meta\": {\"text\": \"Sa\\u00eddas de estoque\"}, \"type\": \"HEADER\"}, \"MARKDOWN-veBvEY4Ft_\": {\"children\": [], \"id\": \"MARKDOWN-veBvEY4Ft_\", \"meta\": {\"code\": \"Use o filtro no canto superior esquerdo para selecionar o c\\u00f3digo de produto espec\\u00edfico para ver a taxa de ruptura de stock desse produto.\\n\\nPor defeito, este painel mostra a taxa m\\u00e9dia de ruptura de stock para todos produtos.\", \"height\": 25, \"width\": 8}, \"type\": \"MARKDOWN\"}, \"ROOT_ID\": {\"children\": [\"GRID_ID\"], \"id\": \"ROOT_ID\", \"type\": \"ROOT\"}, \"ROW-T9IK1wSrS\": {\"children\": [\"CHART-7qtihGmvhy\", \"CHART-fpY4uE-ZN5\"], \"id\": \"ROW-T9IK1wSrS\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-ZNBZ4wekv\": {\"children\": [\"MARKDOWN-veBvEY4Ft_\", \"CHART-3a3t50Losu\"], \"id\": \"ROW-ZNBZ4wekv\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-ZPQ_lw1-k\": {\"children\": [\"CHART-ZxCCxr1LkD\"], \"id\": \"ROW-ZPQ_lw1-k\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}}",
                 "id": 6,
                 "slices": [
@@ -374,7 +374,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -396,7 +396,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -418,7 +418,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -440,7 +440,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxas de Ruptura de Stock do Munic\u00edpio",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -463,7 +463,6 @@
                 },
                 "changed_by_fk": null,
                 "slug": null,
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 5, \"import_time\": 1561641040}",
                 "description": null,
                 "dashboard_title": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
@@ -471,6 +470,7 @@
                     "__datetime__": "2019-06-27T13:10:41"
                 },
                 "created_by_fk": null,
+                "css": "",
                 "position_json": "{\"CHART-3XaEn_AjRI\": {\"children\": [], \"id\": \"CHART-3XaEn_AjRI\", \"meta\": {\"chartId\": 3, \"height\": 46, \"sliceName\": \"Reporting Rate and Timeliness\", \"width\": 12}, \"type\": \"CHART\"}, \"CHART-PdVqnXV-Q4\": {\"children\": [], \"id\": \"CHART-PdVqnXV-Q4\", \"meta\": {\"chartId\": 15, \"height\": 56, \"sliceName\": \"Expected Facilities per Period\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-bDIq2bI0KP\": {\"children\": [], \"id\": \"CHART-bDIq2bI0KP\", \"meta\": {\"chartId\": 14, \"height\": 56, \"sliceName\": \"Reporting Rate Filter\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-vQsFBEa-Sm\": {\"children\": [], \"id\": \"CHART-vQsFBEa-Sm\", \"meta\": {\"chartId\": 2, \"height\": 56, \"sliceName\": \"All-Time Reporting Timeliness\", \"width\": 4}, \"type\": \"CHART\"}, \"DASHBOARD_VERSION_KEY\": \"v2\", \"GRID_ID\": {\"children\": [\"ROW-SvSDtqQSP\", \"ROW-2ZW3FYstKJ\"], \"id\": \"GRID_ID\", \"type\": \"GRID\"}, \"HEADER_ID\": {\"id\": \"HEADER_ID\", \"meta\": {\"text\": \"Reporting Rate and Timeliness\"}, \"type\": \"HEADER\"}, \"ROOT_ID\": {\"children\": [\"GRID_ID\"], \"id\": \"ROOT_ID\", \"type\": \"ROOT\"}, \"ROW-2ZW3FYstKJ\": {\"children\": [\"CHART-3XaEn_AjRI\"], \"id\": \"ROW-2ZW3FYstKJ\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-SvSDtqQSP\": {\"children\": [\"CHART-bDIq2bI0KP\", \"CHART-vQsFBEa-Sm\", \"CHART-PdVqnXV-Q4\"], \"id\": \"ROW-SvSDtqQSP\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}}",
                 "id": 5,
                 "slices": [
@@ -483,7 +483,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -505,7 +505,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -527,7 +527,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -549,7 +549,7 @@
                             "datasource_type": "table",
                             "slice_name": "Institui\u00e7\u00f5es \u00e0 Reportar Por Per\u00edodo",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -572,7 +572,6 @@
                 },
                 "changed_by_fk": null,
                 "slug": null,
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 4, \"import_time\": 1561641040}",
                 "description": null,
                 "dashboard_title": "Ajustes",
@@ -580,6 +579,7 @@
                     "__datetime__": "2019-06-27T13:10:41"
                 },
                 "created_by_fk": null,
+                "css": "",
                 "position_json": "{\"CHART-7bRWG8LSHr\": {\"children\": [], \"id\": \"CHART-7bRWG8LSHr\", \"meta\": {\"chartId\": 13, \"height\": 63, \"sliceName\": \"Adjustment Summary\", \"width\": 8}, \"type\": \"CHART\"}, \"CHART-nNgDezViDk\": {\"children\": [], \"id\": \"CHART-nNgDezViDk\", \"meta\": {\"chartId\": 3, \"height\": 47, \"sliceName\": \"Reporting Rate and Timeliness\", \"width\": 8}, \"type\": \"CHART\"}, \"CHART-pb3mGEd1Dr\": {\"children\": [], \"id\": \"CHART-pb3mGEd1Dr\", \"meta\": {\"chartId\": 12, \"height\": 63, \"sliceName\": \"Adjustments Filter\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-yAWXcngznO\": {\"children\": [], \"id\": \"CHART-yAWXcngznO\", \"meta\": {\"chartId\": 2, \"height\": 47, \"sliceName\": \"All-Time Reporting Timeliness\", \"width\": 4}, \"type\": \"CHART\"}, \"DASHBOARD_VERSION_KEY\": \"v2\", \"GRID_ID\": {\"children\": [\"ROW-lBkyeXpzg\", \"ROW-08VACKTqo\"], \"id\": \"GRID_ID\", \"type\": \"GRID\"}, \"HEADER_ID\": {\"id\": \"HEADER_ID\", \"meta\": {\"text\": \"Adjustments\"}, \"type\": \"HEADER\"}, \"ROOT_ID\": {\"children\": [\"GRID_ID\"], \"id\": \"ROOT_ID\", \"type\": \"ROOT\"}, \"ROW-08VACKTqo\": {\"children\": [\"CHART-yAWXcngznO\", \"CHART-nNgDezViDk\"], \"id\": \"ROW-08VACKTqo\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-lBkyeXpzg\": {\"children\": [\"CHART-pb3mGEd1Dr\", \"CHART-7bRWG8LSHr\"], \"id\": \"ROW-lBkyeXpzg\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}}",
                 "id": 4,
                 "slices": [
@@ -592,7 +592,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -614,7 +614,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -636,7 +636,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[adjustments](id:2)",
@@ -658,7 +658,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de ajuste",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[adjustments](id:2)",
@@ -681,7 +681,6 @@
                 },
                 "changed_by_fk": null,
                 "slug": null,
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 3, \"import_time\": 1561641040}",
                 "description": null,
                 "dashboard_title": "Encomendas",
@@ -689,6 +688,7 @@
                     "__datetime__": "2019-06-27T13:10:41"
                 },
                 "created_by_fk": null,
+                "css": "",
                 "position_json": "{\"CHART-AT0j1Zcadn\": {\"children\": [], \"id\": \"CHART-AT0j1Zcadn\", \"meta\": {\"chartId\": 2, \"height\": 56, \"sliceName\": \"Relat\\u00f3rios de Submiss\\u00e3o (Acumulado)\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-LbIJzEKTY7\": {\"children\": [], \"id\": \"CHART-LbIJzEKTY7\", \"meta\": {\"chartId\": 11, \"height\": 50, \"sliceName\": \"Custo total de Encomendas\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-VKRFWErEmb\": {\"children\": [], \"id\": \"CHART-VKRFWErEmb\", \"meta\": {\"chartId\": 9, \"height\": 56, \"sliceName\": \"Filtro\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-VvvEf19cQr\": {\"children\": [], \"id\": \"CHART-VvvEf19cQr\", \"meta\": {\"chartId\": 3, \"height\": 56, \"sliceName\": \"Taxa de Submiss\\u00e3o de Relat\\u00f3rios\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-tNBojpLRC1\": {\"children\": [], \"id\": \"CHART-tNBojpLRC1\", \"meta\": {\"chartId\": 10, \"height\": 50, \"sliceName\": \"Pedidos Regulares vs. de Emerg\\u00eancia\", \"width\": 4}, \"type\": \"CHART\"}, \"DASHBOARD_VERSION_KEY\": \"v2\", \"GRID_ID\": {\"children\": [\"ROW-9wEyBjDsd\", \"ROW-mmrKXECue1\"], \"id\": \"GRID_ID\", \"type\": \"GRID\"}, \"HEADER_ID\": {\"id\": \"HEADER_ID\", \"meta\": {\"text\": \"Encomendas\"}, \"type\": \"HEADER\"}, \"ROOT_ID\": {\"children\": [\"GRID_ID\"], \"id\": \"ROOT_ID\", \"type\": \"ROOT\"}, \"ROW-9wEyBjDsd\": {\"children\": [\"CHART-VKRFWErEmb\", \"CHART-AT0j1Zcadn\", \"CHART-VvvEf19cQr\"], \"id\": \"ROW-9wEyBjDsd\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-mmrKXECue1\": {\"children\": [\"CHART-tNBojpLRC1\", \"CHART-LbIJzEKTY7\"], \"id\": \"ROW-mmrKXECue1\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}}",
                 "id": 3,
                 "slices": [
@@ -701,7 +701,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -723,7 +723,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -745,7 +745,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -767,7 +767,7 @@
                             "datasource_type": "table",
                             "slice_name": "Pedidos Regulares vs. de Emerg\u00eancia",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -789,7 +789,7 @@
                             "datasource_type": "table",
                             "slice_name": "Custo total de Encomendas",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -812,7 +812,6 @@
                 },
                 "changed_by_fk": null,
                 "slug": null,
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 2, \"import_time\": 1561641040}",
                 "description": null,
                 "dashboard_title": "Consumo",
@@ -820,6 +819,7 @@
                     "__datetime__": "2019-06-27T13:10:41"
                 },
                 "created_by_fk": null,
+                "css": "",
                 "position_json": "{\"CHART-TreiyZs86A\": {\"children\": [], \"id\": \"CHART-TreiyZs86A\", \"meta\": {\"chartId\": 7, \"height\": 50, \"sliceName\": \"Relat\\u00f3rio de Consumo\", \"width\": 5}, \"type\": \"CHART\"}, \"CHART-k3Q8bZoivs\": {\"children\": [], \"id\": \"CHART-k3Q8bZoivs\", \"meta\": {\"chartId\": 8, \"height\": 50, \"sliceName\": \"Total de Instala\\u00e7\\u00f5es de Consumo Ajustado\", \"width\": 7}, \"type\": \"CHART\"}, \"CHART-sLPzUKWaFt\": {\"children\": [], \"id\": \"CHART-sLPzUKWaFt\", \"meta\": {\"chartId\": 6, \"height\": 69, \"sliceName\": \"Relat\\u00f3rio Resumido de Log\\u00edstica\", \"width\": 8}, \"type\": \"CHART\"}, \"CHART-vWziXTcZlz\": {\"children\": [], \"id\": \"CHART-vWziXTcZlz\", \"meta\": {\"chartId\": 1, \"height\": 69, \"sliceName\": \"Filtro\", \"width\": 4}, \"type\": \"CHART\"}, \"DASHBOARD_VERSION_KEY\": \"v2\", \"GRID_ID\": {\"children\": [\"ROW-00JoR3Ly_\", \"ROW-6jFB8wGrT7\", \"ROW-6HHg95Bz9\"], \"id\": \"GRID_ID\", \"type\": \"GRID\"}, \"HEADER_ID\": {\"id\": \"HEADER_ID\", \"meta\": {\"text\": \"Consumo\"}, \"type\": \"HEADER\"}, \"MARKDOWN-hbo_igRlnf\": {\"children\": [], \"id\": \"MARKDOWN-hbo_igRlnf\", \"meta\": {\"code\": \"Use os filtros no canto superior esquerdo para selecionar um produto, institui\\u00e7\\u00e3o ou um per\\u00edodo de relat\\u00f3rio espec\\u00edfico.\\n\\nObserve que, com o gr\\u00e1fico de linhas abaixo, dever\\u00e1 selecionar um produto espec\\u00edfico, caso contr\\u00e1rio, ser\\u00e1 mostrado o agregado de todos os produtos.\", \"height\": 13, \"width\": 12}, \"type\": \"MARKDOWN\"}, \"ROOT_ID\": {\"children\": [\"GRID_ID\"], \"id\": \"ROOT_ID\", \"type\": \"ROOT\"}, \"ROW-00JoR3Ly_\": {\"children\": [\"CHART-vWziXTcZlz\", \"CHART-sLPzUKWaFt\"], \"id\": \"ROW-00JoR3Ly_\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-6HHg95Bz9\": {\"children\": [\"CHART-TreiyZs86A\", \"CHART-k3Q8bZoivs\"], \"id\": \"ROW-6HHg95Bz9\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-6jFB8wGrT7\": {\"children\": [\"MARKDOWN-hbo_igRlnf\"], \"id\": \"ROW-6jFB8wGrT7\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}}",
                 "id": 2,
                 "slices": [
@@ -832,7 +832,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -854,7 +854,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rio Resumido de Log\u00edstica",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -876,7 +876,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rio de Consumo",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -898,7 +898,7 @@
                             "datasource_type": "table",
                             "slice_name": "Total de Instala\u00e7\u00f5es de Consumo Ajustado",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -921,7 +921,6 @@
                 },
                 "changed_by_fk": null,
                 "slug": null,
-                "css": "",
                 "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 1, \"import_time\": 1561641040}",
                 "description": null,
                 "dashboard_title": "Estado de Stocks",
@@ -929,6 +928,7 @@
                     "__datetime__": "2019-06-27T13:10:41"
                 },
                 "created_by_fk": null,
+                "css": "",
                 "position_json": "{\"CHART--LgINf3I5d\": {\"children\": [], \"id\": \"CHART--LgINf3I5d\", \"meta\": {\"chartId\": 1, \"height\": 70, \"sliceName\": \"Stock Filter\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-7uM3Wv7xBt\": {\"children\": [], \"id\": \"CHART-7uM3Wv7xBt\", \"meta\": {\"chartId\": 3, \"height\": 70, \"sliceName\": \"Reporting Rate and Timeliness\", \"width\": 8}, \"type\": \"CHART\"}, \"CHART-IT9pkuKScA\": {\"children\": [], \"id\": \"CHART-IT9pkuKScA\", \"meta\": {\"chartId\": 4, \"height\": 50, \"sliceName\": \"Stock Status over Time\", \"width\": 8}, \"type\": \"CHART\"}, \"CHART-d2tBpcbV-b\": {\"children\": [], \"id\": \"CHART-d2tBpcbV-b\", \"meta\": {\"chartId\": 2, \"height\": 50, \"sliceName\": \"All-Time Reporting Timeliness\", \"width\": 4}, \"type\": \"CHART\"}, \"CHART-m9aMYFLQL3\": {\"children\": [], \"id\": \"CHART-m9aMYFLQL3\", \"meta\": {\"chartId\": 5, \"height\": 49, \"sliceName\": \"Stock Status Table\", \"width\": 12}, \"type\": \"CHART\"}, \"DASHBOARD_VERSION_KEY\": \"v2\", \"GRID_ID\": {\"children\": [\"ROW-A0s8aw1vz\", \"ROW-IFJ_tPxhWt\", \"ROW-zipNbHWEh\"], \"id\": \"GRID_ID\", \"type\": \"GRID\"}, \"HEADER_ID\": {\"id\": \"HEADER_ID\", \"meta\": {\"text\": \"Stock Status\"}, \"type\": \"HEADER\"}, \"ROOT_ID\": {\"children\": [\"GRID_ID\"], \"id\": \"ROOT_ID\", \"type\": \"ROOT\"}, \"ROW-A0s8aw1vz\": {\"children\": [\"CHART--LgINf3I5d\", \"CHART-7uM3Wv7xBt\"], \"id\": \"ROW-A0s8aw1vz\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-IFJ_tPxhWt\": {\"children\": [\"CHART-d2tBpcbV-b\", \"CHART-IT9pkuKScA\"], \"id\": \"ROW-IFJ_tPxhWt\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}, \"ROW-zipNbHWEh\": {\"children\": [\"CHART-m9aMYFLQL3\"], \"id\": \"ROW-zipNbHWEh\", \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}, \"type\": \"ROW\"}}",
                 "id": 1,
                 "slices": [
@@ -941,7 +941,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -963,7 +963,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -985,7 +985,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1007,7 +1007,7 @@
                             "datasource_type": "table",
                             "slice_name": "Condi\u00e7\u00f5es das a\u00e7\u00f5es ao longo do tempo",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1029,7 +1029,7 @@
                             "datasource_type": "table",
                             "slice_name": "Tabela de Condi\u00e7\u00f5es de estoque",
                             "changed_on": {
-                                "__datetime__": "2019-07-11T14:18:20"
+                                "__datetime__": "2019-07-12T11:30:52"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -2875,36 +2875,6 @@
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 436,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "mos",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": "MOS",
-                            "created_by_fk": 1,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "DOUBLE PRECISION",
-                            "created_on": {
-                                "__datetime__": "2019-07-11T11:18:59"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 1,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-11T11:20:47"
-                            },
-                            "expression": "",
-                            "sum": null,
                             "id": 437,
                             "python_date_format": null,
                             "avg": null,
@@ -2931,27 +2901,27 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
+                                "__datetime__": "2019-07-12T10:03:49"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 2,
-                            "python_date_format": "",
+                            "id": 436,
+                            "python_date_format": null,
                             "avg": null,
-                            "column_name": "amc",
-                            "database_expression": "",
+                            "column_name": "mos",
+                            "database_expression": null,
                             "max": null,
-                            "verbose_name": "AMC",
-                            "created_by_fk": null,
+                            "verbose_name": "Messes de Stock",
+                            "created_by_fk": 1,
                             "min": null,
                             "is_active": null,
-                            "changed_by_fk": null,
+                            "changed_by_fk": 1,
                             "filterable": true,
                             "type": "DOUBLE PRECISION",
                             "created_on": {
-                                "__datetime__": "2019-06-27T13:10:32"
+                                "__datetime__": "2019-07-11T11:18:59"
                             },
-                            "description": "",
+                            "description": null,
                             "groupby": true,
                             "table_id": 1,
                             "count_distinct": null,
@@ -3196,6 +3166,36 @@
                             "table_id": 1,
                             "count_distinct": null,
                             "is_dttm": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-12T10:04:22"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 2,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "amc",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Consumo M\u00e9dia Mensal",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "DOUBLE PRECISION",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:32"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 1,
+                            "count_distinct": null,
+                            "is_dttm": false
                         }
                     },
                     {
@@ -3925,36 +3925,6 @@
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 34,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "facility_name",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Instala\u00e7\u00e3o",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:32"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 1,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
                             "id": 35,
                             "python_date_format": null,
                             "avg": null,
@@ -4122,36 +4092,6 @@
                                 "__datetime__": "2019-06-27T13:10:32"
                             },
                             "description": null,
-                            "groupby": true,
-                            "table_id": 1,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 41,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "facility_type_name",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Tipo de Instala\u00e7\u00e3o",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:32"
-                            },
-                            "description": "",
                             "groupby": true,
                             "table_id": 1,
                             "count_distinct": null,
@@ -4645,36 +4585,6 @@
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 63,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "region_name",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Regi\u00e3o",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:32"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 1,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
                             "id": 65,
                             "python_date_format": "",
                             "avg": null,
@@ -4718,36 +4628,6 @@
                             "changed_by_fk": null,
                             "filterable": true,
                             "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:32"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 1,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 69,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "stock_status",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Condi\u00e7\u00f5es do estoque",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "TEXT",
                             "created_on": {
                                 "__datetime__": "2019-06-27T13:10:32"
                             },
@@ -5078,6 +4958,126 @@
                             "changed_by_fk": 1,
                             "filterable": true,
                             "type": "DOUBLE PRECISION",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:32"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 1,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-12T09:18:15"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 34,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "facility_name",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Institui\u00e7\u00e3o",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:32"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 1,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-12T09:18:34"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 41,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "facility_type_name",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Tipo de Institui\u00e7\u00e3o",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:32"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 1,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-12T09:43:25"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 63,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "region_name",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Prov\u00edncia",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:32"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 1,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-12T09:47:28"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 69,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "stock_status",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Estado",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
                             "created_on": {
                                 "__datetime__": "2019-06-27T13:10:32"
                             },
