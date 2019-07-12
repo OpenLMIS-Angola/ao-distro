@@ -597,8 +597,8 @@ CREATE MATERIALIZED VIEW stock_status_and_consumption AS
 SELECT li.requisition_line_item_id, r.id, 
 r.created_date as req_created_date, r.modified_date, 
 CASE 
-    WHEN r.emergency_status IS TRUE THEN 'Dados'
-    ELSE 'Sem Dados'
+    WHEN r.emergency_status IS TRUE THEN 'Emergência'
+    ELSE 'Regular'
 END as emergency_status, 
 r.supplying_facility, 
 r.supervisory_node, r.facility_id, r.facility_code, r.facility_name, r.facilty_active_status, 
@@ -643,10 +643,10 @@ CASE
     THEN 1 ELSE 0 END as combined_stockout,
 CASE
     WHEN SUM(max_periods_of_stock) > 6 THEN 'Excesso de Stock'
-    WHEN SUM(max_periods_of_stock) < 3 AND (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Em Ruptura de Stock'
-    WHEN SUM(max_periods_of_stock) < 3 AND SUM(max_periods_of_stock) > 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Deficiência de Stock'
+    WHEN SUM(max_periods_of_stock) < 3 AND (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Ruptura de Stock'
+    WHEN SUM(max_periods_of_stock) < 3 AND SUM(max_periods_of_stock) > 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Abaixo de Stock'
     WHEN SUM(max_periods_of_stock) = 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Desconhecido'
-    WHEN SUM(average_consumption) = 0 THEN 'Nenhuma demanda'
+    WHEN SUM(average_consumption) = 0 THEN 'Sem Movimento (Consumo Mensal = 0)'
     ELSE 'Stock Adequado' END as stock_status
 FROM requisition_line_item
 LEFT JOIN orderables o ON o.id = requisition_line_item.orderable_id
