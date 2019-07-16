@@ -23,3 +23,18 @@ LEFT JOIN referencedata.geographic_zones province ON district.parentid = provinc
 LEFT JOIN referencedata.geographic_levels district_level ON district.levelid = district_level.id
 LEFT JOIN referencedata.geographic_levels province_level ON province.levelid = province_level.id
 WHERE reason.reasontype IS NOT NULL;
+
+DROP MATERIALIZED VIEW IF EXISTS stock_expiry_dates;
+
+CREATE MATERIALIZED VIEW stock_expiry_dates AS
+SELECT product.fullproductname AS product_name, product.code AS product_code,
+lot.expirationdate, lot.lotcode,
+facility.name AS facility_name, facility.code AS facility_code,
+district.name AS district_name, district.code AS district_code,
+province.name AS province_name, province.code AS province_code
+FROM stockmanagement.stock_cards card
+LEFT JOIN referencedata.orderables product ON card.orderableid = product.id
+LEFT JOIN referencedata.lots lot ON card.lotid = card.lotid
+LEFT JOIN referencedata.facilities facility ON card.facilityid = facility.id
+LEFT JOIN referencedata.geographic_zones district ON facility.geographiczoneid = district.id
+LEFT JOIN referencedata.geographic_zones province ON district.parentid = province.id;
