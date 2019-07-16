@@ -4045,6 +4045,7 @@ msgid "Export"
 msgstr "Exportar"
 
 #: superset/views/core.py:521
+#: superset/views/core.py:618
 msgid "Export dashboards?"
 msgstr "Exportar dashboards?"
 
@@ -4244,3 +4245,7 @@ msgstr ": Ordenar colunas de forma descendente"
 #: superset/assets/src/visualizations/FilterBox/FilterBox.jsx:253
 msgid "No results found"
 msgstr "Dados não encontrados"
+
+#: superset/views/core.py:515
+msgid: "Charts"
+msgstr "Gráficos"
