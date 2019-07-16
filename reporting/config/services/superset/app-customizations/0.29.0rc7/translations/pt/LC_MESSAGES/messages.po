@@ -4021,7 +4021,7 @@ msgstr ""
 
 #: superset/views/core.py:488 superset/views/core.py:555
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "Painel"
 
 #: superset/views/core.py:490
 msgid "Slug"
