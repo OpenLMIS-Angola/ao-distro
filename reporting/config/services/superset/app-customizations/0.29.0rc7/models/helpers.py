@@ -275,7 +275,7 @@ class AuditMixinNullable(AuditMixin):
 
   @renders('changed_on')
   def modified(self):
-    humanize.i18n.activate('pt', path='../translations')
+    humanize.i18n.activate('pt', path='../../.')
     return humanize.naturaltime(datetime.now() - self.changed_on)
 
   @property
