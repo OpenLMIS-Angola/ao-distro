@@ -3121,7 +3121,7 @@ msgstr "Sem dashboards"
 #: superset/templates/superset/welcome.html:13 superset/views/core.py:381
 #: superset/views/core.py:546
 msgid "Dashboards"
-msgstr "Dashboards"
+msgstr "Painéis de Visualização"
 
 #: superset/assets/javascripts/profile/components/CreatedContent.jsx:61
 #: superset/assets/javascripts/profile/components/Favorites.jsx:62
@@ -4247,5 +4247,9 @@ msgid "No results found"
 msgstr "Dados não encontrados"
 
 #: superset/views/core.py:515
-msgid: "Charts"
-msgstr "Gráficos"
+msgid "Charts"
+msgstr "Gráficos
+
+#: superset/assets/src/welcome/Welcome.jsx
+msgid "Recently Viewed"
+msgstr "Vistos Recentemente"
