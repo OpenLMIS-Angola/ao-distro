@@ -4248,7 +4248,7 @@ msgstr "Dados não encontrados"
 
 #: superset/views/core.py:515
 msgid "Charts"
-msgstr "Gráficos
+msgstr "Gráficos"
 
 #: superset/assets/src/welcome/Welcome.jsx
 msgid "Recently Viewed"
