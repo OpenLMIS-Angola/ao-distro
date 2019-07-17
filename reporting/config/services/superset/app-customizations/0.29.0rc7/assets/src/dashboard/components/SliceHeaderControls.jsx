@@ -109,10 +109,10 @@ class SliceHeaderControls extends React.PureComponent {
     const cachedWhen = moment.utc(cachedDttm).fromNow();
     const updatedWhen = updatedDttm ? moment.utc(updatedDttm).fromNow() : '';
     // Tempoprary hide the time of Cached and Fetched labels
-    const refreshTooltip = isCached
-      ? t('Cached %s', '')
-      : (updatedWhen && t('Fetched %s', '')) || '';
-
+    const refreshTooltip = '';
+        //isCached
+    //       ? t('Cached %s', cachedWhen)
+    //       : (updatedWhen && t('Fetched %s', updatedWhen)) || '';
     return (
       <Dropdown
         id={`slice_${slice.slice_id}-controls`}
