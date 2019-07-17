@@ -3,6 +3,49 @@
         {
             "__Dashboard__": {
                 "created_on": {
+                    "__datetime__": "2019-07-17T18:30:53"
+                },
+                "changed_by_fk": 1,
+                "slug": "datas-de-expiracao",
+                "css": "",
+                "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 20}",
+                "description": null,
+                "dashboard_title": "Datas de Expira\u00e7\u00e3o",
+                "changed_on": {
+                    "__datetime__": "2019-07-17T18:31:49"
+                },
+                "created_by_fk": 1,
+                "position_json": "{\"CHART-_2ldO6BJdi\":{\"children\":[],\"id\":\"CHART-_2ldO6BJdi\",\"meta\":{\"chartId\":54,\"height\":97,\"sliceName\":\"Datas de Expira\\u00e7\\u00e3o\",\"width\":12},\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-Bu2ufA6BIq\"],\"id\":\"GRID_ID\",\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Datas de Expira\\u00e7\\u00e3o\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-Bu2ufA6BIq\":{\"children\":[\"CHART-_2ldO6BJdi\"],\"id\":\"ROW-Bu2ufA6BIq\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"type\":\"ROW\"}}",
+                "id": 20,
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "created_by_fk": 1,
+                            "cache_timeout": null,
+                            "params": "{\"datasource\": \"37__table\", \"viz_type\": \"table\", \"slice_id\": 54, \"url_params\": {}, \"granularity_sqla\": \"expirationdate\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"groupby\": [\"product_code\", \"product_name\", \"expired\"], \"metrics\": [], \"percent_metrics\": [], \"timeseries_limit_metric\": null, \"row_limit\": 10000, \"include_time\": false, \"order_desc\": true, \"all_columns\": [], \"order_by_cols\": [], \"adhoc_filters\": [], \"table_timestamp_format\": \"%Y-%m-%d %H:%M:%S\", \"page_length\": 0, \"include_search\": false, \"table_filter\": false, \"align_pn\": false, \"color_pn\": true, \"remote_id\": 54, \"datasource_name\": \"public.stock_expiry_dates\", \"schema\": \"public.stock_expiry_dates\", \"database_name\": \"olmis\"}",
+                            "datasource_name": "public.stock_expiry_dates",
+                            "datasource_type": "table",
+                            "slice_name": "Datas de Expira\u00e7\u00e3o",
+                            "changed_on": {
+                                "__datetime__": "2019-07-17T18:33:00"
+                            },
+                            "changed_by_fk": 1,
+                            "perm": "[olmis].[stock_expiry_dates](id:37)",
+                            "description": null,
+                            "viz_type": "table",
+                            "datasource_id": 37,
+                            "id": 54,
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:25:55"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "__Dashboard__": {
+                "created_on": {
                     "__datetime__": "2019-07-17T10:00:02"
                 },
                 "changed_by_fk": 1,
@@ -27,7 +70,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro Rupturas de Stock nas US",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -49,7 +92,7 @@
                             "datasource_type": "table",
                             "slice_name": "Rupturas de Stock nas US",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -92,7 +135,7 @@
                             "datasource_type": "table",
                             "slice_name": "Compara\u00e7\u00e3o de Consumos Por Regi\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -114,7 +157,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Compara\u00e7\u00e3o de Consumos Por Regi\u00e3o)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -157,7 +200,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Stock Dispon\u00edvel por institui\u00e7\u00e3o)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -179,7 +222,7 @@
                             "datasource_type": "table",
                             "slice_name": "Stock Dispon\u00edvel por institui\u00e7\u00e3o (SOH)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -201,7 +244,7 @@
                             "datasource_type": "table",
                             "slice_name": "Stock Dispon\u00edvel por institui\u00e7\u00e3o (MOS)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -223,7 +266,7 @@
                             "datasource_type": "table",
                             "slice_name": "Dados detalhados SOH",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -245,7 +288,7 @@
                             "datasource_type": "table",
                             "slice_name": "Dados detalhados MOS",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -288,7 +331,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -310,7 +353,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -332,7 +375,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -354,7 +397,7 @@
                             "datasource_type": "table",
                             "slice_name": "Institui\u00e7\u00f5es \u00e0 Reportar Por Per\u00edodo",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -397,7 +440,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -419,7 +462,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -441,7 +484,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -463,7 +506,7 @@
                             "datasource_type": "table",
                             "slice_name": "Condi\u00e7\u00f5es das a\u00e7\u00f5es ao longo do tempo",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -485,7 +528,7 @@
                             "datasource_type": "table",
                             "slice_name": "Tabela de Condi\u00e7\u00f5es de estoque",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -528,7 +571,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -550,7 +593,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -572,7 +615,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -594,7 +637,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxas de Ruptura de Stock do Munic\u00edpio",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -637,7 +680,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -659,7 +702,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -681,7 +724,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[adjustments](id:2)",
@@ -703,7 +746,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de ajuste",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[adjustments](id:2)",
@@ -746,7 +789,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -768,7 +811,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -790,7 +833,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -812,7 +855,7 @@
                             "datasource_type": "table",
                             "slice_name": "Pedidos Regulares vs. de Emerg\u00eancia",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -834,7 +877,7 @@
                             "datasource_type": "table",
                             "slice_name": "Custo total de Encomendas",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -877,7 +920,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:14"
+                                "__datetime__": "2019-07-17T18:33:00"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -899,7 +942,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rio Resumido de Log\u00edstica",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -921,7 +964,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rio de Consumo",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -943,7 +986,7 @@
                             "datasource_type": "table",
                             "slice_name": "Total de Instala\u00e7\u00f5es de Consumo Ajustado",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -986,7 +1029,7 @@
                             "datasource_type": "table",
                             "slice_name": "Lista de Institui\u00e7\u00f5es",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[facilities](id:30)",
@@ -1029,7 +1072,7 @@
                             "datasource_type": "table",
                             "slice_name": "Ocorr\u00eancia de Ajustes",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_adjustments_view](id:35)",
@@ -1051,7 +1094,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_adjustments_view](id:35)",
@@ -1094,7 +1137,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Submiss\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1116,7 +1159,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1138,7 +1181,7 @@
                             "datasource_type": "table",
                             "slice_name": " Apresentadas todas institui\u00e7\u00f5es que submeteram ou n\u00e3o os relat\u00f3rios mensais (R&R)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1160,7 +1203,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Submiss\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1203,7 +1246,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Stocks",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1225,7 +1268,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Resumo de Stocks)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1268,7 +1311,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1290,7 +1333,7 @@
                             "datasource_type": "table",
                             "slice_name": "Produtos Reportados e Requisitados",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1333,7 +1376,7 @@
                             "datasource_type": "table",
                             "slice_name": "Consumo Agregado",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1355,7 +1398,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Consumo Agregado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-17T17:06:15"
+                                "__datetime__": "2019-07-17T18:33:01"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1373,1082 +1416,6 @@
         }
     ],
     "datasources": [
-        {
-            "__SqlaTable__": {
-                "database_id": 1,
-                "is_featured": false,
-                "changed_by_fk": 1,
-                "fetch_values_predicate": null,
-                "filter_select_enabled": false,
-                "user_id": null,
-                "offset": 0,
-                "created_on": {
-                    "__datetime__": "2019-06-27T13:10:33"
-                },
-                "schema": "",
-                "cache_timeout": null,
-                "changed_on": {
-                    "__datetime__": "2019-07-11T09:28:05"
-                },
-                "sql": "",
-                "params": "{\"remote_id\": 3, \"database_name\": \"main\", \"import_time\": 1562837285}",
-                "id": 3,
-                "is_sqllab_view": false,
-                "perm": "[main].[reporting_rate_and_timeliness](id:3)",
-                "description": "",
-                "template_params": null,
-                "table_name": "reporting_rate_and_timeliness",
-                "default_endpoint": "",
-                "created_by_fk": null,
-                "main_dttm_col": "processing_period_enddate",
-                "columns": [
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-05T12:14:33"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 113,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "name",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Nome da Institui\u00e7\u00e3o",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "VARCHAR(255)",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-11T09:26:23"
-                            },
-                            "expression": "",
-                            "sum": false,
-                            "id": 433,
-                            "python_date_format": null,
-                            "avg": false,
-                            "column_name": "code",
-                            "database_expression": null,
-                            "max": false,
-                            "verbose_name": "C\u00f3digo",
-                            "created_by_fk": 1,
-                            "min": false,
-                            "is_active": true,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "VARCHAR(255)",
-                            "created_on": {
-                                "__datetime__": "2019-07-11T09:26:23"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": false,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-11T09:26:23"
-                            },
-                            "expression": "",
-                            "sum": false,
-                            "id": 434,
-                            "python_date_format": null,
-                            "avg": false,
-                            "column_name": "statuschangedate",
-                            "database_expression": null,
-                            "max": false,
-                            "verbose_name": null,
-                            "created_by_fk": 1,
-                            "min": false,
-                            "is_active": true,
-                            "changed_by_fk": 1,
-                            "filterable": false,
-                            "type": "DATE",
-                            "created_on": {
-                                "__datetime__": "2019-07-11T09:26:23"
-                            },
-                            "description": null,
-                            "groupby": false,
-                            "table_id": 3,
-                            "count_distinct": false,
-                            "is_dttm": true
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-11T09:26:23"
-                            },
-                            "expression": "TO_CHAR(created_date, 'yyyy/mm/dd')",
-                            "sum": false,
-                            "id": 435,
-                            "python_date_format": null,
-                            "avg": false,
-                            "column_name": "<new column>",
-                            "database_expression": null,
-                            "max": false,
-                            "verbose_name": "Data de relatorio",
-                            "created_by_fk": 1,
-                            "min": false,
-                            "is_active": true,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": null,
-                            "created_on": {
-                                "__datetime__": "2019-07-11T09:26:23"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": false,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 108,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "facility",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 126,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "reporting_timeliness",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Relat\u00f3rios de Submiss\u00e3o",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "TEXT",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 124,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "program_name",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": "Nome do Programa",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 114,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "operator_name",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR(255)",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 115,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "processing_period_enddate",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": false,
-                            "type": "DATE",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": false,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": true
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 116,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "processing_period_id",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 117,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "processing_period_name",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Per\u00edodo de processamento",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 104,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "country",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Country",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR(255)",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 106,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "district",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Munic\u00edpio",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR(255)",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 107,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "emergency_status",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "BOOLEAN",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-11T09:26:23"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 105,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "created_date",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Data de relatorio",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "TIMESTAMP WITHOUT TIME ZONE",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": true
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 109,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "facility_active_status",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": false,
-                            "type": "BOOLEAN",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": false,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 110,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "facility_id",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 118,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "processing_period_startdate",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 119,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "processing_schedule_name",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Processing Schedule",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 121,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "program",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Program",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 122,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "program_active_status",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": false,
-                            "type": "BOOLEAN",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": false,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 123,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "program_id",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 129,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "startdate",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": false,
-                            "type": "DATE",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": false,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": true
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 131,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "supported_program_active",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "BOOLEAN",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:41"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 133,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "username",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": null,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-05T06:50:37"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 132,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "type",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": "Tipo de Institui\u00e7\u00e3o",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "VARCHAR(255)",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-09T07:50:31"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 125,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "region",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Provincia",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "VARCHAR(255)",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-10T14:43:58"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 111,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "id",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": false,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": false,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-10T14:43:58"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 112,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "modified_date",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": false,
-                            "type": "TIMESTAMP WITHOUT TIME ZONE",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": false,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": true
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-10T14:43:58"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 120,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "processingscheduleid",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-10T14:43:58"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 127,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "req_id",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": false,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": false,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-10T14:43:58"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 128,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "requisitiongroupid",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": false,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": false,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-10T14:43:58"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 130,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "supported_program",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "VARCHAR",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 3,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    }
-                ],
-                "metrics": [
-                    {
-                        "__SqlMetric__": {
-                            "expression": "COUNT(*)",
-                            "warning_text": null,
-                            "is_restricted": null,
-                            "metric_type": null,
-                            "metric_name": "count",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:33"
-                            },
-                            "id": 51,
-                            "created_by_fk": null,
-                            "table_id": 3,
-                            "d3format": null,
-                            "description": null,
-                            "verbose_name": "COUNT(*)",
-                            "changed_on": {
-                                "__datetime__": "2019-06-27T13:10:40"
-                            },
-                            "changed_by_fk": null
-                        }
-                    }
-                ],
-                "database": {
-                    "__Database__": {
-                        "sqlalchemy_uri": "postgresql+psycopg2://postgres:XXXXXXXXXX@db:5432/open_lmis_reporting",
-                        "changed_by_fk": null,
-                        "allow_ctas": false,
-                        "password": "VKTu8F2BvTjntDKT",
-                        "allow_dml": false,
-                        "cache_timeout": null,
-                        "force_ctas_schema": null,
-                        "select_as_create_table_as": false,
-                        "created_on": {
-                            "__datetime__": "2019-06-27T13:10:31"
-                        },
-                        "allow_multi_schema_metadata_fetch": false,
-                        "expose_in_sqllab": true,
-                        "changed_on": {
-                            "__datetime__": "2019-06-27T13:10:44"
-                        },
-                        "extra": "{\r\n    \"metadata_params\": {},\r\n    \"engine_params\": {}\r\n}\r\n",
-                        "allow_run_sync": true,
-                        "id": 1,
-                        "perm": "[main].(id:1)",
-                        "allow_run_async": false,
-                        "verbose_name": null,
-                        "impersonate_user": false,
-                        "allow_csv_upload": true,
-                        "database_name": "main",
-                        "created_by_fk": null
-                    }
-                }
-            }
-        },
         {
             "__SqlaTable__": {
                 "database_id": 1,
@@ -3101,6 +2068,586 @@
                         "allow_csv_upload": true,
                         "database_name": "main",
                         "created_by_fk": null
+                    }
+                }
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "database_id": 2,
+                "is_featured": false,
+                "changed_by_fk": 1,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "user_id": null,
+                "offset": 0,
+                "created_on": {
+                    "__datetime__": "2019-07-02T13:05:50"
+                },
+                "schema": "public",
+                "cache_timeout": null,
+                "changed_on": {
+                    "__datetime__": "2019-07-11T09:26:22"
+                },
+                "sql": null,
+                "params": "{\"remote_id\": 35, \"database_name\": \"olmis\", \"import_time\": 1562837182}",
+                "id": 35,
+                "is_sqllab_view": false,
+                "perm": "[olmis].[stock_adjustments_view](id:35)",
+                "description": null,
+                "template_params": null,
+                "table_name": "stock_adjustments_view",
+                "default_endpoint": null,
+                "created_by_fk": 1,
+                "main_dttm_col": "occurreddate",
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T10:03:03"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 417,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "quantity",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "INTEGER",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T10:03:03"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 418,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "reason_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T10:03:03"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 419,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "reasoncategory",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T10:03:03"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 422,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "program_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T10:03:03"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 423,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "program_code",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR(255)",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T11:03:30"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 424,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "facility_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": " Institui\u00e7\u00e3o",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T11:12:47"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 416,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "occurreddate",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Data",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "DATE",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T11:01:23"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 432,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "product",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Producto",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T10:51:20"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T10:03:03"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 425,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "facility_code",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T10:03:03"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 427,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "district_code",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T10:03:03"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 429,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "province_code",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T10:03:03"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 430,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "levelnumber",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "INTEGER",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T11:01:23"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 426,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "district_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Munic\u00edpio",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T11:01:23"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 428,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "province_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Prov\u00edncia",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-04T11:01:23"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 431,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "reason_type",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Tipo de Ajuste",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-04T09:34:27"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 35,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    }
+                ],
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "expression": "SUM(quantity)",
+                            "warning_text": null,
+                            "is_restricted": null,
+                            "metric_type": null,
+                            "metric_name": "sum__quantity",
+                            "created_on": {
+                                "__datetime__": "2019-07-02T13:05:50"
+                            },
+                            "id": 157,
+                            "created_by_fk": 1,
+                            "table_id": 35,
+                            "d3format": null,
+                            "description": null,
+                            "verbose_name": null,
+                            "changed_on": {
+                                "__datetime__": "2019-07-02T14:22:58"
+                            },
+                            "changed_by_fk": 1
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "expression": "AVG(quantity)",
+                            "warning_text": null,
+                            "is_restricted": null,
+                            "metric_type": null,
+                            "metric_name": "avg__quantity",
+                            "created_on": {
+                                "__datetime__": "2019-07-02T13:05:50"
+                            },
+                            "id": 158,
+                            "created_by_fk": 1,
+                            "table_id": 35,
+                            "d3format": null,
+                            "description": null,
+                            "verbose_name": null,
+                            "changed_on": {
+                                "__datetime__": "2019-07-02T14:22:58"
+                            },
+                            "changed_by_fk": 1
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "expression": "COUNT(*)",
+                            "warning_text": null,
+                            "is_restricted": null,
+                            "metric_type": null,
+                            "metric_name": "count",
+                            "created_on": {
+                                "__datetime__": "2019-07-02T13:05:50"
+                            },
+                            "id": 159,
+                            "created_by_fk": 1,
+                            "table_id": 35,
+                            "d3format": null,
+                            "description": null,
+                            "verbose_name": "COUNT(*)",
+                            "changed_on": {
+                                "__datetime__": "2019-07-02T14:22:58"
+                            },
+                            "changed_by_fk": 1
+                        }
+                    }
+                ],
+                "database": {
+                    "__Database__": {
+                        "sqlalchemy_uri": "postgresql+psycopg2://angola_user:XXXXXXXXXX@angola-postgresql-db.cimnzn9zeyp4.eu-west-1.rds.amazonaws.com:5432/angola_openlmis",
+                        "changed_by_fk": 1,
+                        "allow_ctas": false,
+                        "password": "#GS)Knc`~E[A48ud",
+                        "allow_dml": false,
+                        "cache_timeout": null,
+                        "force_ctas_schema": "",
+                        "select_as_create_table_as": false,
+                        "created_on": {
+                            "__datetime__": "2019-06-28T10:53:27"
+                        },
+                        "allow_multi_schema_metadata_fetch": false,
+                        "expose_in_sqllab": true,
+                        "changed_on": {
+                            "__datetime__": "2019-06-28T10:53:27"
+                        },
+                        "extra": "{\r\n    \"metadata_params\": {},\r\n    \"engine_params\": {}\r\n}",
+                        "allow_run_sync": true,
+                        "id": 2,
+                        "perm": "[olmis].(id:2)",
+                        "allow_run_async": false,
+                        "verbose_name": null,
+                        "impersonate_user": false,
+                        "allow_csv_upload": true,
+                        "database_name": "olmis",
+                        "created_by_fk": 1
                     }
                 }
             }
@@ -6649,6 +6196,452 @@
         },
         {
             "__SqlaTable__": {
+                "database_id": 2,
+                "is_featured": false,
+                "changed_by_fk": 1,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "user_id": null,
+                "offset": 0,
+                "created_on": {
+                    "__datetime__": "2019-07-16T14:24:45"
+                },
+                "schema": "public",
+                "cache_timeout": null,
+                "changed_on": {
+                    "__datetime__": "2019-07-16T14:24:45"
+                },
+                "sql": null,
+                "params": "{\"remote_id\": 37, \"database_name\": \"olmis\"}",
+                "id": 37,
+                "is_sqllab_view": false,
+                "perm": "[olmis].[stock_expiry_dates](id:37)",
+                "description": null,
+                "template_params": null,
+                "table_name": "stock_expiry_dates",
+                "default_endpoint": null,
+                "created_by_fk": 1,
+                "main_dttm_col": "expirationdate",
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-17T06:27:53"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 448,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "product_code",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "C\u00f3digo",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR(255)",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-17T06:27:53"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 449,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "expirationdate",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Data de Expira\u00e7\u00e3o",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": false,
+                            "type": "DATE",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-17T06:27:53"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 451,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "facility_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Instala\u00e7\u00e3o",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-17T06:27:53"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 453,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "district_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Munic\u00edpio",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-17T06:27:53"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 455,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "province_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Prov\u00edncia",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-17T16:17:21"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 459,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "lot_expiry",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-17T16:16:54"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-16T14:26:28"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 450,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "lotcode",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-16T14:26:28"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 452,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "facility_code",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-16T14:26:28"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 454,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "district_code",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-16T14:26:28"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 456,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "province_code",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-16T14:32:46"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 447,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "product_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Nome do Producto",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR(255)",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-17T16:18:05"
+                            },
+                            "expression": "",
+                            "sum": false,
+                            "id": 460,
+                            "python_date_format": null,
+                            "avg": false,
+                            "column_name": "expired",
+                            "database_expression": null,
+                            "max": false,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": false,
+                            "is_active": true,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "TEXT",
+                            "created_on": {
+                                "__datetime__": "2019-07-17T16:18:05"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 37,
+                            "count_distinct": false,
+                            "is_dttm": false
+                        }
+                    }
+                ],
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "expression": "COUNT(*)",
+                            "warning_text": null,
+                            "is_restricted": null,
+                            "metric_type": null,
+                            "metric_name": "count",
+                            "created_on": {
+                                "__datetime__": "2019-07-16T14:24:45"
+                            },
+                            "id": 165,
+                            "created_by_fk": 1,
+                            "table_id": 37,
+                            "d3format": null,
+                            "description": null,
+                            "verbose_name": "COUNT(*)",
+                            "changed_on": {
+                                "__datetime__": "2019-07-16T14:26:28"
+                            },
+                            "changed_by_fk": 1
+                        }
+                    }
+                ],
+                "database": {
+                    "__Database__": {
+                        "sqlalchemy_uri": "postgresql+psycopg2://angola_user:XXXXXXXXXX@angola-postgresql-db.cimnzn9zeyp4.eu-west-1.rds.amazonaws.com:5432/angola_openlmis",
+                        "changed_by_fk": 1,
+                        "allow_ctas": false,
+                        "password": "#GS)Knc`~E[A48ud",
+                        "allow_dml": false,
+                        "cache_timeout": null,
+                        "force_ctas_schema": "",
+                        "select_as_create_table_as": false,
+                        "created_on": {
+                            "__datetime__": "2019-06-28T10:53:27"
+                        },
+                        "allow_multi_schema_metadata_fetch": false,
+                        "expose_in_sqllab": true,
+                        "changed_on": {
+                            "__datetime__": "2019-06-28T10:53:27"
+                        },
+                        "extra": "{\r\n    \"metadata_params\": {},\r\n    \"engine_params\": {}\r\n}",
+                        "allow_run_sync": true,
+                        "id": 2,
+                        "perm": "[olmis].(id:2)",
+                        "allow_run_async": false,
+                        "verbose_name": null,
+                        "impersonate_user": false,
+                        "allow_csv_upload": true,
+                        "database_name": "olmis",
+                        "created_by_fk": 1
+                    }
+                }
+            }
+        },
+        {
+            "__SqlaTable__": {
                 "database_id": 1,
                 "is_featured": false,
                 "changed_by_fk": 1,
@@ -7723,7 +7716,7 @@
         },
         {
             "__SqlaTable__": {
-                "database_id": 2,
+                "database_id": 1,
                 "is_featured": false,
                 "changed_by_fk": 1,
                 "fetch_values_predicate": null,
@@ -7731,171 +7724,51 @@
                 "user_id": null,
                 "offset": 0,
                 "created_on": {
-                    "__datetime__": "2019-07-02T13:05:50"
+                    "__datetime__": "2019-06-27T13:10:33"
                 },
-                "schema": "public",
+                "schema": "",
                 "cache_timeout": null,
                 "changed_on": {
-                    "__datetime__": "2019-07-11T09:26:22"
+                    "__datetime__": "2019-07-11T09:28:05"
                 },
-                "sql": null,
-                "params": "{\"remote_id\": 35, \"database_name\": \"olmis\", \"import_time\": 1562837182}",
-                "id": 35,
+                "sql": "",
+                "params": "{\"remote_id\": 3, \"database_name\": \"main\", \"import_time\": 1562837285}",
+                "id": 3,
                 "is_sqllab_view": false,
-                "perm": "[olmis].[stock_adjustments_view](id:35)",
-                "description": null,
+                "perm": "[main].[reporting_rate_and_timeliness](id:3)",
+                "description": "",
                 "template_params": null,
-                "table_name": "stock_adjustments_view",
-                "default_endpoint": null,
-                "created_by_fk": 1,
-                "main_dttm_col": "occurreddate",
+                "table_name": "reporting_rate_and_timeliness",
+                "default_endpoint": "",
+                "created_by_fk": null,
+                "main_dttm_col": "processing_period_enddate",
                 "columns": [
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-04T10:03:03"
+                                "__datetime__": "2019-07-05T12:14:33"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 417,
-                            "python_date_format": null,
+                            "id": 113,
+                            "python_date_format": "",
                             "avg": null,
-                            "column_name": "quantity",
-                            "database_expression": null,
+                            "column_name": "name",
+                            "database_expression": "",
                             "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": 1,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "INTEGER",
-                            "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 35,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-04T10:03:03"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 418,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "reason_name",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": 1,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "TEXT",
-                            "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 35,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-04T10:03:03"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 419,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "reasoncategory",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": 1,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "TEXT",
-                            "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 35,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-04T10:03:03"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 422,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "program_name",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": 1,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "TEXT",
-                            "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 35,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-04T10:03:03"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 423,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "program_code",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": 1,
+                            "verbose_name": "Nome da Institui\u00e7\u00e3o",
+                            "created_by_fk": null,
                             "min": null,
                             "is_active": null,
                             "changed_by_fk": 1,
                             "filterable": true,
                             "type": "VARCHAR(255)",
                             "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
-                            "description": null,
+                            "description": "",
                             "groupby": true,
-                            "table_id": 35,
+                            "table_id": 3,
                             "count_distinct": null,
                             "is_dttm": false
                         }
@@ -7903,29 +7776,149 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-04T11:03:30"
+                                "__datetime__": "2019-07-11T09:26:23"
+                            },
+                            "expression": "",
+                            "sum": false,
+                            "id": 433,
+                            "python_date_format": null,
+                            "avg": false,
+                            "column_name": "code",
+                            "database_expression": null,
+                            "max": false,
+                            "verbose_name": "C\u00f3digo",
+                            "created_by_fk": 1,
+                            "min": false,
+                            "is_active": true,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR(255)",
+                            "created_on": {
+                                "__datetime__": "2019-07-11T09:26:23"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": false,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-11T09:26:23"
+                            },
+                            "expression": "",
+                            "sum": false,
+                            "id": 434,
+                            "python_date_format": null,
+                            "avg": false,
+                            "column_name": "statuschangedate",
+                            "database_expression": null,
+                            "max": false,
+                            "verbose_name": null,
+                            "created_by_fk": 1,
+                            "min": false,
+                            "is_active": true,
+                            "changed_by_fk": 1,
+                            "filterable": false,
+                            "type": "DATE",
+                            "created_on": {
+                                "__datetime__": "2019-07-11T09:26:23"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 3,
+                            "count_distinct": false,
+                            "is_dttm": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-11T09:26:23"
+                            },
+                            "expression": "TO_CHAR(created_date, 'yyyy/mm/dd')",
+                            "sum": false,
+                            "id": 435,
+                            "python_date_format": null,
+                            "avg": false,
+                            "column_name": "<new column>",
+                            "database_expression": null,
+                            "max": false,
+                            "verbose_name": "Data de relatorio",
+                            "created_by_fk": 1,
+                            "min": false,
+                            "is_active": true,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": null,
+                            "created_on": {
+                                "__datetime__": "2019-07-11T09:26:23"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": false,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:40"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 424,
-                            "python_date_format": null,
+                            "id": 108,
+                            "python_date_format": "",
                             "avg": null,
-                            "column_name": "facility_name",
-                            "database_expression": null,
+                            "column_name": "facility",
+                            "database_expression": "",
                             "max": null,
-                            "verbose_name": " Institui\u00e7\u00e3o",
-                            "created_by_fk": 1,
+                            "verbose_name": "",
+                            "created_by_fk": null,
                             "min": null,
                             "is_active": null,
-                            "changed_by_fk": 1,
+                            "changed_by_fk": null,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:40"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 126,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "reporting_timeliness",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Relat\u00f3rios de Submiss\u00e3o",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
                             "filterable": true,
                             "type": "TEXT",
                             "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
-                            "description": null,
+                            "description": "",
                             "groupby": true,
-                            "table_id": 35,
+                            "table_id": 3,
                             "count_distinct": null,
                             "is_dttm": false
                         }
@@ -7933,29 +7926,89 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-04T11:12:47"
+                                "__datetime__": "2019-06-27T13:10:40"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 416,
+                            "id": 124,
                             "python_date_format": null,
                             "avg": null,
-                            "column_name": "occurreddate",
+                            "column_name": "program_name",
                             "database_expression": null,
                             "max": null,
-                            "verbose_name": "Data",
-                            "created_by_fk": 1,
+                            "verbose_name": "Nome do Programa",
+                            "created_by_fk": null,
                             "min": null,
                             "is_active": null,
-                            "changed_by_fk": 1,
+                            "changed_by_fk": null,
                             "filterable": true,
-                            "type": "DATE",
+                            "type": "VARCHAR",
                             "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
                             "description": null,
                             "groupby": true,
-                            "table_id": 35,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:40"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 114,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "operator_name",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": true,
+                            "type": "VARCHAR(255)",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:40"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 115,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "processing_period_enddate",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": false,
+                            "type": "DATE",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 3,
                             "count_distinct": null,
                             "is_dttm": true
                         }
@@ -7963,59 +8016,29 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-04T11:01:23"
+                                "__datetime__": "2019-06-27T13:10:40"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 432,
+                            "id": 116,
                             "python_date_format": null,
                             "avg": null,
-                            "column_name": "product",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": "Producto",
-                            "created_by_fk": 1,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "TEXT",
-                            "created_on": {
-                                "__datetime__": "2019-07-04T10:51:20"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 35,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-04T10:03:03"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 425,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "facility_code",
+                            "column_name": "processing_period_id",
                             "database_expression": null,
                             "max": null,
                             "verbose_name": null,
-                            "created_by_fk": 1,
+                            "created_by_fk": null,
                             "min": null,
                             "is_active": null,
-                            "changed_by_fk": 1,
+                            "changed_by_fk": null,
                             "filterable": true,
-                            "type": "TEXT",
+                            "type": "VARCHAR",
                             "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
                             "description": null,
                             "groupby": true,
-                            "table_id": 35,
+                            "table_id": 3,
                             "count_distinct": null,
                             "is_dttm": false
                         }
@@ -8023,29 +8046,29 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-04T10:03:03"
+                                "__datetime__": "2019-06-27T13:10:40"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 427,
-                            "python_date_format": null,
+                            "id": 117,
+                            "python_date_format": "",
                             "avg": null,
-                            "column_name": "district_code",
-                            "database_expression": null,
+                            "column_name": "processing_period_name",
+                            "database_expression": "",
                             "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": 1,
+                            "verbose_name": "Per\u00edodo de processamento",
+                            "created_by_fk": null,
                             "min": null,
                             "is_active": null,
-                            "changed_by_fk": 1,
+                            "changed_by_fk": null,
                             "filterable": true,
-                            "type": "TEXT",
+                            "type": "VARCHAR",
                             "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
-                            "description": null,
+                            "description": "",
                             "groupby": true,
-                            "table_id": 35,
+                            "table_id": 3,
                             "count_distinct": null,
                             "is_dttm": false
                         }
@@ -8053,29 +8076,29 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-04T10:03:03"
+                                "__datetime__": "2019-06-27T13:10:40"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 429,
-                            "python_date_format": null,
+                            "id": 104,
+                            "python_date_format": "",
                             "avg": null,
-                            "column_name": "province_code",
-                            "database_expression": null,
+                            "column_name": "country",
+                            "database_expression": "",
                             "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": 1,
+                            "verbose_name": "Country",
+                            "created_by_fk": null,
                             "min": null,
                             "is_active": null,
-                            "changed_by_fk": 1,
+                            "changed_by_fk": null,
                             "filterable": true,
-                            "type": "TEXT",
+                            "type": "VARCHAR(255)",
                             "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
-                            "description": null,
+                            "description": "",
                             "groupby": true,
-                            "table_id": 35,
+                            "table_id": 3,
                             "count_distinct": null,
                             "is_dttm": false
                         }
@@ -8083,59 +8106,29 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-04T10:03:03"
+                                "__datetime__": "2019-06-27T13:10:41"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 430,
-                            "python_date_format": null,
+                            "id": 106,
+                            "python_date_format": "",
                             "avg": null,
-                            "column_name": "levelnumber",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": null,
-                            "created_by_fk": 1,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "INTEGER",
-                            "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 35,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-04T11:01:23"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 426,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "district_name",
-                            "database_expression": null,
+                            "column_name": "district",
+                            "database_expression": "",
                             "max": null,
                             "verbose_name": "Munic\u00edpio",
-                            "created_by_fk": 1,
+                            "created_by_fk": null,
                             "min": null,
                             "is_active": null,
-                            "changed_by_fk": 1,
+                            "changed_by_fk": null,
                             "filterable": true,
-                            "type": "TEXT",
+                            "type": "VARCHAR(255)",
                             "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
-                            "description": null,
+                            "description": "",
                             "groupby": true,
-                            "table_id": 35,
+                            "table_id": 3,
                             "count_distinct": null,
                             "is_dttm": false
                         }
@@ -8143,29 +8136,29 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-04T11:01:23"
+                                "__datetime__": "2019-06-27T13:10:41"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 428,
+                            "id": 107,
                             "python_date_format": null,
                             "avg": null,
-                            "column_name": "province_name",
+                            "column_name": "emergency_status",
                             "database_expression": null,
                             "max": null,
-                            "verbose_name": "Prov\u00edncia",
-                            "created_by_fk": 1,
+                            "verbose_name": null,
+                            "created_by_fk": null,
                             "min": null,
                             "is_active": null,
-                            "changed_by_fk": 1,
+                            "changed_by_fk": null,
                             "filterable": true,
-                            "type": "TEXT",
+                            "type": "BOOLEAN",
                             "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
                             "description": null,
                             "groupby": true,
-                            "table_id": 35,
+                            "table_id": 3,
                             "count_distinct": null,
                             "is_dttm": false
                         }
@@ -8173,29 +8166,569 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-04T11:01:23"
+                                "__datetime__": "2019-07-11T09:26:23"
                             },
                             "expression": "",
                             "sum": null,
-                            "id": 431,
+                            "id": 105,
                             "python_date_format": null,
                             "avg": null,
-                            "column_name": "reason_type",
-                            "database_expression": null,
+                            "column_name": "created_date",
+                            "database_expression": "",
                             "max": null,
-                            "verbose_name": "Tipo de Ajuste",
-                            "created_by_fk": 1,
+                            "verbose_name": "Data de relatorio",
+                            "created_by_fk": null,
                             "min": null,
                             "is_active": null,
                             "changed_by_fk": 1,
                             "filterable": true,
-                            "type": "TEXT",
+                            "type": "TIMESTAMP WITHOUT TIME ZONE",
                             "created_on": {
-                                "__datetime__": "2019-07-04T09:34:27"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
                             "description": null,
                             "groupby": true,
-                            "table_id": 35,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 109,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "facility_active_status",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": false,
+                            "type": "BOOLEAN",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 110,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "facility_id",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 118,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "processing_period_startdate",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 119,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "processing_schedule_name",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Processing Schedule",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 121,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "program",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Program",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 122,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "program_active_status",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": false,
+                            "type": "BOOLEAN",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 123,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "program_id",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 129,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "startdate",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": false,
+                            "type": "DATE",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 131,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "supported_program_active",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": true,
+                            "type": "BOOLEAN",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-06-27T13:10:41"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 133,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "username",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": null,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-05T06:50:37"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 132,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "type",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Tipo de Institui\u00e7\u00e3o",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR(255)",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-09T07:50:31"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 125,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "region",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Provincia",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR(255)",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-10T14:43:58"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 111,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "id",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": false,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-10T14:43:58"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 112,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "modified_date",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": false,
+                            "type": "TIMESTAMP WITHOUT TIME ZONE",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-10T14:43:58"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 120,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "processingscheduleid",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-10T14:43:58"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 127,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "req_id",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": false,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-10T14:43:58"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 128,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "requisitiongroupid",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": false,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": false,
+                            "table_id": 3,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-10T14:43:58"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 130,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "supported_program",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": null,
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "VARCHAR",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:33"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 3,
                             "count_distinct": null,
                             "is_dttm": false
                         }
@@ -8204,99 +8737,55 @@
                 "metrics": [
                     {
                         "__SqlMetric__": {
-                            "expression": "SUM(quantity)",
-                            "warning_text": null,
-                            "is_restricted": null,
-                            "metric_type": null,
-                            "metric_name": "sum__quantity",
-                            "created_on": {
-                                "__datetime__": "2019-07-02T13:05:50"
-                            },
-                            "id": 157,
-                            "created_by_fk": 1,
-                            "table_id": 35,
-                            "d3format": null,
-                            "description": null,
-                            "verbose_name": null,
-                            "changed_on": {
-                                "__datetime__": "2019-07-02T14:22:58"
-                            },
-                            "changed_by_fk": 1
-                        }
-                    },
-                    {
-                        "__SqlMetric__": {
-                            "expression": "AVG(quantity)",
-                            "warning_text": null,
-                            "is_restricted": null,
-                            "metric_type": null,
-                            "metric_name": "avg__quantity",
-                            "created_on": {
-                                "__datetime__": "2019-07-02T13:05:50"
-                            },
-                            "id": 158,
-                            "created_by_fk": 1,
-                            "table_id": 35,
-                            "d3format": null,
-                            "description": null,
-                            "verbose_name": null,
-                            "changed_on": {
-                                "__datetime__": "2019-07-02T14:22:58"
-                            },
-                            "changed_by_fk": 1
-                        }
-                    },
-                    {
-                        "__SqlMetric__": {
                             "expression": "COUNT(*)",
                             "warning_text": null,
                             "is_restricted": null,
                             "metric_type": null,
                             "metric_name": "count",
                             "created_on": {
-                                "__datetime__": "2019-07-02T13:05:50"
+                                "__datetime__": "2019-06-27T13:10:33"
                             },
-                            "id": 159,
-                            "created_by_fk": 1,
-                            "table_id": 35,
+                            "id": 51,
+                            "created_by_fk": null,
+                            "table_id": 3,
                             "d3format": null,
                             "description": null,
                             "verbose_name": "COUNT(*)",
                             "changed_on": {
-                                "__datetime__": "2019-07-02T14:22:58"
+                                "__datetime__": "2019-06-27T13:10:40"
                             },
-                            "changed_by_fk": 1
+                            "changed_by_fk": null
                         }
                     }
                 ],
                 "database": {
                     "__Database__": {
-                        "sqlalchemy_uri": "postgresql+psycopg2://angola_user:XXXXXXXXXX@angola-postgresql-db.cimnzn9zeyp4.eu-west-1.rds.amazonaws.com:5432/angola_openlmis",
-                        "changed_by_fk": 1,
+                        "sqlalchemy_uri": "postgresql+psycopg2://postgres:XXXXXXXXXX@db:5432/open_lmis_reporting",
+                        "changed_by_fk": null,
                         "allow_ctas": false,
-                        "password": "#GS)Knc`~E[A48ud",
+                        "password": "VKTu8F2BvTjntDKT",
                         "allow_dml": false,
                         "cache_timeout": null,
-                        "force_ctas_schema": "",
+                        "force_ctas_schema": null,
                         "select_as_create_table_as": false,
                         "created_on": {
-                            "__datetime__": "2019-06-28T10:53:27"
+                            "__datetime__": "2019-06-27T13:10:31"
                         },
                         "allow_multi_schema_metadata_fetch": false,
                         "expose_in_sqllab": true,
                         "changed_on": {
-                            "__datetime__": "2019-06-28T10:53:27"
+                            "__datetime__": "2019-06-27T13:10:44"
                         },
-                        "extra": "{\r\n    \"metadata_params\": {},\r\n    \"engine_params\": {}\r\n}",
+                        "extra": "{\r\n    \"metadata_params\": {},\r\n    \"engine_params\": {}\r\n}\r\n",
                         "allow_run_sync": true,
-                        "id": 2,
-                        "perm": "[olmis].(id:2)",
+                        "id": 1,
+                        "perm": "[main].(id:1)",
                         "allow_run_async": false,
                         "verbose_name": null,
                         "impersonate_user": false,
                         "allow_csv_upload": true,
-                        "database_name": "olmis",
-                        "created_by_fk": 1
+                        "database_name": "main",
+                        "created_by_fk": null
                     }
                 }
             }
