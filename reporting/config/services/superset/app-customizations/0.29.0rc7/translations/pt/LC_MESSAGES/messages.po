@@ -4021,7 +4021,7 @@ msgstr ""
 
 #: superset/views/core.py:488 superset/views/core.py:555
 msgid "Dashboard"
-msgstr "Painel"
+msgstr "Painel de Visualização"
 
 #: superset/views/core.py:490
 msgid "Slug"
@@ -4253,3 +4253,13 @@ msgstr "Gráficos"
 #: superset/assets/src/welcome/Welcome.jsx
 msgid "Recently Viewed"
 msgstr "Vistos Recentemente"
+
+msgid "Force refresh"
+msgstr "Forçar Actualização"
+
+msgid "Edit chart metadata"
+msgstr "Editar metadados do gráfico"
+
+msgid "Fetched %s"
+msgstr "Actualizado %s"
+
