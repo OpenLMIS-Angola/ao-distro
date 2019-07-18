@@ -35,11 +35,12 @@ CASE
     WHEN lot.expirationdate < now() + INTERVAL '18 months' THEN 'close to expired'
     WHEN lot.expirationdate < now() THEN 'expired'
     ELSE 'OK' END AS expired,
-string_agg(concat(lot.expirationdate, ' ', lot.lotcode), ', ') as lot_expiry
+string_agg(concat(lot.expirationdate, ' - ', lot.lotcode), ', ') as lot_expiry
 FROM stockmanagement.stock_cards card
 LEFT JOIN referencedata.orderables product ON card.orderableid = product.id
 LEFT JOIN referencedata.lots lot ON card.lotid = card.lotid
 LEFT JOIN referencedata.facilities facility ON card.facilityid = facility.id
 LEFT JOIN referencedata.geographic_zones district ON facility.geographiczoneid = district.id
 LEFT JOIN referencedata.geographic_zones province ON district.parentid = province.id
+WHERE card.lotid != NULL
 GROUP BY expired, product_name, product_code, province_name, district_name, facility_name, expired;
