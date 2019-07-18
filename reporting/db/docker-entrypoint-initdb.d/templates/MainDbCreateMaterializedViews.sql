@@ -32,8 +32,8 @@ facility.name AS facility_name,
 district.name AS district_name,
 province.name AS province_name,
 CASE
-    WHEN lot.expirationdate < now() + INTERVAL '18 months' THEN 'close to expired'
-    WHEN lot.expirationdate < now() THEN 'expired'
+    WHEN lot.expirationdate < now() + INTERVAL '18 months' THEN 'Perto de expirar'
+    WHEN lot.expirationdate < now() THEN 'Expirado'
     ELSE 'OK' END AS expired,
 string_agg(concat(lot.expirationdate, ' - ', lot.lotcode), ', ') as lot_expiry
 FROM stockmanagement.stock_cards card
@@ -42,5 +42,5 @@ LEFT JOIN referencedata.lots lot ON card.lotid = card.lotid
 LEFT JOIN referencedata.facilities facility ON card.facilityid = facility.id
 LEFT JOIN referencedata.geographic_zones district ON facility.geographiczoneid = district.id
 LEFT JOIN referencedata.geographic_zones province ON district.parentid = province.id
-WHERE card.lotid != NULL
+WHERE card.lotid != NULL AND lot.expirationdate >= now() + INTERVAL '18 months'
 GROUP BY expired, product_name, product_code, province_name, district_name, facility_name, expired;
