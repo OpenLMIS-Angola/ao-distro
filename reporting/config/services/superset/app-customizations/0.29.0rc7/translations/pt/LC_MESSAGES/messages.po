@@ -4263,3 +4263,5 @@ msgstr "Editar metadados do gráfico"
 msgid "Fetched %s"
 msgstr "Actualizado %s"
 
+msgid "Apply"
+msgstr "Aplicar"
