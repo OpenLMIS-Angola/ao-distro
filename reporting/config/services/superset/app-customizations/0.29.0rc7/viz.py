@@ -1709,7 +1709,9 @@ class CountryMapViz(BaseViz):
     def get_data(self, df):
         fd = self.form_data
         cols = [fd.get('entity')]
-        metric = self.metric_labels[0]
+        metric = fd.get('metric')
+        if isinstance(metric, dict):
+            metric = metric['label']
         cols += [metric]
         ndf = df[cols]
         df = ndf
