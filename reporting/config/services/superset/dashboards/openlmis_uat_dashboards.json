@@ -3,6 +3,71 @@
         {
             "__Dashboard__": {
                 "created_on": {
+                    "__datetime__": "2019-07-17T10:00:02"
+                },
+                "changed_by_fk": 1,
+                "slug": "rupturas-de-stock-nas-us",
+                "css": ".table {\r\n  backgound-color: #333 !important\r\n}",
+                "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 19}",
+                "description": null,
+                "dashboard_title": "Rupturas de Stock nas US",
+                "changed_on": {
+                    "__datetime__": "2019-07-19T08:50:04"
+                },
+                "created_by_fk": 1,
+                "position_json": "{\"CHART-74yujful45\":{\"children\":[],\"id\":\"CHART-74yujful45\",\"meta\":{\"chartId\":56,\"height\":115,\"sliceName\":\"Rupturas de Stock nas US\",\"width\":9},\"type\":\"CHART\"},\"CHART-tvrJr4DagM\":{\"children\":[],\"id\":\"CHART-tvrJr4DagM\",\"meta\":{\"chartId\":55,\"height\":65,\"sliceName\":\"Filtro Rupturas de Stock nas US\",\"width\":3},\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-Rldc8XnzWI\"],\"id\":\"GRID_ID\",\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Rupturas de Stock nas US\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-Rldc8XnzWI\":{\"children\":[\"CHART-tvrJr4DagM\",\"CHART-74yujful45\"],\"id\":\"ROW-Rldc8XnzWI\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"type\":\"ROW\"}}",
+                "id": 19,
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "created_by_fk": 1,
+                            "cache_timeout": null,
+                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"filter_box\", \"slice_id\": 55, \"url_params\": {}, \"granularity_sqla\": \"processing_period_enddate\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"groupby\": [\"Provincia\", \"district_name\", \"facility_name\", \"processing_period_name\", \"product_code\", \"full_product_name\", \"orderablecategorydisplayname\"], \"metric\": \"count\", \"adhoc_filters\": [], \"date_filter\": true, \"instant_filtering\": false, \"show_sqla_time_granularity\": false, \"show_sqla_time_column\": false, \"show_druid_time_granularity\": false, \"show_druid_time_origin\": false, \"remote_id\": 55, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
+                            "datasource_name": "stock_status_and_consumption",
+                            "datasource_type": "table",
+                            "slice_name": "Filtro Rupturas de Stock nas US",
+                            "changed_on": {
+                                "__datetime__": "2019-07-19T08:50:54"
+                            },
+                            "changed_by_fk": 1,
+                            "perm": "[main].[stock_status_and_consumption](id:1)",
+                            "description": null,
+                            "viz_type": "filter_box",
+                            "datasource_id": 1,
+                            "id": 55,
+                            "created_on": {
+                                "__datetime__": "2019-07-17T09:54:34"
+                            }
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "created_by_fk": 1,
+                            "cache_timeout": null,
+                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"table\", \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"groupby\": [\"product_code\", \"full_product_name\", \"total_stockout_days\"], \"metrics\": [], \"percent_metrics\": [], \"timeseries_limit_metric\": null, \"row_limit\": 10000, \"include_time\": false, \"order_desc\": true, \"all_columns\": [], \"order_by_cols\": [], \"adhoc_filters\": [], \"table_timestamp_format\": \"%Y-%m-%d %H:%M:%S\", \"page_length\": 0, \"include_search\": false, \"table_filter\": false, \"align_pn\": false, \"color_pn\": true, \"remote_id\": 56, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
+                            "datasource_name": "stock_status_and_consumption",
+                            "datasource_type": "table",
+                            "slice_name": "Rupturas de Stock nas US",
+                            "changed_on": {
+                                "__datetime__": "2019-07-19T08:50:54"
+                            },
+                            "changed_by_fk": 1,
+                            "perm": "[main].[stock_status_and_consumption](id:1)",
+                            "description": null,
+                            "viz_type": "table",
+                            "datasource_id": 1,
+                            "id": 56,
+                            "created_on": {
+                                "__datetime__": "2019-07-17T09:59:12"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "__Dashboard__": {
+                "created_on": {
                     "__datetime__": "2019-07-12T18:03:21"
                 },
                 "changed_by_fk": 1,
@@ -27,7 +92,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Stock Dispon\u00edvel por institui\u00e7\u00e3o)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -49,7 +114,7 @@
                             "datasource_type": "table",
                             "slice_name": "Stock Dispon\u00edvel (SOH) Agregado",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -71,7 +136,7 @@
                             "datasource_type": "table",
                             "slice_name": "Meses de Stock (MOS) Agregado",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -93,7 +158,7 @@
                             "datasource_type": "table",
                             "slice_name": "Dados detalhados SOH",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -115,7 +180,7 @@
                             "datasource_type": "table",
                             "slice_name": "Dados detalhados MOS",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -158,7 +223,7 @@
                             "datasource_type": "table",
                             "slice_name": "Datas de Expira\u00e7\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_expiry_dates](id:37)",
@@ -168,71 +233,6 @@
                             "id": 54,
                             "created_on": {
                                 "__datetime__": "2019-07-16T14:25:55"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "__Dashboard__": {
-                "created_on": {
-                    "__datetime__": "2019-07-17T10:00:02"
-                },
-                "changed_by_fk": 1,
-                "slug": "rupturas-de-Stock-nas-us",
-                "css": "",
-                "json_metadata": "{\"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"expanded_slices\": {}, \"default_filters\": \"{}\", \"remote_id\": 19}",
-                "description": null,
-                "dashboard_title": "Rupturas de Stock nas US",
-                "changed_on": {
-                    "__datetime__": "2019-07-17T12:07:59"
-                },
-                "created_by_fk": 1,
-                "position_json": "{\"CHART-74yujful45\":{\"children\":[],\"id\":\"CHART-74yujful45\",\"meta\":{\"chartId\":56,\"height\":115,\"sliceName\":\"Rupturas de Stock nas US\",\"width\":9},\"type\":\"CHART\"},\"CHART-tvrJr4DagM\":{\"children\":[],\"id\":\"CHART-tvrJr4DagM\",\"meta\":{\"chartId\":55,\"height\":65,\"sliceName\":\"Filtro Rupturas de Stock nas US\",\"width\":3},\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-Rldc8XnzWI\"],\"id\":\"GRID_ID\",\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Rupturas de Stock nas US\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-Rldc8XnzWI\":{\"children\":[\"CHART-tvrJr4DagM\",\"CHART-74yujful45\"],\"id\":\"ROW-Rldc8XnzWI\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"type\":\"ROW\"}}",
-                "id": 19,
-                "slices": [
-                    {
-                        "__Slice__": {
-                            "created_by_fk": 1,
-                            "cache_timeout": null,
-                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"filter_box\", \"slice_id\": 55, \"url_params\": {}, \"granularity_sqla\": \"processing_period_enddate\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"groupby\": [\"Provincia\", \"district_name\", \"facility_name\", \"processing_period_name\", \"product_code\", \"full_product_name\", \"orderablecategorydisplayname\"], \"metric\": \"count\", \"adhoc_filters\": [], \"date_filter\": true, \"instant_filtering\": false, \"show_sqla_time_granularity\": false, \"show_sqla_time_column\": false, \"show_druid_time_granularity\": false, \"show_druid_time_origin\": false, \"remote_id\": 55, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
-                            "datasource_name": "stock_status_and_consumption",
-                            "datasource_type": "table",
-                            "slice_name": "Filtro Rupturas de Stock nas US",
-                            "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
-                            },
-                            "changed_by_fk": 1,
-                            "perm": "[main].[stock_status_and_consumption](id:1)",
-                            "description": null,
-                            "viz_type": "filter_box",
-                            "datasource_id": 1,
-                            "id": 55,
-                            "created_on": {
-                                "__datetime__": "2019-07-17T09:54:34"
-                            }
-                        }
-                    },
-                    {
-                        "__Slice__": {
-                            "created_by_fk": 1,
-                            "cache_timeout": null,
-                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"table\", \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"groupby\": [\"product_code\", \"full_product_name\", \"total_stockout_days\"], \"metrics\": [], \"percent_metrics\": [], \"timeseries_limit_metric\": null, \"row_limit\": 10000, \"include_time\": false, \"order_desc\": true, \"all_columns\": [], \"order_by_cols\": [], \"adhoc_filters\": [], \"table_timestamp_format\": \"%Y-%m-%d %H:%M:%S\", \"page_length\": 0, \"include_search\": false, \"table_filter\": false, \"align_pn\": false, \"color_pn\": true, \"remote_id\": 56, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
-                            "datasource_name": "stock_status_and_consumption",
-                            "datasource_type": "table",
-                            "slice_name": "Rupturas de Stock nas US",
-                            "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
-                            },
-                            "changed_by_fk": 1,
-                            "perm": "[main].[stock_status_and_consumption](id:1)",
-                            "description": null,
-                            "viz_type": "table",
-                            "datasource_id": 1,
-                            "id": 56,
-                            "created_on": {
-                                "__datetime__": "2019-07-17T09:59:12"
                             }
                         }
                     }
@@ -266,7 +266,7 @@
                             "datasource_type": "table",
                             "slice_name": "Compara\u00e7\u00e3o de Consumos Por Regi\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -288,7 +288,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Compara\u00e7\u00e3o de Consumos Por Regi\u00e3o)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -331,7 +331,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -353,7 +353,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -375,7 +375,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -397,7 +397,7 @@
                             "datasource_type": "table",
                             "slice_name": "Institui\u00e7\u00f5es \u00e0 Reportar Por Per\u00edodo",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -440,7 +440,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -462,7 +462,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -484,7 +484,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -506,7 +506,7 @@
                             "datasource_type": "table",
                             "slice_name": "Condi\u00e7\u00f5es das a\u00e7\u00f5es ao longo do tempo",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -528,7 +528,7 @@
                             "datasource_type": "table",
                             "slice_name": "Tabela de Condi\u00e7\u00f5es de estoque",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -571,7 +571,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -593,7 +593,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -615,7 +615,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -637,7 +637,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxas de Ruptura de Stock do Munic\u00edpio",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -680,7 +680,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -702,7 +702,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -724,7 +724,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[adjustments](id:2)",
@@ -746,7 +746,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de ajuste",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[adjustments](id:2)",
@@ -789,7 +789,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -811,7 +811,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -833,7 +833,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -855,7 +855,7 @@
                             "datasource_type": "table",
                             "slice_name": "Pedidos Regulares vs. de Emerg\u00eancia",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -877,7 +877,7 @@
                             "datasource_type": "table",
                             "slice_name": "Custo total de Encomendas",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -920,7 +920,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:54"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -942,7 +942,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rio Resumido de Log\u00edstica",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -964,7 +964,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rio de Consumo",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -986,7 +986,7 @@
                             "datasource_type": "table",
                             "slice_name": "Total de Instala\u00e7\u00f5es de Consumo Ajustado",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1029,7 +1029,7 @@
                             "datasource_type": "table",
                             "slice_name": "Lista de Institui\u00e7\u00f5es",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[facilities](id:30)",
@@ -1072,7 +1072,7 @@
                             "datasource_type": "table",
                             "slice_name": "Ocorr\u00eancia de Ajustes",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_adjustments_view](id:35)",
@@ -1094,7 +1094,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_adjustments_view](id:35)",
@@ -1137,7 +1137,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Submiss\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1159,7 +1159,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1181,7 +1181,7 @@
                             "datasource_type": "table",
                             "slice_name": " Apresentadas todas institui\u00e7\u00f5es que submeteram ou n\u00e3o os relat\u00f3rios mensais (R&R)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1203,7 +1203,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Submiss\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1246,7 +1246,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Stocks",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1268,7 +1268,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Resumo de Stocks)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:00"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1311,7 +1311,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:01"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1333,7 +1333,7 @@
                             "datasource_type": "table",
                             "slice_name": "Produtos Reportados e Requisitados",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:01"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1376,7 +1376,7 @@
                             "datasource_type": "table",
                             "slice_name": "Consumo Agregado",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:01"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1398,7 +1398,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Consumo Agregado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-18T13:50:01"
+                                "__datetime__": "2019-07-19T08:50:55"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
