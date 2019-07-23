@@ -27,7 +27,7 @@
                             "datasource_type": "table",
                             "slice_name": "Datas de Expira\u00e7\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_expiry_dates](id:37)",
@@ -49,7 +49,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Datas de Expira\u00e7\u00e3o)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_expiry_dates](id:37)",
@@ -92,7 +92,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro Rupturas de Stock nas US",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -114,7 +114,7 @@
                             "datasource_type": "table",
                             "slice_name": "Rupturas de Stock nas US",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -157,7 +157,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Stock Dispon\u00edvel por institui\u00e7\u00e3o)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -174,12 +174,12 @@
                         "__Slice__": {
                             "created_by_fk": 1,
                             "cache_timeout": null,
-                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"pivot_table\", \"slice_id\": 48, \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"metrics\": [{\"expressionType\": \"SIMPLE\", \"column\": {\"id\": 17, \"column_name\": \"stock_on_hand\", \"verbose_name\": \"Stock disponivel\", \"description\": \"\", \"expression\": \"\", \"filterable\": true, \"groupby\": true, \"is_dttm\": false, \"type\": \"DOUBLE PRECISION\", \"database_expression\": \"\", \"python_date_format\": \"\", \"optionName\": \"_col_stock_on_hand\"}, \"aggregate\": \"SUM\", \"sqlExpression\": null, \"hasCustomLabel\": true, \"fromFormData\": true, \"label\": \"Stock disponivel\", \"optionName\": \"metric_lssk82pwxjd_nd0oxcvoee\"}], \"adhoc_filters\": [], \"groupby\": [\"product_code\", \"Nome Completo do Produto\"], \"columns\": [\"processing_period_name\"], \"row_limit\": 100, \"pandas_aggfunc\": \"sum\", \"pivot_margins\": false, \"number_format\": \".3s\", \"combine_metric\": true, \"remote_id\": 48, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
+                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"pivot_table\", \"slice_id\": 48, \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"metrics\": [{\"expressionType\": \"SIMPLE\", \"column\": {\"id\": 17, \"column_name\": \"stock_on_hand\", \"verbose_name\": \"Stock disponivel\", \"description\": \"\", \"expression\": \"\", \"filterable\": true, \"groupby\": true, \"is_dttm\": false, \"type\": \"DOUBLE PRECISION\", \"database_expression\": \"\", \"python_date_format\": \"\", \"optionName\": \"_col_stock_on_hand\"}, \"aggregate\": \"SUM\", \"sqlExpression\": null, \"hasCustomLabel\": true, \"fromFormData\": true, \"label\": \"Stock disponivel\", \"optionName\": \"metric_lssk82pwxjd_nd0oxcvoee\"}], \"adhoc_filters\": [{\"expressionType\": \"SIMPLE\", \"subject\": \"product_code\", \"operator\": \"IS NOT NULL\", \"comparator\": \"\", \"clause\": \"WHERE\", \"sqlExpression\": null, \"fromFormData\": true, \"filterOptionName\": \"filter_kxk65kxb2m_q8ngz9du6nj\"}], \"groupby\": [\"product_code\", \"Nome Completo do Produto\"], \"columns\": [\"processing_period_name\"], \"row_limit\": 100, \"pandas_aggfunc\": \"sum\", \"pivot_margins\": false, \"number_format\": \".3s\", \"combine_metric\": true, \"remote_id\": 48, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
                             "datasource_name": "stock_status_and_consumption",
                             "datasource_type": "table",
                             "slice_name": "Stock Dispon\u00edvel (SOH) Agregado",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -196,12 +196,12 @@
                         "__Slice__": {
                             "created_by_fk": 1,
                             "cache_timeout": null,
-                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"pivot_table\", \"slice_id\": 49, \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"Last 100 years\", \"metrics\": [{\"expressionType\": \"SIMPLE\", \"column\": {\"id\": 436, \"column_name\": \"mos\", \"verbose_name\": \"Messes de Stock\", \"description\": null, \"expression\": \"\", \"filterable\": true, \"groupby\": true, \"is_dttm\": false, \"type\": \"DOUBLE PRECISION\", \"database_expression\": null, \"python_date_format\": null, \"optionName\": \"_col_mos\"}, \"aggregate\": \"SUM\", \"sqlExpression\": null, \"hasCustomLabel\": true, \"fromFormData\": true, \"label\": \"Meses de Stock\", \"optionName\": \"metric_z9cinbnyahm_j0zi47y69pl\"}], \"adhoc_filters\": [], \"groupby\": [\"product_code\", \"Nome Completo do Produto\"], \"columns\": [\"processing_period_name\"], \"row_limit\": 10000, \"pandas_aggfunc\": \"sum\", \"pivot_margins\": false, \"number_format\": \".3s\", \"combine_metric\": true, \"remote_id\": 49, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
+                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"pivot_table\", \"slice_id\": 49, \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"Last 100 years\", \"metrics\": [{\"expressionType\": \"SIMPLE\", \"column\": {\"id\": 436, \"column_name\": \"mos\", \"verbose_name\": \"Messes de Stock\", \"description\": null, \"expression\": \"\", \"filterable\": true, \"groupby\": true, \"is_dttm\": false, \"type\": \"DOUBLE PRECISION\", \"database_expression\": null, \"python_date_format\": null, \"optionName\": \"_col_mos\"}, \"aggregate\": \"SUM\", \"sqlExpression\": null, \"hasCustomLabel\": true, \"fromFormData\": true, \"label\": \"Meses de Stock\", \"optionName\": \"metric_z9cinbnyahm_j0zi47y69pl\"}], \"adhoc_filters\": [{\"expressionType\": \"SIMPLE\", \"subject\": \"C\\u00f3digo do Produto\", \"operator\": \"IS NOT NULL\", \"comparator\": \"\", \"clause\": \"WHERE\", \"sqlExpression\": null, \"fromFormData\": true, \"filterOptionName\": \"filter_rgtw1go2r8j_907u2zb3wqd\"}], \"groupby\": [\"product_code\", \"Nome Completo do Produto\"], \"columns\": [\"processing_period_name\"], \"row_limit\": 10000, \"pandas_aggfunc\": \"sum\", \"pivot_margins\": false, \"number_format\": \".3s\", \"combine_metric\": true, \"remote_id\": 49, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
                             "datasource_name": "stock_status_and_consumption",
                             "datasource_type": "table",
                             "slice_name": "Meses de Stock (MOS) Agregado",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -218,12 +218,12 @@
                         "__Slice__": {
                             "created_by_fk": 1,
                             "cache_timeout": null,
-                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"pivot_table\", \"slice_id\": 51, \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"metrics\": [{\"expressionType\": \"SIMPLE\", \"column\": {\"id\": 17, \"column_name\": \"stock_on_hand\", \"verbose_name\": \"Stock disponivel\", \"description\": \"\", \"expression\": \"\", \"filterable\": true, \"groupby\": true, \"is_dttm\": false, \"type\": \"DOUBLE PRECISION\", \"database_expression\": \"\", \"python_date_format\": \"\", \"optionName\": \"_col_stock_on_hand\"}, \"aggregate\": \"SUM\", \"sqlExpression\": null, \"hasCustomLabel\": true, \"fromFormData\": true, \"label\": \"Stock disponivel\", \"optionName\": \"metric_5dc353u2pcb_xo3rhy920wm\"}], \"adhoc_filters\": [], \"groupby\": [\"product_code\", \"Nome Completo do Produto\", \"Provincia\", \"Institui\\u00e7\\u00e3o\"], \"columns\": [\"processing_period_name\"], \"row_limit\": 10000, \"pandas_aggfunc\": \"sum\", \"pivot_margins\": false, \"number_format\": \".3s\", \"combine_metric\": true, \"remote_id\": 51, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
+                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"pivot_table\", \"slice_id\": 51, \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"metrics\": [{\"expressionType\": \"SIMPLE\", \"column\": {\"id\": 17, \"column_name\": \"stock_on_hand\", \"verbose_name\": \"Stock disponivel\", \"description\": \"\", \"expression\": \"\", \"filterable\": true, \"groupby\": true, \"is_dttm\": false, \"type\": \"DOUBLE PRECISION\", \"database_expression\": \"\", \"python_date_format\": \"\", \"optionName\": \"_col_stock_on_hand\"}, \"aggregate\": \"SUM\", \"sqlExpression\": null, \"hasCustomLabel\": true, \"fromFormData\": true, \"label\": \"Stock disponivel\", \"optionName\": \"metric_5dc353u2pcb_xo3rhy920wm\"}], \"adhoc_filters\": [{\"expressionType\": \"SIMPLE\", \"subject\": \"product_code\", \"operator\": \"IS NOT NULL\", \"comparator\": \"\", \"clause\": \"WHERE\", \"sqlExpression\": null, \"fromFormData\": true, \"filterOptionName\": \"filter_wtdypzivt2a_ce1lu3juzn\"}], \"groupby\": [\"product_code\", \"Nome Completo do Produto\", \"Provincia\", \"Institui\\u00e7\\u00e3o\"], \"columns\": [\"processing_period_name\"], \"row_limit\": 10000, \"pandas_aggfunc\": \"sum\", \"pivot_margins\": false, \"number_format\": \".3s\", \"combine_metric\": true, \"remote_id\": 51, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
                             "datasource_name": "stock_status_and_consumption",
                             "datasource_type": "table",
                             "slice_name": "Dados detalhados SOH",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -240,12 +240,12 @@
                         "__Slice__": {
                             "created_by_fk": 1,
                             "cache_timeout": null,
-                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"pivot_table\", \"slice_id\": 52, \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"metrics\": [{\"expressionType\": \"SIMPLE\", \"column\": {\"id\": 436, \"column_name\": \"mos\", \"verbose_name\": \"Messes de Stock\", \"description\": null, \"expression\": \"\", \"filterable\": true, \"groupby\": true, \"is_dttm\": false, \"type\": \"DOUBLE PRECISION\", \"database_expression\": null, \"python_date_format\": null, \"optionName\": \"_col_mos\"}, \"aggregate\": \"SUM\", \"sqlExpression\": null, \"hasCustomLabel\": true, \"fromFormData\": true, \"label\": \"Meses de Stock\", \"optionName\": \"metric_ad5gy4em5vw_pplw6khnud\"}], \"adhoc_filters\": [], \"groupby\": [\"product_code\", \"Nome Completo do Produto\", \"Provincia\", \"Institui\\u00e7\\u00e3o\"], \"columns\": [\"processing_period_name\"], \"row_limit\": 10000, \"pandas_aggfunc\": \"sum\", \"pivot_margins\": false, \"number_format\": \".3s\", \"combine_metric\": true, \"remote_id\": 52, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
+                            "params": "{\"datasource\": \"1__table\", \"viz_type\": \"pivot_table\", \"slice_id\": 52, \"url_params\": {}, \"granularity_sqla\": \"processing_period_startdate\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"metrics\": [{\"expressionType\": \"SIMPLE\", \"column\": {\"id\": 436, \"column_name\": \"mos\", \"verbose_name\": \"Messes de Stock\", \"description\": null, \"expression\": \"\", \"filterable\": true, \"groupby\": true, \"is_dttm\": false, \"type\": \"DOUBLE PRECISION\", \"database_expression\": null, \"python_date_format\": null, \"optionName\": \"_col_mos\"}, \"aggregate\": \"SUM\", \"sqlExpression\": null, \"hasCustomLabel\": true, \"fromFormData\": true, \"label\": \"Meses de Stock\", \"optionName\": \"metric_ad5gy4em5vw_pplw6khnud\"}], \"adhoc_filters\": [{\"expressionType\": \"SIMPLE\", \"subject\": \"C\\u00f3digo do Produto\", \"operator\": \"IS NOT NULL\", \"comparator\": \"\", \"clause\": \"WHERE\", \"sqlExpression\": null, \"fromFormData\": true, \"filterOptionName\": \"filter_bfq45051nmq_13qyi5qqmc2r\"}], \"groupby\": [\"product_code\", \"Nome Completo do Produto\", \"Provincia\", \"Institui\\u00e7\\u00e3o\"], \"columns\": [\"processing_period_name\"], \"row_limit\": 10000, \"pandas_aggfunc\": \"sum\", \"pivot_margins\": false, \"number_format\": \".3s\", \"combine_metric\": true, \"remote_id\": 52, \"datasource_name\": \"stock_status_and_consumption\", \"schema\": \"stock_status_and_consumption\", \"database_name\": \"main\"}",
                             "datasource_name": "stock_status_and_consumption",
                             "datasource_type": "table",
                             "slice_name": "Dados detalhados MOS",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -288,7 +288,7 @@
                             "datasource_type": "table",
                             "slice_name": "Compara\u00e7\u00e3o de Consumos Por Regi\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -310,7 +310,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Compara\u00e7\u00e3o de Consumos Por Regi\u00e3o)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -353,7 +353,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -375,7 +375,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -397,7 +397,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -419,7 +419,7 @@
                             "datasource_type": "table",
                             "slice_name": "Institui\u00e7\u00f5es \u00e0 Reportar Por Per\u00edodo",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -462,7 +462,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -484,7 +484,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -506,7 +506,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -528,7 +528,7 @@
                             "datasource_type": "table",
                             "slice_name": "Condi\u00e7\u00f5es das a\u00e7\u00f5es ao longo do tempo",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -550,7 +550,7 @@
                             "datasource_type": "table",
                             "slice_name": "Tabela de Condi\u00e7\u00f5es de estoque",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -593,7 +593,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -615,7 +615,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -637,7 +637,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -659,7 +659,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxas de Ruptura de Stock do Munic\u00edpio",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -702,7 +702,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -724,7 +724,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -746,7 +746,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[adjustments](id:2)",
@@ -768,7 +768,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de ajuste",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[adjustments](id:2)",
@@ -811,7 +811,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rios de Submiss\u00e3o (Acumulado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -833,7 +833,7 @@
                             "datasource_type": "table",
                             "slice_name": "Taxa de Submiss\u00e3o de Relat\u00f3rios",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -855,7 +855,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -877,7 +877,7 @@
                             "datasource_type": "table",
                             "slice_name": "Pedidos Regulares vs. de Emerg\u00eancia",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -899,7 +899,7 @@
                             "datasource_type": "table",
                             "slice_name": "Custo total de Encomendas",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -942,7 +942,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:25"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -964,7 +964,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rio Resumido de Log\u00edstica",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -986,7 +986,7 @@
                             "datasource_type": "table",
                             "slice_name": "Relat\u00f3rio de Consumo",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1008,7 +1008,7 @@
                             "datasource_type": "table",
                             "slice_name": "Total de Instala\u00e7\u00f5es de Consumo Ajustado",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1051,7 +1051,7 @@
                             "datasource_type": "table",
                             "slice_name": "Lista de Institui\u00e7\u00f5es",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[facilities](id:30)",
@@ -1094,7 +1094,7 @@
                             "datasource_type": "table",
                             "slice_name": "Ocorr\u00eancia de Ajustes",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_adjustments_view](id:35)",
@@ -1116,7 +1116,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:44"
                             },
                             "changed_by_fk": 1,
                             "perm": "[olmis].[stock_adjustments_view](id:35)",
@@ -1159,7 +1159,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Submiss\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1181,7 +1181,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1203,7 +1203,7 @@
                             "datasource_type": "table",
                             "slice_name": " Apresentadas todas institui\u00e7\u00f5es que submeteram ou n\u00e3o os relat\u00f3rios mensais (R&R)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1225,7 +1225,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Submiss\u00e3o",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[reporting_rate_and_timeliness](id:3)",
@@ -1268,7 +1268,7 @@
                             "datasource_type": "table",
                             "slice_name": "Resumo de Stocks",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1290,7 +1290,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Resumo de Stocks)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1333,7 +1333,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1355,7 +1355,7 @@
                             "datasource_type": "table",
                             "slice_name": "Produtos Reportados e Requisitados",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1398,7 +1398,7 @@
                             "datasource_type": "table",
                             "slice_name": "Consumo Agregado",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -1420,7 +1420,7 @@
                             "datasource_type": "table",
                             "slice_name": "Filtro (Consumo Agregado)",
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:52:26"
+                                "__datetime__": "2019-07-23T14:04:45"
                             },
                             "changed_by_fk": 1,
                             "perm": "[main].[stock_status_and_consumption](id:1)",
@@ -2766,20 +2766,50 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
-                                "__datetime__": "2019-07-22T09:48:22"
+                                "__datetime__": "2019-07-23T08:38:43"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 436,
+                            "python_date_format": null,
+                            "avg": null,
+                            "column_name": "mos",
+                            "database_expression": null,
+                            "max": null,
+                            "verbose_name": "Meses de Stock",
+                            "created_by_fk": 1,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "DOUBLE PRECISION",
+                            "created_on": {
+                                "__datetime__": "2019-07-11T11:18:59"
+                            },
+                            "description": null,
+                            "groupby": true,
+                            "table_id": 1,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
+                                "__datetime__": "2019-07-23T08:38:43"
                             },
                             "expression": "processing_period_name",
-                            "sum": false,
+                            "sum": null,
                             "id": 473,
                             "python_date_format": null,
-                            "avg": false,
+                            "avg": null,
                             "column_name": "Per\u00edodo de processamento",
                             "database_expression": null,
-                            "max": false,
+                            "max": null,
                             "verbose_name": "Per\u00edodo de processamento",
                             "created_by_fk": 1,
-                            "min": false,
-                            "is_active": true,
+                            "min": null,
+                            "is_active": null,
                             "changed_by_fk": 1,
                             "filterable": true,
                             "type": "STRING",
@@ -2789,7 +2819,7 @@
                             "description": null,
                             "groupby": true,
                             "table_id": 1,
-                            "count_distinct": false,
+                            "count_distinct": null,
                             "is_dttm": false
                         }
                     },
@@ -2815,36 +2845,6 @@
                             "type": "DOUBLE PRECISION",
                             "created_on": {
                                 "__datetime__": "2019-06-27T13:10:32"
-                            },
-                            "description": null,
-                            "groupby": true,
-                            "table_id": 1,
-                            "count_distinct": null,
-                            "is_dttm": false
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-12T10:03:49"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 436,
-                            "python_date_format": null,
-                            "avg": null,
-                            "column_name": "mos",
-                            "database_expression": null,
-                            "max": null,
-                            "verbose_name": "Messes de Stock",
-                            "created_by_fk": 1,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "DOUBLE PRECISION",
-                            "created_on": {
-                                "__datetime__": "2019-07-11T11:18:59"
                             },
                             "description": null,
                             "groupby": true,
@@ -3126,6 +3126,36 @@
                     {
                         "__TableColumn__": {
                             "changed_on": {
+                                "__datetime__": "2019-07-23T08:38:43"
+                            },
+                            "expression": "",
+                            "sum": null,
+                            "id": 2,
+                            "python_date_format": "",
+                            "avg": null,
+                            "column_name": "amc",
+                            "database_expression": "",
+                            "max": null,
+                            "verbose_name": "Consumo M\u00e9dio Mensal",
+                            "created_by_fk": null,
+                            "min": null,
+                            "is_active": null,
+                            "changed_by_fk": 1,
+                            "filterable": true,
+                            "type": "DOUBLE PRECISION",
+                            "created_on": {
+                                "__datetime__": "2019-06-27T13:10:32"
+                            },
+                            "description": "",
+                            "groupby": true,
+                            "table_id": 1,
+                            "count_distinct": null,
+                            "is_dttm": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_on": {
                                 "__datetime__": "2019-07-11T11:18:59"
                             },
                             "expression": "",
@@ -3211,36 +3241,6 @@
                             "table_id": 1,
                             "count_distinct": null,
                             "is_dttm": true
-                        }
-                    },
-                    {
-                        "__TableColumn__": {
-                            "changed_on": {
-                                "__datetime__": "2019-07-12T10:04:22"
-                            },
-                            "expression": "",
-                            "sum": null,
-                            "id": 2,
-                            "python_date_format": "",
-                            "avg": null,
-                            "column_name": "amc",
-                            "database_expression": "",
-                            "max": null,
-                            "verbose_name": "Consumo M\u00e9dia Mensal",
-                            "created_by_fk": null,
-                            "min": null,
-                            "is_active": null,
-                            "changed_by_fk": 1,
-                            "filterable": true,
-                            "type": "DOUBLE PRECISION",
-                            "created_on": {
-                                "__datetime__": "2019-06-27T13:10:32"
-                            },
-                            "description": "",
-                            "groupby": true,
-                            "table_id": 1,
-                            "count_distinct": null,
-                            "is_dttm": false
                         }
                     },
                     {
