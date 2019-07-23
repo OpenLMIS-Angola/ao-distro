@@ -415,7 +415,7 @@ CREATE TABLE requisitions_status_history (
   requisition_id varchar,
   status varchar,
   author_id varchar,
-  created_date date
+  created_date timestamptz
 );
 
 ALTER TABLE requisitions_status_history OWNER TO postgres;
