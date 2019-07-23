@@ -510,7 +510,7 @@ ALTER TABLE reporting_dates OWNER TO postgres;
 
 -- Insert default values for reporting dates --
 INSERT INTO reporting_dates(due_days, late_days, country) 
-    VALUES(14, 7, 'Malawi'), (14, 7, 'Mozambique');
+    VALUES(14, 7, 'Angola');
 
 ---
 --- Name: reporting_rate_and_timeliness; Type: TABLE; Schema: referencedata; Owner: postgres
@@ -527,13 +527,14 @@ sp.programid as supported_program, sp.startdate, sp.active as supported_program_
 rgm.requisitiongroupid,
 rgps.processingscheduleid,
 fa.facility, fa.program, fa.username,
+--- Temporary replace due days and late days with numeric values due to facility country missing (geographic zones lacking data issue) 
 CASE
-    WHEN authorized_reqs.statuschangedate <= (authorized_reqs.processing_period_enddate::DATE + rd.due_days::INT) 
+    WHEN authorized_reqs.statuschangedate <= (authorized_reqs.processing_period_enddate::DATE + 14) 
         AND authorized_reqs.status = 'AUTHORIZED' THEN 'Atempado'
-    WHEN authorized_reqs.statuschangedate > (authorized_reqs.processing_period_enddate::DATE + rd.due_days::INT + rd.late_days::INT) 
+    WHEN authorized_reqs.statuschangedate > (authorized_reqs.processing_period_enddate::DATE + 14 + 7) 
         AND authorized_reqs.status = 'AUTHORIZED' THEN 'Não Agendado'
-    WHEN authorized_reqs.statuschangedate < (authorized_reqs.processing_period_enddate::DATE + rd.due_days::INT + rd.late_days::INT) 
-        AND authorized_reqs.statuschangedate >= (authorized_reqs.processing_period_enddate::DATE + rd.due_days::INT) 
+    WHEN authorized_reqs.statuschangedate < (authorized_reqs.processing_period_enddate::DATE + 14 + 7) 
+        AND authorized_reqs.statuschangedate >= (authorized_reqs.processing_period_enddate::DATE + 14) 
         AND authorized_reqs.status = 'AUTHORIZED' THEN 'Atrasado'
     ELSE 'Não Submetido' END as reporting_timeliness
 FROM facilities f
