@@ -517,42 +517,53 @@ INSERT INTO reporting_dates(due_days, late_days, country)
 ---
 CREATE MATERIALIZED VIEW reporting_rate_and_timeliness AS
 SELECT f.id, f.name, f.code, f.district, f.region, f.country, f.type, f.operator_name,
-f.status as facility_active_status,
-authorized_reqs.program_id, authorized_reqs.req_id, authorized_reqs.processing_period_id, 
-authorized_reqs.processing_period_enddate, authorized_reqs.facility_id, authorized_reqs.created_date,
-authorized_reqs.statuschangedate, authorized_reqs.modified_date, authorized_reqs.emergency_status, authorized_reqs.program_name,
-authorized_reqs.program_active_status, authorized_reqs.processing_schedule_name,
-authorized_reqs.processing_period_name, authorized_reqs.processing_period_startdate,
-sp.programid as supported_program, sp.startdate, sp.active as supported_program_active,
-rgm.requisitiongroupid,
-rgps.processingscheduleid,
-fa.facility, fa.program, fa.username,
+       f.status as facility_active_status,
+       authorized_reqs.program_id, authorized_reqs.req_id, authorized_reqs.processing_period_id,
+       authorized_reqs.processing_period_enddate, authorized_reqs.facility_id, authorized_reqs.created_date,
+       authorized_reqs.statuschangedate, authorized_reqs.modified_date, authorized_reqs.program_name,
+       authorized_reqs.program_active_status, authorized_reqs.processing_schedule_name,
+       authorized_reqs.processing_period_name, authorized_reqs.processing_period_startdate,
+       sp.programid as supported_program, sp.startdate, sp.active as supported_program_active,
+       rgm.requisitiongroupid,
+       rgps.processingscheduleid,
+       fa.facility, fa.program, fa.username,
 --- Temporary replace due days and late days with numeric values due to facility country missing (geographic zones lacking data issue) 
 CASE
-    WHEN authorized_reqs.statuschangedate <= (authorized_reqs.processing_period_enddate::DATE + 14) 
+    WHEN authorized_reqs.statuschangedate <= (authorized_reqs.processing_period_enddate::DATE + 14)
         AND authorized_reqs.status = 'AUTHORIZED' THEN 'Atempado'
-    WHEN authorized_reqs.statuschangedate > (authorized_reqs.processing_period_enddate::DATE + 14 + 7) 
-        AND authorized_reqs.status = 'AUTHORIZED' THEN 'Não Agendado'
-    WHEN authorized_reqs.statuschangedate < (authorized_reqs.processing_period_enddate::DATE + 14 + 7) 
-        AND authorized_reqs.statuschangedate >= (authorized_reqs.processing_period_enddate::DATE + 14) 
+    WHEN authorized_reqs.statuschangedate > (authorized_reqs.processing_period_enddate::DATE + 14 + 7)
+        AND authorized_reqs.status = 'AUTHORIZED' THEN 'Nao Agendado'
+    WHEN authorized_reqs.statuschangedate < (authorized_reqs.processing_period_enddate::DATE + 14 + 7)
+        AND authorized_reqs.statuschangedate >= (authorized_reqs.processing_period_enddate::DATE + 14)
         AND authorized_reqs.status = 'AUTHORIZED' THEN 'Atrasado'
-    ELSE 'Não Submetido' END as reporting_timeliness
+    WHEN authorized_reqs.status = 'APPROVED' THEN 'Aprovado'
+    ELSE 'Nao Autorizado' END as reporting_timeliness,
+CASE
+    WHEN authorized_reqs.emergency_status IS TRUE THEN 'Emergência'
+    ELSE 'Regular'
+    END as emergency_status,
+CASE
+    WHEN authorized_reqs.status = 'RELEASED' THEN 'Terminado'
+    WHEN authorized_reqs.status = 'SUBMITTED' THEN 'Submetido'
+    WHEN authorized_reqs.status = 'INITIATED' THEN 'Rasuchno'
+    WHEN authorized_reqs.status = 'APPROVED' THEN 'Aprovado'
+ELSE 'Autorizado' END as current_status
 FROM facilities f
-LEFT JOIN (
-    SELECT DISTINCT status_rank.facility_id, status_rank.req_id, status_rank.program_id, status_rank.processing_period_id, status_rank.statuschangedate, status_rank.status, status_rank.rank, status_rank.processing_period_enddate, status_rank.created_date, status_rank.modified_date, status_rank.emergency_status, status_rank.program_name, status_rank.program_active_status, status_rank.processing_schedule_name, status_rank.processing_period_name, status_rank.processing_period_startdate
-    FROM (
-        SELECT items.facility_id, items.program_id, items.req_id, items.processing_period_id, items.status, items.statuschangedate, items.processing_period_enddate, items.created_date, items.modified_date, items.emergency_status, items.program_name, items.program_active_status, items.processing_schedule_name, items.processing_period_name, items.processing_period_startdate,
-        rank() OVER (PARTITION BY items.program_id, items.facility_id, items.processing_period_id ORDER BY items.statuschangedate DESC) AS rank
+    LEFT JOIN (
+        SELECT DISTINCT status_rank.facility_id, status_rank.req_id, status_rank.program_id, status_rank.processing_period_id, status_rank.statuschangedate, status_rank.status, status_rank.rank, status_rank.processing_period_enddate, status_rank.created_date, status_rank.modified_date, status_rank.emergency_status, status_rank.program_name, status_rank.program_active_status, status_rank.processing_schedule_name, status_rank.processing_period_name, status_rank.processing_period_startdate
         FROM (
-            SELECT r.facility_id, r.program_id, r.id as req_id, r.processing_period_id, r.processing_period_enddate, r.created_date, r.modified_date, r.emergency_status, r.program_name, r.program_active_status, r.processing_schedule_name, r.processing_period_name, r.processing_period_startdate,
-            rh.status, rh.created_date AS statuschangedate
-            FROM requisitions r
-            LEFT JOIN (
-                SELECT rh.created_date, rh.status, rh.requisition_id
-                FROM requisitions_status_history rh
-                WHERE rh.status = 'AUTHORIZED') rh
-            ON rh.requisition_id::VARCHAR = r.id::VARCHAR) items
-        ORDER BY items.facility_id, items.processing_period_id, items.statuschangedate DESC) status_rank
+             SELECT items.facility_id, items.program_id, items.req_id, items.processing_period_id, items.status, items.statuschangedate, items.processing_period_enddate, items.created_date, items.modified_date, items.emergency_status, items.program_name, items.program_active_status, items.processing_schedule_name, items.processing_period_name, items.processing_period_startdate,
+                    rank() OVER (PARTITION BY items.program_id, items.facility_id, items.processing_period_id ORDER BY items.statuschangedate DESC) AS rank
+             FROM (
+                      SELECT r.facility_id, r.program_id, r.id as req_id, r.processing_period_id, r.processing_period_enddate, r.created_date, r.modified_date, r.emergency_status, r.program_name, r.program_active_status, r.processing_schedule_name, r.processing_period_name, r.processing_period_startdate,
+                             rh.status, rh.created_date AS statuschangedate
+                      FROM requisitions r
+                               LEFT JOIN (
+                          SELECT rh.created_date, rh.status, rh.requisition_id
+                          FROM requisitions_status_history rh
+                      ) rh
+                                         ON rh.requisition_id::VARCHAR = r.id::VARCHAR) items
+             ORDER BY items.facility_id, items.processing_period_id, items.statuschangedate DESC) status_rank
     WHERE status_rank.rank = 1) authorized_reqs
 ON f.id::VARCHAR = authorized_reqs.facility_id::VARCHAR
 LEFT JOIN reporting_dates rd ON f.country = rd.country
