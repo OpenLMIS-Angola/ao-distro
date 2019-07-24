@@ -26,6 +26,8 @@ ENV GUNICORN_BIND=0.0.0.0:8088 \
     PYTHONUSERBASE=/home/superset
 ENV GUNICORN_CMD_ARGS="--workers ${GUNICORN_WORKERS} --timeout ${GUNICORN_TIMEOUT} --bind ${GUNICORN_BIND} --limit-request-line ${GUNICORN_LIMIT_REQUEST_LINE} --limit-request-field_size ${GUNICORN_LIMIT_REQUEST_FIELD_SIZE}"
 
+COPY requirements.txt requirements.txt
+
 # Create superset user & install dependencies
 RUN useradd -U -m superset && \
     mkdir /etc/superset  && \
@@ -46,7 +48,6 @@ RUN useradd -U -m superset && \
         libssl1.0 && \
     apt-get clean && \
     rm -r /var/lib/apt/lists/* && \
-    curl https://raw.githubusercontent.com/${SUPERSET_REPO}/${SUPERSET_VERSION}/requirements.txt -o requirements.txt && \
     pip install --no-cache-dir -r requirements.txt && \
     rm requirements.txt && \
     pip install --no-cache-dir \
