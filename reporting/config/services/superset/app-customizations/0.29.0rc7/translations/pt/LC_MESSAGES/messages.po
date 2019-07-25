@@ -4265,3 +4265,63 @@ msgstr "Actualizado %s"
 
 msgid "Apply"
 msgstr "Aplicar"
+
+msgid "Last day"
+msgstr "Último dia"
+
+msgid "Last week"
+msgstr "Último semana"
+
+msgid "Last month"
+msgstr "Último mês"
+
+msgid "Last quarter"
+msgstr "Último quarto"
+
+msgid "Last year"
+msgstr "Último ano"
+
+msgid "No filter"
+msgstr "Sem filtro"
+
+msgid "Last"
+msgstr "Último"
+
+msgid "Next"
+msgstr "Próximo"
+
+msgid "Defaults"
+msgstr "Padrões"
+
+msgid "seconds"
+msgstr "segundos"
+
+msgid "minutes"
+msgstr "minutos"
+
+msgid "hours"
+msgstr "horas"
+
+msgid "days"
+msgstr "dias"
+
+msgid "weeks"
+msgstr "semanas"
+
+msgid "months"
+msgstr "meses"
+
+msgid "years"
+msgstr "anos"
+
+msgid "Start / end"
+msgstr "Começar / fim"
+
+msgid "Relative to today"
+msgstr "Em relação a hoje"
+
+msgid "Custom"
+msgstr "Costume"
+
+msgid "Time range"
+msgstr "Intervalo de tempo"
