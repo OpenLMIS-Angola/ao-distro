@@ -24,7 +24,7 @@ ENV GUNICORN_BIND=0.0.0.0:8088 \
     SUPERSET_PATCHUP_VERSION=${SUPERSET_PATCHUP_VERSION} \
     SUPERSET_HOME=/var/lib/superset \
     PYTHONUSERBASE=/home/superset
-ENV GUNICORN_CMD_ARGS="--workers ${GUNICORN_WORKERS} --timeout ${GUNICORN_TIMEOUT} --bind ${GUNICORN_BIND} --limit-request-line ${GUNICORN_LIMIT_REQUEST_LINE} --limit-request-field_size ${GUNICORN_LIMIT_REQUEST_FIELD_SIZE}"
+ENV GUNICORN_CMD_ARGS="--workers ${GUNICORN_WORKERS} --timeout ${GUNICORN_TIMEOUT} --bind ${GUNICORN_BIND} --limit-request-line ${GUNICORN_LIMIT_REQUEST_LINE} --limit-request-field_size ${GUNICORN_LIMIT_REQUEST_FIELD_SIZE} --forwarded-allow-ips='*'"
 
 COPY requirements.txt requirements.txt
 
