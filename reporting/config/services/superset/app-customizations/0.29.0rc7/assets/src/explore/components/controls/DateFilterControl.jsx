@@ -322,7 +322,7 @@ export default class DateFilterControl extends React.Component {
                   onSelect={this.setTypeCustomRange}
                 >
                   <div className="clearfix centered" style={{ marginTop: '12px'  }}>
-                    <div style={{ width: '70px',marginTop: '-4px' }} className="input-inline">
+                    <div style={{ width: '80px',marginTop: '-4px' }} className="input-inline">
                       <DropdownButton
                         bsSize="small"
                         componentClass={InputGroup.Button}
