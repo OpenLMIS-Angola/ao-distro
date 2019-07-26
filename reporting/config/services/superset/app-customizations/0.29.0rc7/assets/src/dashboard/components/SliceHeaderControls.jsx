@@ -126,7 +126,6 @@ class SliceHeaderControls extends React.PureComponent {
         <Dropdown.Menu>
           <MenuItem onClick={this.refreshChart} disabled={!updatedDttm}>
             {t('Force refresh')}
-            Tempoprary hide the div of Cached and Fetched labels
             <div className="refresh-tooltip">{refreshTooltip}</div>
           </MenuItem>
 
