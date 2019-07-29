@@ -532,12 +532,12 @@ CASE
     WHEN authorized_reqs.statuschangedate <= (authorized_reqs.processing_period_enddate::DATE + 14)
         AND authorized_reqs.status = 'AUTHORIZED' THEN 'Atempado'
     WHEN authorized_reqs.statuschangedate > (authorized_reqs.processing_period_enddate::DATE + 14 + 7)
-        AND authorized_reqs.status = 'AUTHORIZED' THEN 'Nao Agendado'
+        AND authorized_reqs.status = 'AUTHORIZED' THEN 'Não Agendado'
     WHEN authorized_reqs.statuschangedate < (authorized_reqs.processing_period_enddate::DATE + 14 + 7)
         AND authorized_reqs.statuschangedate >= (authorized_reqs.processing_period_enddate::DATE + 14)
         AND authorized_reqs.status = 'AUTHORIZED' THEN 'Atrasado'
     WHEN authorized_reqs.status = 'APPROVED' THEN 'Aprovado'
-    ELSE 'Nao Autorizado' END as reporting_timeliness,
+    ELSE 'Não Autorizado' END as reporting_timeliness,
 CASE
     WHEN authorized_reqs.emergency_status IS TRUE THEN 'Emergência'
     ELSE 'Regular'
@@ -545,7 +545,7 @@ CASE
 CASE
     WHEN authorized_reqs.status = 'RELEASED' THEN 'Terminado'
     WHEN authorized_reqs.status = 'SUBMITTED' THEN 'Submetido'
-    WHEN authorized_reqs.status = 'INITIATED' THEN 'Rasuchno'
+    WHEN authorized_reqs.status = 'INITIATED' THEN 'Rascunho'
     WHEN authorized_reqs.status = 'APPROVED' THEN 'Aprovado'
 ELSE 'Autorizado' END as current_status
 FROM facilities f
