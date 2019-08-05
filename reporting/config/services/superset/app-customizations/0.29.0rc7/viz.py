@@ -19,7 +19,7 @@ import traceback
 import uuid
 
 from dateutil import relativedelta as rdelta
-from flask import request
+from flask import request, g
 from flask_babel import lazy_gettext as _
 from flask_babel import gettext as t
 import geohash
@@ -377,10 +377,23 @@ class BaseViz(object):
             del payload['df']
         return payload
 
+    def current_username(self):
+        """The username of the user who is currently logged in"""
+        if g.user:
+            return g.user.username
+
     def get_df_payload(self, query_obj=None, **kwargs):
         """Handles caching around the df payload retrieval"""
         if not query_obj:
             query_obj = self.query_obj()
+
+        if query_obj is not None and 'filter' in query_obj:
+            for filter in query_obj['filter']:
+                if 'val' in filter:
+                    if filter['val'] == '{{ current_username() }}':
+                        filter['val'] = self.current_username()
+                        logging.info('Replaced current_username in query')
+
         cache_key = self.cache_key(query_obj, **kwargs) if query_obj else None
         logging.info('Cache key: {}'.format(cache_key))
         is_loaded = False
