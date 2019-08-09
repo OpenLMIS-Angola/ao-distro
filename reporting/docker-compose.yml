@@ -102,6 +102,7 @@ services:
     env_file: settings.env
     volumes:
         - db-config-volume:/docker-entrypoint-initdb.d
+        - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     # logging:
@@ -141,4 +142,6 @@ volumes:
   certbot-endpoint:
     external: false
   letsencrypt-config:
+    external: true
+  pgdata:
     external: true
