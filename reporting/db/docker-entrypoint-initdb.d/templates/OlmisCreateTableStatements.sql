@@ -516,17 +516,13 @@ INSERT INTO reporting_dates(due_days, late_days, country)
 --- Name: reporting_rate_and_timeliness; Type: TABLE; Schema: referencedata; Owner: postgres
 ---
 CREATE MATERIALIZED VIEW reporting_rate_and_timeliness AS
-SELECT f.id, f.name, f.code, f.district, f.region, f.country, f.type, f.operator_name,
-       f.status as facility_active_status,
-       authorized_reqs.program_id, authorized_reqs.req_id, authorized_reqs.processing_period_id,
-       authorized_reqs.processing_period_enddate, authorized_reqs.facility_id, authorized_reqs.created_date,
-       authorized_reqs.statuschangedate, authorized_reqs.modified_date, authorized_reqs.program_name,
-       authorized_reqs.program_active_status, authorized_reqs.processing_schedule_name,
+SELECT f.id, f.name, f.type, f.code, f.district, f.region, f.country,
+       authorized_reqs.processing_period_enddate, 
+       authorized_reqs.modified_date, authorized_reqs.program_name, authorized_reqs.req_id,
+       authorized_reqs.created_date,
        authorized_reqs.processing_period_name, authorized_reqs.processing_period_startdate,
-       sp.programid as supported_program, sp.startdate, sp.active as supported_program_active,
-       rgm.requisitiongroupid,
-       rgps.processingscheduleid,
-       fa.facility, fa.program, fa.username,
+       authorized_reqs.processing_schedule_name, authorized_reqs.facility_id,
+        fa.username,
 --- Temporary replace due days and late days with numeric values due to facility country missing (geographic zones lacking data issue)
 CASE
     WHEN authorized_reqs.statuschangedate <= (authorized_reqs.processing_period_enddate::DATE + 14)
@@ -616,10 +612,10 @@ r.district_name, r.region_name,
 r.facility_type_name,
 r.program_name,
 r.processing_period_name, r.processing_period_startdate, r.processing_period_enddate,
-r.processing_schedule_name,
+r.processing_schedule_name, li.requisition_id as li_req_id,
 li.product_code, li.full_product_name,
 li.beginning_balance, li.total_consumed_quantity, li.average_consumption,
-li.total_losses_and_adjustments, li.stock_on_hand, li.total_stockout_days, li.max_periods_of_stock,
+li.total_losses_and_adjustments,li.total_cost, li.stock_on_hand, li.total_stockout_days, li.max_periods_of_stock,
 li.total_received_quantity, fa.username,
 li.closing_balance, li.AMC, li.Consumption, li.adjusted_consumption,
 li.order_quantity, li.combined_stockout,
@@ -629,7 +625,7 @@ LEFT JOIN facilities f ON r.facility_id::VARCHAR = f.id::VARCHAR
 LEFT JOIN facility_access fa ON fa.facility = f.id::VARCHAR AND fa.program = r.program_id
 LEFT JOIN (SELECT DISTINCT(requisition_line_item_id), requisition_id,
 product_code, full_product_name, beginning_balance, total_consumed_quantity, average_consumption,
-total_losses_and_adjustments, stock_on_hand, total_stockout_days, max_periods_of_stock,
+total_losses_and_adjustments, total_cost, stock_on_hand, total_stockout_days, max_periods_of_stock,
 total_received_quantity, orderablecategorydisplayname,
 SUM(stock_on_hand) as closing_balance,
 SUM(average_consumption) as AMC,
