@@ -1,5 +1,20 @@
 import d3 from 'd3';
 import moment from 'moment';
+import * as d3TimeFormat from 'd3-time-format'
+import localStorage from 'local-storage'
+
+const D3_LOCALES_MAP = {
+  en: require('d3-time-format/locale/en-GB.json'),
+  pt: require('d3-time-format/locale/pt-BR.json')
+}
+const DEFAULT_D3_LANGUAGE = D3_LOCALES_MAP.en;
+
+function getTimeFormatLocale() {
+  const currentLocale = localStorage.get('locale');
+  const localeDefinition = D3_LOCALES_MAP[currentLocale] ? D3_LOCALES_MAP[currentLocale] : DEFAULT_D3_LANGUAGE;
+  return d3TimeFormat.timeFormatDefaultLocale(localeDefinition)
+}
+const localizedD3Time = getTimeFormatLocale();
 
 export function UTC(dttm) {
   return new Date(
@@ -13,14 +28,14 @@ export function UTC(dttm) {
 }
 
 export const tickMultiFormat = (() => {
-  const formatMillisecond = d3.time.format('.%Lms');
-  const formatSecond = d3.time.format(':%Ss');
-  const formatMinute = d3.time.format('%I:%M');
-  const formatHour = d3.time.format('%I %p');
-  const formatDay = d3.time.format('%a %d');
-  const formatWeek = d3.time.format('%b %d');
-  const formatMonth = d3.time.format('%B');
-  const formatYear = d3.time.format('%Y');
+  const formatMillisecond = localizedD3Time.format('.%Lms');
+  const formatSecond = localizedD3Time.format(':%Ss');
+  const formatMinute = localizedD3Time.format('%I:%M');
+  const formatHour = localizedD3Time.format('%I %p');
+  const formatDay = localizedD3Time.format('%a %d');
+  const formatWeek = localizedD3Time.format('%b %d');
+  const formatMonth = localizedD3Time.format('%B');
+  const formatYear = localizedD3Time.format('%Y');
 
   return function tickMultiFormatConcise(date) {
     let formatter;
@@ -44,63 +59,38 @@ export const tickMultiFormat = (() => {
   };
 })();
 
-export const tickMultiFormatVerbose = d3.time.format.multi([
-  [
-    '.%L',
-    function (d) {
-      return d.getMilliseconds();
-    },
-  ],
-  // If there are millisections, show  only them
-  [
-    ':%S',
-    function (d) {
-      return d.getSeconds();
-    },
-  ],
-  // If there are seconds, show only them
-  [
-    '%a %b %d, %I:%M %p',
-    function (d) {
-      return d.getMinutes() !== 0;
-    },
-  ],
-  // If there are non-zero minutes, show Date, Hour:Minute [AM/PM]
-  [
-    '%a %b %d, %I %p',
-    function (d) {
-      return d.getHours() !== 0;
-    },
-  ],
-  // If there are hours that are multiples of 3, show date and AM/PM
-  [
-    '%a %b %e',
-    function (d) {
-      return d.getDate() >= 10;
-    },
-  ],
-  // If not the first of the month: "Tue Mar 2"
-  [
-    '%a %b%e',
-    function (d) {
-      return d.getDate() > 1;
-    },
-  ],
-  // If >= 10th of the month, compensate for padding : "Sun Mar 15"
-  [
-    '%b %Y',
-    function (d) {
-      return d.getMonth() !== 0 && d.getDate() === 1;
-    },
-  ],
-  // If the first of the month: 'Mar 2020'
-  [
-    '%Y',
-    function () {
-      return true;
-    },
-  ],  // fall back on just year: '2020'
-]);
+
+export function tickMultiFormatVerbose(d) {
+  let formatter;
+  if (d.getMilliseconds()) {
+    // If there are millisections, show  only them
+    formatter = localizedD3Time.format('.%L');
+  } else if (d.getSeconds()) {
+    // If there are seconds, show only them
+    formatter = localizedD3Time.format(':%S');
+  } else if (d.getMinutes() !== 0) {
+    // If there are non-zero minutes, show Date, Hour:Minute [AM/PM]
+    formatter = localizedD3Time.format('%a %b %d, %I:%M %p');
+  } else if (d.getHours() !== 0) {
+    // If there are hours that are multiples of 3, show date and AM/PM
+    formatter = localizedD3Time.format('%a %b %d, %I %p');
+  } else if (d.getDate() >= 10) {
+    // If not the first of the month: "Tue Mar 2"
+    formatter = localizedD3Time.format('%a %b %e');
+  } else if (d.getDate() > 1) {
+    formatter = localizedD3Time.format('%a %b%e');
+    // If >= 10th of the month, compensate for padding : "Sun Mar 15"
+  } else if (d.getMonth() !== 0 && d.getDate() === 1) {
+    // If the first of the month: 'Mar 2020'
+    formatter = localizedD3Time.format('%b %Y');
+  } else {
+    // fall back on just year: '2020'
+    formatter = localizedD3Time.format('%Y');
+  }
+
+  return formatter(d);
+}
+
 export const formatDate = function (dttm) {
   const d = UTC(new Date(dttm));
   return tickMultiFormat(d);
@@ -116,7 +106,7 @@ export const formatDateThunk = function (format) {
     return formatDateVerbose;
   }
 
-  const formatter = d3.time.format(format);
+  const formatter = localizedD3Time.format(format);
   return (dttm) => {
     const d = UTC(new Date(dttm));
     return formatter(d);

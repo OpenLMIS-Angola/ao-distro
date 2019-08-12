@@ -3,7 +3,15 @@ import $ from 'jquery';
 import { SupersetClient } from '@superset-ui/connection';
 import getClientErrorObject from '../utils/getClientErrorObject';
 import moment from 'moment';
-import 'moment/locale/pt';
+import localStorage from 'local-storage'
+
+const DEFAULT_D3_LANGUAGE = 'en';
+
+function applyLocales() {
+  const currentLocale = localStorage.get('locale');
+  const locale = currentLocale ? currentLocale : DEFAULT_D3_LANGUAGE;
+  moment.locale(locale);
+}
 
 function showApiMessage(resp) {
   const template =
@@ -30,8 +38,8 @@ function toggleCheckbox(apiUrlPrefix, selector) {
 }
 
 export default function setupApp() {
-  //Set a global moment language to Portuguese
-  moment.locale('pt');
+  // Set a global moment language
+  applyLocales();
   $(document).ready(function () {
     $(':checkbox[data-checkbox-api-prefix]').change(function () {
       const $this = $(this);
@@ -48,7 +56,6 @@ export default function setupApp() {
         parseMethod: null,
       })
         .then(() => {
-          moment.locale('pt');
           location.reload();
         });
     });

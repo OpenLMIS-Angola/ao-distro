@@ -2,6 +2,7 @@ import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only';
 import { configure } from '@superset-ui/translation';
 import setupClient from './setup/setupClient';
 import setupColors from './setup/setupColors';
+import localStorage from 'local-storage'
 
 // Configure translation
 if (typeof window !== 'undefined') {
@@ -10,6 +11,7 @@ if (typeof window !== 'undefined') {
   if (bootstrapData.common && bootstrapData.common.language_pack) {
     const languagePack = bootstrapData.common.language_pack;
     configure({ languagePack });
+    localStorage.set('locale', bootstrapData.common.locale);
   } else {
     configure();
   }
