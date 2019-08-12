@@ -69,14 +69,13 @@ When working with Kafka some of these tips are helpful:
 
 ## OAuth User for Superset
 
-In order to use user authentication in Superset by an OpenLMIS instance we need to create additional user in OpenLMIS. 
-It is the specific user with `authorizedgranttype` set to `authorization_code`
+In order to use user authentication in Superset by an OpenLMIS instance we need to create additional user in OpenLMIS.
+It is the specific user with `authorizedGrantTypes` set to `authorization_code`
 
 Example of a SQL statement creating that user (superset:changeme):
-``` 
-INSERT INTO auth.oauth_client_details (clientid,authorities,authorizedgranttypes,clientsecret,"scope")
+```
+INSERT INTO auth.oauth_client_details (clientId,authorities,authorizedGrantTypes,clientSecret,"scope")
 VALUES ('superset','TRUSTED_CLIENT','authorization_code','changeme','read,write');
-
 ```
 
 Don't forget to set newly created user's credentials in settings.env. Example:
@@ -87,9 +86,9 @@ OL_SUPERSET_PASSWORD=changeme
 
 ## OpenLMIS user with all permissions for Superset
 
-The ETL process conducted via NiFi requires a user which has all permissions. It should not be a simple admin, because sometime it doesn't has all permissions (eg. for requisitions)
+The ETL process conducted via NiFi requires a user which has all permissions (all program + supervisory node pairs) to read data from all requisitions in the system. It should not be a simple admin, because sometime it doesn't has all permissions (eg. for requisitions)
 
-The simplest way to creat that user is using the https://github.com/OpenLMIS/openlmis-refdata-seed tool.
+The simplest way to create that user is using the https://github.com/OpenLMIS/openlmis-refdata-seed tool.
 
 Note: Created user must have an email address.
 
@@ -99,3 +98,36 @@ Don't forget to set newly created user's credentials in settings.env. Example:
 OL_ADMIN_USERNAME=administrator
 OL_ADMIN_PASSWORD=password
 ```
+
+## Environment variables
+
+The following environment variables have to be set to sucessfuly run the reporting stack. The sample settings file can be found [here](settings-sample.env).
+
+### NginX
+* **VIRTUAL_HOST** - The virtual host for the nginx server - nginx will make services available under this host.
+* **NGINX_BASIC_AUTH_USER** and **NGINX_BASIC_AUTH_PW** - for services (like NiFi) that need to be authenticated but currently don't, by themselves, authenticate users
+
+### PostgreSQL Database
+* **POSTGRES_USER** - The database superadmin's username.
+* **POSTGRES_PASSWORD** - The database password that services will use.
+
+### Nifi Service
+* **AUTH_SERVER_CLIENT_ID** and **AUTH_SERVER_CLIENT_SECRET** - InvokeHttp components of Nifi needs to be authorized by credentials of OpenLMIS UI
+* **TRUSTED_HOSTNAME** - InvokeHttp components of Nifi needs to specify trusted hostname
+* **OL_ADMIN_USERNAME** and **OL_ADMIN_PASSWORD** - Nifi needs an OpenLMIS user which has all possible permissions
+* **FHIR_ID** and **FHIR_PASSWORD** - FHIR credentials (leave blank if not used)
+
+### Superset Service
+* **OL_BASE_URL** - Superset will be configured with OpenLMIS instance under this URL
+* **SUPERSET_ADMIN_USERNAME** and **SUPERSET_ADMIN_PASSWORD** - Superset webapp credentials - there is the option to sing-in by them when OAUTH provider is disabled. Because there is currently no way to disable the OAuth provider, the corresponding SUPERSET_ADMIN_USERNAME and PASSWORD values are currently always ignored.
+* **SUPERSET_POSTGRES_USER** and **SUPERSET_POSTGRES_PASSWORD** - Superset Postgres credentials
+* **OL_SUPERSET_USER** and **OL_SUPERSET_PASSWORD** - Superset needs an OpenLMIS user which allows to sign-in via OAUTH
+* **SUPERSET_SECRET_KEY** - Secret key for flask in Superset
+* **OAUTHLIB_INSECURE_TRANSPORT** - Disabling SSL check in Superset service. By default sign-in via OAUTH requires OpenLMIS with HTTPS security
+
+### Scalyr
+* **SCALYR_API_KEY** - API key for scalyr service
+
+### Let's Encrypt
+* **LETS_ENCRYPT_EMAIL** - The email address which will be used to obtain SSL certificates
+* **LETS_ENCRYPT_DEBUG** - Switches mode of Let's Encrypt. Set to 1 if you're testing your setup to avoid hitting request limits
