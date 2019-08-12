@@ -512,6 +512,12 @@ ALTER TABLE reporting_dates OWNER TO postgres;
 INSERT INTO reporting_dates(due_days, late_days, country)
     VALUES(14, 7, 'Angola');
 
+CREATE TABLE stock_status (
+    status varchar
+);
+
+INSERT INTO stock_status (status) VALUES ('Excesso de Stock'), ('Ruptura de Stock'),
+                                         ('Abaixo de Stock'), ('Sem Movimento (Consumo Mensal = 0)'), ('Stock Adequado');
 ---
 --- Name: reporting_rate_and_timeliness; Type: TABLE; Schema: referencedata; Owner: postgres
 ---
@@ -656,3 +662,67 @@ calculated_order_quantity, requested_quantity, approved_quantity, packs_to_ship,
 price_per_pack, total_cost, total_received_quantity) li ON r.id::VARCHAR = li.requisition_id WITH DATA;
 
 ALTER MATERIALIZED VIEW stock_status_and_consumption OWNER TO postgres;
+
+--- May require changes of Joins order if orderables wont be the biggest table.
+CREATE MATERIALIZED VIEW stock_status_and_consumption_filter AS
+select CASE
+       WHEN(p.program_name IS NULL) THEN (SELECT name FROM programs LIMIT 1)
+       ELSE p.program_name END as program_name,
+       CASE
+            WHEN(pp.processing_period_name IS NULL) THEN (SELECT name FROM processing_periods LIMIT 1)
+            ELSE pp.processing_period_name END as processing_period_name,
+       CASE
+            WHEN(f.facility_name IS NULL) THEN (SELECT name FROM facilities LIMIT 1)
+            ELSE f.facility_name END as facility_name,
+       CASE
+           WHEN(f.facility_type_name IS NULL) THEN (SELECT type FROM facilities LIMIT 1)
+           ELSE f.facility_type_name END as facility_type_name,
+       CASE
+           WHEN(o.full_product_name IS NULL) THEN (SELECT fullproductname FROM orderables LIMIT 1)
+           ELSE o.full_product_name END as full_product_name,
+       CASE
+           WHEN(o.product_code IS NULL) THEN (SELECT code FROM orderables LIMIT 1)
+           ELSE o.product_code END as product_code,
+       CASE
+           WHEN(f.district_name IS NULL) THEN (SELECT district FROM facilities LIMIT 1)
+           ELSE f.district_name END as district_name,
+       CASE
+           WHEN(f.region_name IS NULL) THEN (SELECT region FROM facilities LIMIT 1)
+           ELSE f.region_name END as region_name,
+       CASE
+           WHEN(r.processing_schedule_name IS NULL) THEN (SELECT processing_schedule_name FROM requisitions LIMIT 1)
+           ELSE r.processing_schedule_name END as processing_schedule_name,
+       CASE
+           WHEN r.emergency_status IS TRUE THEN 'Emergência'
+           ELSE 'Regular'
+           END as emergency_status,
+        CASE
+            WHEN(ss.stock_status IS NULL) THEN (SELECT status from stock_status LIMIT 1)
+            ELSE ss.stock_status END as stock_status,
+       pp.processing_period_startdate, pp.processing_period_enddate, 
+       CASE
+            WHEN(orderablecategorydisplayname IS NULL) THEN (SELECT orderablecategorydisplayname from orderables LIMIT 1)
+            ELSE orderablecategorydisplayname END as orderablecategorydisplayname
+from(
+    SELECT fullproductname as full_product_name, code as product_code, orderablecategorydisplayname,row_number() over () as row_num
+    FROM orderables) o
+LEFT join
+    (SELECT startdate as processing_period_startdate, enddate as processing_period_enddate, name as processing_period_name, row_number() over () as row_num
+     FROM processing_periods)pp
+on o.row_num=pp.row_num
+LEFT join
+    (SELECT name as facility_name, type as facility_type_name, district as district_name, region as region_name,row_number() over () as row_num
+     FROM facilities) f
+on o.row_num=f.row_num
+LEFT join
+    (SELECT name as program_name,row_number() over () as row_num
+     FROM programs) p
+on o.row_num=p.row_num
+LEFT JOIN
+    (SELECT processing_schedule_name, emergency_status, row_number() over () as row_num
+     FROM requisitions) r
+on o.row_num = r.row_num
+LEFT JOIN
+    (SELECT status as stock_status, row_number() over () as row_num
+     FROM stock_status) ss
+on o.row_num = ss.row_num WITH DATA
