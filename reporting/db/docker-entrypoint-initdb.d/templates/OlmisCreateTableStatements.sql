@@ -625,7 +625,8 @@ li.total_losses_and_adjustments,li.total_cost, li.stock_on_hand, li.total_stocko
 li.total_received_quantity, fa.username,
 li.closing_balance, li.AMC, li.Consumption, li.adjusted_consumption,
 li.order_quantity, li.combined_stockout,
-li.stock_status, li.MOS, li.total_consumed_packs, li.orderablecategorydisplayname
+li.stock_status, li.MOS, li.total_consumed_packs, li.orderablecategorydisplayname, 
+CONCAT(li.product_code,'-',li.full_product_name) as produto
 FROM requisitions r
 LEFT JOIN facilities f ON r.facility_id::VARCHAR = f.id::VARCHAR
 LEFT JOIN facility_access fa ON fa.facility = f.id::VARCHAR AND fa.program = r.program_id
