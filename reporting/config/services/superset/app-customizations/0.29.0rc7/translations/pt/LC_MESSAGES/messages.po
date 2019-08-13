@@ -614,8 +614,6 @@ msgstr "A carregar..."
 msgid "Run Selected Query"
 msgstr "Executar a query selecionada"
 
-#: superset/assets/javascripts/SqlLab/components/RunQueryActionButton.jsx:19
-#, fuzzy
 msgid "Run Query"
 msgstr "Executar query"
 
@@ -624,7 +622,6 @@ msgstr "Executar query"
 msgid "Run query asynchronously"
 msgstr "Execute a query de forma assíncrona"
 
-#: superset/assets/javascripts/SqlLab/components/RunQueryActionButton.jsx:57
 msgid "Stop"
 msgstr "Parar"
 
@@ -4325,3 +4322,9 @@ msgstr "Costume"
 
 msgid "Time range"
 msgstr "Intervalo de tempo"
+
+msgid "Data"
+msgstr "Dados"
+
+msgid "Visual Properties"
+msgstr "Propriedades"
