@@ -36,6 +36,7 @@ CASE
     WHEN lot.expirationdate < now() THEN 'Expirado'
     WHEN lot.expirationdate < now() + INTERVAL '18 months' THEN 'Perto de expirar'
     ELSE 'OK' END AS expired,
+MIN(lot.expirationdate) AS expirationdate,
 string_agg(concat(lot.expirationdate, ' - ', lot.lotcode), ', ') as lot_expiry
 FROM stockmanagement.stock_cards card
 LEFT JOIN referencedata.orderables product ON card.orderableid = product.id
