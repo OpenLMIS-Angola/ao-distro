@@ -528,7 +528,6 @@ SELECT f.id, f.name, f.type, f.code, f.district, f.region, f.country,
        authorized_reqs.created_date,
        authorized_reqs.processing_period_name, authorized_reqs.processing_period_startdate,
        authorized_reqs.processing_schedule_name, authorized_reqs.facility_id,
-        fa.username,
 --- Temporary replace due days and late days with numeric values due to facility country missing (geographic zones lacking data issue)
 CASE
     WHEN authorized_reqs.statuschangedate <= (authorized_reqs.processing_period_enddate::DATE + 14)
@@ -572,7 +571,6 @@ LEFT JOIN reporting_dates rd ON f.country = rd.country
 LEFT JOIN supported_programs sp ON sp.facilityid = f.id AND sp.programid::VARCHAR = authorized_reqs.program_id::VARCHAR
 LEFT JOIN requisition_group_members rgm ON rgm.facilityid = f.id
 LEFT JOIN requisition_group_program_schedules rgps ON rgps.requisitionGroupId = rgm.requisitionGroupId
-LEFT JOIN facility_access fa ON fa.facility = authorized_reqs.facility_id::VARCHAR AND fa.program = authorized_reqs.program_id
 ORDER BY authorized_reqs.processing_period_enddate DESC WITH DATA;
 
 
@@ -590,14 +588,12 @@ r.program_active_status, r.processing_period_name, li.orderable_id, li.product_c
 li.full_product_name, li.trade_item_id, li.total_losses_and_adjustments,
 sh.status, sh.author_id, sh.created_date AS status_history_created_date,
 al.id AS adjustment_lines_id, al.quantity,
-sar.name AS stock_adjustment_reason,
-fa.facility, fa.program, fa.username
+sar.name AS stock_adjustment_reason
 FROM requisitions r
 LEFT JOIN requisition_line_item li ON r.id::VARCHAR = li.requisition_id
 LEFT JOIN requisitions_status_history sh ON r.id::VARCHAR = sh.requisition_id
 LEFT JOIN requisitions_adjustment_lines al ON li.requisition_line_item_id::VARCHAR = al.requisition_line_item_id
 LEFT JOIN stock_adjustment_reasons sar ON sar.id::VARCHAR = al.reasonid::VARCHAR
-LEFT JOIN facility_access fa ON fa.facility = r.facility_id AND fa.program = r.program_id
 WHERE sh.status NOT IN ('SKIPPED', 'INITIATED', 'SUBMITTED')
 ORDER BY li.requisition_line_item_id, r.modified_date DESC NULLS LAST WITH DATA;
 
@@ -622,14 +618,13 @@ r.processing_schedule_name, li.requisition_id as li_req_id,
 li.product_code, li.full_product_name,
 li.beginning_balance, li.total_consumed_quantity, li.average_consumption,
 li.total_losses_and_adjustments,li.total_cost, li.stock_on_hand, li.total_stockout_days, li.max_periods_of_stock,
-li.total_received_quantity, fa.username,
+li.total_received_quantity,
 li.closing_balance, li.AMC, li.Consumption, li.adjusted_consumption,
 li.order_quantity, li.combined_stockout,
 li.stock_status, li.MOS, li.total_consumed_packs, li.orderablecategorydisplayname, 
 CONCAT(li.product_code,'-',li.full_product_name) as produto
 FROM requisitions r
 LEFT JOIN facilities f ON r.facility_id::VARCHAR = f.id::VARCHAR
-LEFT JOIN facility_access fa ON fa.facility = f.id::VARCHAR AND fa.program = r.program_id
 LEFT JOIN (SELECT DISTINCT(requisition_line_item_id), requisition_id,
 product_code, full_product_name, beginning_balance, total_consumed_quantity, average_consumption,
 total_losses_and_adjustments, total_cost, stock_on_hand, total_stockout_days, max_periods_of_stock,
