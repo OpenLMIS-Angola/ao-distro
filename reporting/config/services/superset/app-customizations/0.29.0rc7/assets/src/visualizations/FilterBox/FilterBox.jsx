@@ -19,7 +19,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import VirtualizedSelect from 'react-virtualized-select';
-import { Creatable } from 'react-select';
+import { Select } from 'react-select';
 import { Button } from 'react-bootstrap';
 import { t } from '@superset-ui/translation';
 
@@ -247,7 +247,7 @@ class FilterBox extends React.Component {
           return { value: opt.id, label: opt.id, style };
         })}
         onChange={(...args) => { this.changeFilter(key, ...args); }}
-        selectComponent={Creatable}
+        selectComponent={Select}
         selectWrap={VirtualizedSelect}
         optionRenderer={VirtualizedRendererWrap(opt => opt.label)}
         noResultsText={t('No results found')}
