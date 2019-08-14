@@ -4340,3 +4340,19 @@ msgstr "Definir intervalo de actualização automática"
 
 msgid "Share dashboard"
 msgstr "Partilhar Painel"
+
+msgid "Share Dashboard"
+msgstr "Partilhar Painel"
+ 
+msgid "Query timeout"
+msgstr "Demora na Consulta"
+
+msgid "visualization queries are set to timeout at %s seconds. "
+msgstr "as consultas de visualização estão definidas para um tempo limite de %s segundos. "
+
+msgid ""
+"Perhaps your data has grown, your database is under unusual load, or you "
+"are simply querying a data source that is too large to be processed "
+"within the timeout range. If that is the case, we recommend that you "
+"summarize your data further."
+msgstr "Os dados poderão ter aumentado de volume, o banco de dados pode estar sob uma carga incomum ou a consulta de dados seja muito grande para ser processada dentro do intervalo de tempo limite. Se esse for o caso, recomendamos que resuma seus dados ainda mais."
