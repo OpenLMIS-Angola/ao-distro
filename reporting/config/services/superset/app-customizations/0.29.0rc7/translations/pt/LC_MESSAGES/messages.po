@@ -4328,3 +4328,15 @@ msgstr "Dados"
 
 msgid "Visual Properties"
 msgstr "Propriedades"
+
+msgid "Edit dashboard"
+msgstr "Editar Painel"
+
+msgid "Force refresh dashboard"
+msgstr "Forçar actualização do painel"
+
+msgid "Set auto-refresh interval"
+msgstr "Definir intervalo de actualização automática"
+
+msgid "Share dashboard"
+msgstr "Partilhar Painel"
