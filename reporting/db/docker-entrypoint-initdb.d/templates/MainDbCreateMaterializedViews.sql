@@ -9,8 +9,8 @@ district.name AS district_name, district.code AS district_code,
 province.name AS province_name, province.code AS province_code, district_level.levelnumber,
 CONCAT(product.fullproductname, ' (', product.code, ')') as product,
 CASE
-    WHEN reason.reasontype = 'CREDIT' THEN 'Negativo Adjuste'
-    WHEN reason.reasontype = 'DEBIT' THEN 'Positivo Adjuste'
+    WHEN reason.reasontype = 'CREDIT' THEN 'Ajustes Positivos'
+    WHEN reason.reasontype = 'DEBIT' THEN 'Ajustes Negativos'
     ELSE 'Desconhecido' END as reason_type
 FROM stockmanagement.stock_cards card
 LEFT JOIN stockmanagement.stock_card_line_items line_item ON card.id = line_item.stockcardid
