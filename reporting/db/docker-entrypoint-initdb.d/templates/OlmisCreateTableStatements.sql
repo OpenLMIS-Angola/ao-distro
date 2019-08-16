@@ -695,7 +695,7 @@ select CASE
         CASE
             WHEN(ss.stock_status IS NULL) THEN (SELECT status from stock_status LIMIT 1)
             ELSE ss.stock_status END as stock_status,
-       pp.processing_period_startdate, pp.processing_period_enddate, 
+       pp.processing_period_startdate, pp.processing_period_enddate, current_date as timecolumn_date,
        CASE
             WHEN(orderablecategorydisplayname IS NULL) THEN (SELECT orderablecategorydisplayname from orderables LIMIT 1)
             ELSE orderablecategorydisplayname END as orderablecategorydisplayname
