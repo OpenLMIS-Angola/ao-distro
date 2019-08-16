@@ -231,7 +231,7 @@ class FilterBox extends React.Component {
       <OnPasteSelect
         placeholder={t('Select [%s]', label)}
         key={key}
-        multi=
+        multi={true}
         clearable={filterConfig.clearable}
         value={value}
         options={data.map((opt) => {
