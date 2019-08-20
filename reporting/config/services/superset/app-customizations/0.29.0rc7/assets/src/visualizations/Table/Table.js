@@ -8,6 +8,7 @@ import { format as d3Format } from 'd3-format';
 import { fixDataTableBodyHeight, d3TimeFormatPreset } from '../../modules/utils';
 import { t } from '@superset-ui/translation';
 import './Table.css';
+import sessionStorage from 'sessionstorage';
 
 dt(window, $);
 
@@ -45,6 +46,7 @@ const propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]),
+  tableIdentifier: PropTypes.string
 };
 
 const formatValue = d3Format(',.0d');
@@ -69,6 +71,7 @@ function TableVis(element, props) {
     tableFilter,
     tableTimestampFormat,
     timeseriesLimitMetric,
+    tableIdentifier
   } = props;
 
   const $container = $(element);
@@ -229,6 +232,13 @@ function TableVis(element, props) {
         sortDescending: t(': activate to sort column descending'),
       },
     },
+    stateSave: true,
+    stateSaveCallback: function(settings, data) {
+        sessionStorage.setItem(tableIdentifier, JSON.stringify(data));
+    },
+    stateLoadCallback: function(settings) {
+        return JSON.parse(sessionStorage.getItem(tableIdentifier));
+    }
   });
 
   fixDataTableBodyHeight($container.find('.dataTables_wrapper'), height);
