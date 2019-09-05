@@ -119,6 +119,11 @@ class Header extends React.PureComponent {
     });
   }
 
+  isStandalone() {
+    const params = window.location.search;
+    return params.indexOf("standalone=true") !== -1;
+  }
+
   handleCtrlZ() {
     this.props.onUndo();
     this.setState({ emphasizeUndo: true }, () => {
@@ -197,7 +202,7 @@ class Header extends React.PureComponent {
     const popButton = hasUnsavedChanges;
 
     return (
-      <div className="dashboard-header">
+      <div className="dashboard-header" style={{display: this.isStandalone() ? "none" : "flex"}}>
         <div className="dashboard-component-header header-large">
           <EditableTitle
             title={dashboardTitle}

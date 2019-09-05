@@ -9,14 +9,17 @@ import traceback
 from urllib import parse
 
 from flask import (
-    abort, flash, g, Markup, redirect, render_template, request, Response, url_for,
+    abort, flash, g, Markup, redirect, render_template, request, Response,
+    url_for, session
 )
-from flask_appbuilder import expose, SimpleFormView
+from flask_appbuilder import expose, SimpleFormView, BaseView
 from flask_appbuilder.actions import action
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.security.decorators import has_access, has_access_api
 from flask_babel import gettext as __
 from flask_babel import lazy_gettext as _
+from flask_babel import refresh
+import babel
 import pandas as pd
 import simplejson as json
 import sqlalchemy as sqla
@@ -2952,3 +2955,17 @@ def caravel(url):  # noqa
 
 
 # ---------------------------------------------------------------------
+# API for changing locales without redirection
+class ChangeLocaleView(BaseSupersetView):
+    route_base = '/lang/change'
+
+    @api
+    @expose('/<string:locale>')
+    def index(self, locale):
+        if locale not in babel.localedata.locale_identifiers():
+            return json_error_response(__('Invalid locale'), status=400)
+        session['locale'] = locale
+        refresh()
+        return Response('', status=200)
+
+appbuilder.add_view_no_menu(ChangeLocaleView)
