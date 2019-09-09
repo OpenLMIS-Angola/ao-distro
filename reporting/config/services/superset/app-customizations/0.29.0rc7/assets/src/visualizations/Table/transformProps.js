@@ -5,7 +5,7 @@ export default function transformProps(chartProps) {
     filters,
     formData,
     onAddFilter,
-    payload,
+    payload
   } = chartProps;
   const {
     alignPn,
@@ -18,6 +18,7 @@ export default function transformProps(chartProps) {
     tableFilter,
     tableTimestampFormat,
     timeseriesLimitMetric,
+    sliceId
   } = formData;
   const { columnFormats, verboseMap } = datasource;
   const { records, columns } = payload.data;
@@ -48,7 +49,7 @@ export default function transformProps(chartProps) {
     }
   }
 
-  const tableIdentifier = reportName + '-DataTable-' + datasource.id;
+  const tableIdentifier = reportName + '-DataTable-' + formData.sliceId;
   return {
     height,
     data: records,
