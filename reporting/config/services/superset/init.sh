@@ -19,6 +19,14 @@ cd $APP_DIR/translations/pt/LC_MESSAGES &&
 # UI build
 $APP_DIR/assets/js_build.sh &&
 
+# wait for postgres
+until PGPASSWORD=$POSTGRES_PASSWORD psql -h "db" -p "5432" -U "$POSTGRES_USER" -d "open_lmis_reporting" -c '\q'; do
+  >&2 echo "Postgres is unavailable - sleeping"
+  sleep 5
+done
+
+>&2 echo "Postgres is up"
+
 # App initialization
 sed -i "s/OLMIS_DATABASE_USER/$OLMIS_DATABASE_USER/g" $CONFIG_DIR/datasources/database.yaml
 sed -i "s/OLMIS_DATABASE_URL/$OLMIS_DATABASE_URL/g" $CONFIG_DIR/datasources/database.yaml
