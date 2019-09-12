@@ -73,7 +73,7 @@ services:
         - db-config-volume:/docker-entrypoint-initdb.d
         - pgdata:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT}:5432"
     # logging:
     #   driver: syslog
     #   options:
