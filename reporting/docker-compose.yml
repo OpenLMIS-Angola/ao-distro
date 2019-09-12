@@ -25,11 +25,13 @@ services:
   nginx:
     image: openlmisao/nginx-tls:${ANGOLA_NGINX_TLS_VERSION}
     ports:
-      - "${NIFI_WEB_HTTP_PORT}:${NIFI_WEB_HTTP_PORT}"
-      - "${SUPERSET_WEB_HTTPS_PORT}:${SUPERSET_WEB_HTTPS_PORT}"
+      - "${NIFI_WEB_PORT}:${NIFI_WEB_PORT}"
+      - "${SUPERSET_WEB_PORT}:${SUPERSET_WEB_PORT}"
     env_file: settings.env
     environment:
       NGINX_LOG_DIR: '/var/log/nginx/log'
+      NIFI_WEB_PORT: "${NIFI_WEB_PORT}"
+      SUPERSET_WEB_PORT: "${SUPERSET_WEB_PORT}"
     volumes:
       - config-volume:/config
     command: >

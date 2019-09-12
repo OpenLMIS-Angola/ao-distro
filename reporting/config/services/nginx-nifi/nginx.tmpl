@@ -34,20 +34,20 @@ http {
     gzip  off;
 
     server {
-        listen ${NIFI_WEB_HTTP_PORT};
-        
+        listen ${NIFI_WEB_PORT};
+
         location / {
             proxy_pass http://nifi:8080/;
             proxy_set_header Host $host:$server_port;
             proxy_set_header X-ProxyScheme "http";
             proxy_set_header X-ProxyHost ${VIRTUAL_HOST};
-            proxy_set_header X-ProxyPort ${NIFI_WEB_HTTP_PORT};
+            proxy_set_header X-ProxyPort ${NIFI_WEB_PORT};
             proxy_set_header X-ProxyContextPath "";
         }
     }
 
     server {
-        listen ${SUPERSET_WEB_HTTPS_PORT};
+        listen ${SUPERSET_WEB_PORT};
         server_name ${VIRTUAL_HOST};
 
         location / {
@@ -55,7 +55,7 @@ http {
             proxy_set_header Host $host:$server_port;
             proxy_set_header X-ProxyScheme "http";
             proxy_set_header X-ProxyHost ${VIRTUAL_HOST};
-            proxy_set_header X-ProxyPort ${SUPERSET_WEB_HTTPS_PORT};
+            proxy_set_header X-ProxyPort ${SUPERSET_WEB_PORT};
             proxy_set_header X-ProxyContextPath "";
         }
     }
