@@ -708,7 +708,7 @@ LEFT join
 on o.row_num=pp.row_num
 LEFT join
     (SELECT name as facility_name, type as facility_type_name, district as district_name, region as region_name,row_number() over () as row_num
-     FROM facilities) f
+     FROM facilities WHERE facilities.enabled IS TRUE AND facilities.status IS TRUE) f
 on o.row_num=f.row_num
 LEFT join
     (SELECT name as program_name,row_number() over () as row_num
