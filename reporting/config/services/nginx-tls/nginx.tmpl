@@ -42,12 +42,12 @@ http {
         }
 
         location / {
-            return 301 https://$server_name$request_uri;
+            return 301 https://$server_name:${NIFI_WEB_PORT}$request_uri;
         }
     }
 
     server {
-        listen 443 ssl;
+        listen ${NIFI_WEB_PORT} ssl;
         server_name ${VIRTUAL_HOST};
 
         ssl_certificate           /etc/letsencrypt/live/${VIRTUAL_HOST}/fullchain.pem;
@@ -60,7 +60,7 @@ http {
             proxy_set_header Host $host:$server_port;
             proxy_set_header X-ProxyScheme "https";
             proxy_set_header X-ProxyHost ${VIRTUAL_HOST};
-            proxy_set_header X-ProxyPort 443;
+            proxy_set_header X-ProxyPort ${NIFI_WEB_PORT};
             proxy_set_header X-ProxyContextPath "";
         }
     }

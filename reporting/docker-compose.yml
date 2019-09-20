@@ -6,6 +6,12 @@ services:
       context: ./config
     volumes:
       - config-volume:/config
+      - certbot-endpoint:/var/www/certbot
+      - letsencrypt-config:/etc/letsencrypt
+    environment:
+      RENEWAL_CHECK_PERIOD: "$RENEWAL_CHECK_PERIOD"
+    entrypoint: >
+      sh -c ". /config/certs_obtaining.sh"
 
   scalyr:
     image: openlmis/scalyr
@@ -22,26 +28,51 @@ services:
     ports:
       - "${SYSLOG_UDP_PORT}:514/udp"
 
-  nginx:
+  nginx-tls:
     image: openlmisao/nginx-tls:${ANGOLA_NGINX_TLS_VERSION}
+    container_name: nginx-tls
     ports:
+      - "80:80"
       - "${NIFI_WEB_PORT}:${NIFI_WEB_PORT}"
       - "${SUPERSET_WEB_PORT}:${SUPERSET_WEB_PORT}"
     env_file: settings.env
     environment:
       NGINX_LOG_DIR: '/var/log/nginx/log'
+      RENEWAL_CHECK_PERIOD: "$RENEWAL_CHECK_PERIOD"
       NIFI_WEB_PORT: "${NIFI_WEB_PORT}"
       SUPERSET_WEB_PORT: "${SUPERSET_WEB_PORT}"
+    volumes:
+      - 'config-volume:/config'
+      - 'certbot-endpoint:/var/www/certbot'
+      - 'letsencrypt-config:/etc/letsencrypt'
+    command: >
+      sh -c "cp -f /config/nginx-tls/nginx.tmpl /etc/nginx/nginx.tmpl
+      && . /etc/nginx/run_with_template.sh -d
+      && . /etc/nginx/certs_reloading.sh"
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
+    depends_on: [nginx-nifi, superset]
+
+  nginx-nifi:
+    image: openlmisao/nginx-tls:${ANGOLA_NGINX_TLS_VERSION}
+    expose:
+      - "80"
+    env_file: settings.env
+    environment:
+      NGINX_LOG_DIR: '/var/log/nginx/log'
     volumes:
       - config-volume:/config
     command: >
       sh -c "cp -f /config/nginx-nifi/nginx.tmpl /etc/nginx/nginx.tmpl
+      && . /config/nginx-nifi/set-authorization.sh
       && . /etc/nginx/run_with_template.sh"
     # logging:
     #   driver: syslog
     #   options:
     #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [nifi, superset, log, service-configuration]
+    depends_on: [nifi, log, service-configuration]
 
   nifi:
     image: apache/nifi:${OL_NIFI_VERSION}
@@ -100,7 +131,7 @@ services:
     #   driver: syslog
     #   options:
     #     syslog-address: "udp://127.0.0.1:${SYSLOG_UDP_PORT}"
-    depends_on: [log, db, service-configuration]
+    depends_on: [log, db, service-configuration, nginx-nifi]
     env_file: settings.env
 
 volumes:
@@ -110,5 +141,9 @@ volumes:
     external: false
   db-config-volume:
     external: false
+  certbot-endpoint:
+    external: false
+  letsencrypt-config:
+    external: true
   pgdata:
     external: true

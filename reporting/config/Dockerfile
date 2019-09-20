@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.4
+FROM certbot/certbot:v0.33.1
 
 COPY ./services /config
 
@@ -9,4 +9,4 @@ RUN apk update && apk upgrade && \
     rm -rf /var/cache/apk/*
 
 ENTRYPOINT [""]
-CMD /bin/true
+CMD [""]
