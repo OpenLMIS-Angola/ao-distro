@@ -643,12 +643,12 @@ CASE
     WHEN (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0)
     THEN 1 ELSE 0 END as combined_stockout,
 CASE
-    WHEN SUM(max_periods_of_stock) > 6 THEN 'Excesso de Stock'
-    WHEN SUM(max_periods_of_stock) < 3 AND (SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Ruptura de Stock'
-    WHEN SUM(max_periods_of_stock) < 3 AND SUM(max_periods_of_stock) > 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Abaixo de Stock'
-    WHEN SUM(max_periods_of_stock) = 0 AND NOT(SUM(stock_on_hand) = 0 OR SUM(total_stockout_days) > 0 OR SUM(beginning_balance) = 0 OR SUM(max_periods_of_stock) = 0) THEN 'Desconhecido'
-    WHEN SUM(average_consumption) = 0 THEN 'Sem Movimento (Consumo Mensal = 0)'
-    ELSE 'Stock Adequado' END as stock_status
+    WHEN (SUM(average_consumption) IS NULL OR SUM(average_consumption) = 0) AND beginning_balance > 0 THEN 'Sem Movimento (Consumo Mensal = 0)'
+    WHEN SUM(stock_on_hand) IS NULL OR SUM(stock_on_hand) = 0 OR SUM(average_consumption) IS NULL OR SUM(average_consumption) = 0 THEN 'Ruptura de Stock'
+    WHEN (stock_on_hand / SUM(average_consumption) :: float) > 0 AND (stock_on_hand / SUM(average_consumption) :: float) < 3 THEN 'Abaixo de Stock'
+    WHEN (stock_on_hand / SUM(average_consumption) :: float) >= 3 AND (stock_on_hand / SUM(average_consumption) :: float) < 6 THEN 'Stock Adequado'
+    WHEN (stock_on_hand / SUM(average_consumption) :: float) >= 6 THEN 'Excesso de Stock'
+    END as stock_status
 FROM requisition_line_item
 LEFT JOIN orderables o ON o.id = requisition_line_item.orderable_id
 GROUP BY requisition_line_item_id, requisition_id, orderable_id, product_code, full_product_name,
