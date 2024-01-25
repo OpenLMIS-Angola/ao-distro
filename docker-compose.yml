@@ -77,6 +77,16 @@ services:
     depends_on: [log, db]
     command: ["/wait-for-postgres.sh", "/run.sh"]
 
+  cce:
+    image: openlmis/cce:${OL_CCE_VERSION}
+    env_file: settings.env
+    environment:
+      JAVA_OPTS: '-server -Xmx512m -Dlogging.config=/config/log/logback.xml'
+    volumes:
+      - 'service-config:/config'
+    depends_on: [log, db]
+    command: ["/wait-for-postgres.sh", "/run.sh"]
+
   stockmanagement:
     image: openlmis/stockmanagement:${OL_STOCKMANAGEMENT_VERSION}
     env_file: settings.env
@@ -95,7 +105,7 @@ services:
     volumes:
       - 'service-config:/config'
     depends_on: [log, db]
-    command: [ "/run.sh"]
+    command: ["/wait-for-postgres.sh", "/run.sh"]
 
   hapifhir:
     restart: always
@@ -117,7 +127,8 @@ services:
       spring_profiles_active: ${spring_profiles_active}
     volumes:
       - 'service-config:/config'
-    depends_on: [log]
+    depends_on: [log, db]
+    command: ["/wait-for-postgres.sh", "/run.sh"]
 
   diagnostics:
     image: openlmis/diagnostics:${OL_DIAGNOSTICS_VERSION}
@@ -130,15 +141,10 @@ services:
     depends_on: [log]
 
   db:
-    image: debezium/postgres:9.6-alpine
+    image: openlmis/postgres:9.6-postgis
+    command: postgres -c 'max_connections=150'
     env_file: settings.env
-    networks:
-      default:
-        aliases:
-          - olmis-db
     depends_on: [consul]
-    ports:
-      - "5432:5432"
     volumes:
       - 'db-data:/var/lib/postgresql/data'
 
